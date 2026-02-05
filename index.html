@@ -568,6 +568,103 @@
       opacity: 0.6;
     }
     
+    /* Animations & Interactions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    
+    /* Hover lift effect */
+    .hover-lift {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    /* Image zoom on hover */
+    .img-zoom {
+      overflow: hidden;
+    }
+    .img-zoom img {
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .img-zoom:hover img {
+      transform: scale(1.08);
+    }
+    
+    /* Button shine effect */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    .btn-shine:hover::before {
+      left: 100%;
+    }
+    
+    /* Pulse animation for CTA */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(184, 134, 11, 0); }
+    }
+    .pulse-gold {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Stagger children animation */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .stagger-children.revealed > *:nth-child(1) { animation: fadeUp 0.6s 0.1s forwards; }
+    .stagger-children.revealed > *:nth-child(2) { animation: fadeUp 0.6s 0.2s forwards; }
+    .stagger-children.revealed > *:nth-child(3) { animation: fadeUp 0.6s 0.3s forwards; }
+    .stagger-children.revealed > *:nth-child(4) { animation: fadeUp 0.6s 0.4s forwards; }
+    .stagger-children.revealed > *:nth-child(5) { animation: fadeUp 0.6s 0.5s forwards; }
+    .stagger-children.revealed > *:nth-child(6) { animation: fadeUp 0.6s 0.6s forwards; }
+    .stagger-children.revealed > *:nth-child(7) { animation: fadeUp 0.6s 0.7s forwards; }
+    .stagger-children.revealed > *:nth-child(8) { animation: fadeUp 0.6s 0.8s forwards; }
+    
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Gradient text animation */
+    .gradient-text-animate {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .features { grid-template-columns: 1fr; }
@@ -613,7 +710,7 @@
       <p class="hero-label">A New Community in the Foothills</p>
       <h1 class="hero-title">The View is <em>Better</em><br>From Here</h1>
       <p class="hero-subtitle">Where mountain vistas meet modern living. Discover an extraordinary community taking shape off Rosecrest, featuring premium builders and world-class amenities.</p>
-      <a href="#homes" class="hero-cta">Explore Homes</a>
+      <a href="#homes" class="hero-cta btn-shine pulse-gold">Explore Homes</a>
     </div>
     <div class="scroll-hint">
       <span>Scroll</span>
@@ -623,14 +720,14 @@
 
   <!-- Intro Section -->
   <section class="section-intro">
-    <p class="intro-label">Welcome to Panorama</p>
-    <h2 class="intro-title">Be Part of Something Beautiful</h2>
-    <p class="intro-text">Nestled in the foothills with breathtaking views in every direction, Panorama is more than a place to live—it's a place to thrive. From adventure playgrounds to scenic trails, from top-rated schools to premium home builders, every detail has been thoughtfully designed for families who expect the exceptional.</p>
+    <p class="intro-label reveal">Welcome to Panorama</p>
+    <h2 class="intro-title reveal reveal-delay-1">Be Part of Something Beautiful</h2>
+    <p class="intro-text reveal reveal-delay-2">Nestled in the foothills with breathtaking views in every direction, Panorama is more than a place to live—it's a place to thrive. From adventure playgrounds to scenic trails, from top-rated schools to premium home builders, every detail has been thoughtfully designed for families who expect the exceptional.</p>
   </section>
 
   <!-- Feature Panels -->
   <section class="features" id="homes">
-    <div class="feature-card">
+    <div class="feature-card img-zoom">
       <img src="images/feature-homes.jpg" alt="Find Your Home">
       <div class="feature-overlay">
         <span class="feature-label">New Homes</span>
@@ -638,7 +735,7 @@
         <a href="#builders" class="feature-link">Explore Builders →</a>
       </div>
     </div>
-    <div class="feature-card">
+    <div class="feature-card img-zoom">
       <img src="images/feature-amenities.jpg" alt="Experience Amenities">
       <div class="feature-overlay">
         <span class="feature-label">Coming Soon</span>
@@ -646,7 +743,7 @@
         <a href="#amenities" class="feature-link">View Details →</a>
       </div>
     </div>
-    <div class="feature-card">
+    <div class="feature-card img-zoom">
       <img src="images/feature-views.jpg" alt="Mountain Views">
       <div class="feature-overlay">
         <span class="feature-label">The Setting</span>
@@ -659,36 +756,36 @@
   <!-- Amenities -->
   <section class="amenities" id="amenities">
     <div class="amenities-header">
-      <p class="intro-label">Community Amenities</p>
-      <h2 class="intro-title">Everything You Need</h2>
+      <p class="intro-label reveal">Community Amenities</p>
+      <h2 class="intro-title reveal reveal-delay-1">Everything You Need</h2>
     </div>
-    <div class="amenities-grid">
-      <div class="amenity-item">
+    <div class="amenities-grid reveal stagger-children">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">🏞️</div>
         <h3 class="amenity-title">Parks & Playgrounds</h3>
         <p class="amenity-text">Adventure playgrounds with zip lines, towers, slides, and rope courses. Opening May 2026.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">🥾</div>
         <h3 class="amenity-title">Trails & Paths</h3>
         <p class="amenity-text">Miles of scenic walking and biking trails with stunning mountain views throughout.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">🎓</div>
         <h3 class="amenity-title">Top-Rated Schools</h3>
         <p class="amenity-text">Access to excellent schools with dedicated land for future educational facilities.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">🛒</div>
         <h3 class="amenity-title">Retail & Dining</h3>
         <p class="amenity-text">Convenient shopping and restaurant options planned within the community.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">🏊</div>
         <h3 class="amenity-title">Community Center</h3>
         <p class="amenity-text">Resort-style pool, fitness center, and gathering spaces for community events.</p>
       </div>
-      <div class="amenity-item">
+      <div class="amenity-item hover-lift">
         <div class="amenity-icon">⛰️</div>
         <h3 class="amenity-title">Protected Open Space</h3>
         <p class="amenity-text">Preserved natural areas ensure the beauty of the landscape for generations.</p>
@@ -699,39 +796,39 @@
   <!-- Builders -->
   <section class="builders" id="builders">
     <div class="builders-header">
-      <p class="builders-label">Premium Builders</p>
-      <h2 class="builders-title">Build Your Dream Home</h2>
+      <p class="builders-label reveal">Premium Builders</p>
+      <h2 class="builders-title reveal reveal-delay-1">Build Your Dream Home</h2>
     </div>
-    <div class="builders-grid">
-      <div class="builder-card">
+    <div class="builders-grid reveal stagger-children">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Toll Brothers</div>
         <div class="builder-type">Luxury Homes</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 2</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 3</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 4</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 5</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 6</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 7</div>
         <div class="builder-type">Coming Soon</div>
       </div>
-      <div class="builder-card">
+      <div class="builder-card hover-lift">
         <div class="builder-logo">Builder 8</div>
         <div class="builder-type">Coming Soon</div>
       </div>
@@ -747,7 +844,7 @@
       <div class="map-content">
         <h2>Explore the Community</h2>
         <p>Discover available homesites, see where amenities will be located, and explore the surrounding area. Our interactive map will help you find your perfect spot in Panorama.</p>
-        <a href="#" class="btn-outline">View Full Map</a>
+        <a href="#" class="btn-outline btn-shine">View Full Map</a>
       </div>
     </div>
   </section>
@@ -822,6 +919,61 @@
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
+    });
+
+    // Scroll reveal animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Parallax effect on hero
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero-content');
+      if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        hero.style.opacity = 1 - (scrolled / 700);
+      }
+    });
+
+    // Counter animation
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target.toLocaleString();
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current).toLocaleString();
+        }
+      }, 16);
+    }
+
+    // Trigger counters when visible
+    document.querySelectorAll('.counter').forEach(counter => {
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounter(counter);
+          counterObserver.unobserve(counter);
+        }
+      });
+      counterObserver.observe(counter);
     });
   </script>
 </body>
