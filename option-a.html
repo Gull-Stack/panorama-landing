@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panorama | Be Part of Something Beautiful</title>
+  <meta name="description" content="Panorama - Luxury foothills living off Rosecrest. Premium builders including Toll Brothers. World-class amenities coming May 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #1a3a5c;
+      --primary-dark: #0f2540;
+      --gold: #c9a227;
+      --gold-light: #d4b84a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --text-light: #5a6a7a;
+      --overlay: rgba(15, 37, 64, 0.6);
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.25rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+    .nav.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 1rem 4rem;
+    }
+    .nav.scrolled .logo,
+    .nav.scrolled .nav-links a { color: var(--primary); }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .nav-cta {
+      padding: 0.75rem 1.5rem;
+      background: var(--gold);
+      color: var(--white) !important;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .nav-cta:hover {
+      background: var(--gold-light) !important;
+      color: var(--white) !important;
+    }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(15,37,64,0.4) 0%, rgba(15,37,64,0.6) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: var(--white);
+      padding: 0 2rem;
+      max-width: 900px;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+    }
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--white);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .scroll-indicator::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--white);
+      margin: 1rem auto 0;
+      animation: scroll 2s infinite;
+    }
+    @keyframes scroll {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.5); opacity: 0.5; }
+    }
+    
+    /* Growing Stronger Section */
+    .story-section {
+      padding: 7rem 2rem;
+      background: var(--cream);
+    }
+    .story-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .story-content h3 {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .story-content h2 {
+      font-size: 2.75rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .story-content p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-visual video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .story-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+    }
+    .story-badge .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      display: block;
+    }
+    .story-badge .label {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    /* Home Finder Section */
+    .homes-section {
+      padding: 7rem 2rem;
+      background: var(--white);
+    }
+    .homes-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .homes-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .homes-header h2 {
+      font-size: 2.75rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .homes-header p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .builders-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .builder-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .builder-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      border-color: var(--gold);
+    }
+    .builder-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, var(--cream) 0%, #fff9e6 100%);
+    }
+    .builder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .builder-type {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .builder-card.placeholder .builder-name {
+      color: var(--text-light);
+      opacity: 0.5;
+    }
+    .homes-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    /* Experience Section */
+    .experience-section {
+      position: relative;
+      padding: 0;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+    .experience-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .experience-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(15,37,64,0.9) 0%, rgba(15,37,64,0.7) 50%, transparent 100%);
+    }
+    .experience-content {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+      padding: 5rem;
+      color: var(--white);
+    }
+    .experience-content h3 {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .experience-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .experience-content p {
+      opacity: 0.9;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .btn-outline-light {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border: 2px solid var(--white);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .btn-outline-light:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+    
+    /* Amenities Section */
+    .amenities-section {
+      padding: 7rem 2rem;
+      background: var(--white);
+    }
+    .amenities-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .amenities-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .amenities-header h2 {
+      font-size: 2.75rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .amenity-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .amenity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .amenity-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    .amenity-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .amenity-desc {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .amenity-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 20px;
+    }
+    
+    /* Commercial Section */
+    .commercial-section {
+      padding: 7rem 2rem;
+      background: var(--primary);
+      color: var(--white);
+    }
+    .commercial-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .commercial-container h3 {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .commercial-container h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .commercial-container p {
+      opacity: 0.85;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .btn-outline-gold {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+    
+    /* Newsletter Section */
+    .newsletter-section {
+      padding: 5rem 2rem;
+      background: var(--cream);
+    }
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-container h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .newsletter-container p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .newsletter-form button {
+      padding: 1rem 2rem;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .newsletter-form button:hover {
+      background: var(--gold-light);
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 4rem 2rem 2rem;
+      background: var(--primary-dark);
+      color: var(--white);
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      opacity: 0.7;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .footer-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: var(--white);
+      opacity: 0.7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+    
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .story-container { grid-template-columns: 1fr; gap: 3rem; }
+      .story-visual { order: -1; }
+      .builders-grid { grid-template-columns: repeat(2, 1fr); }
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .story-content h2,
+      .homes-header h2,
+      .amenities-header h2 { font-size: 2rem; }
+      .builders-grid { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: 1fr; }
+      .experience-content { padding: 3rem 2rem; }
+      .experience-content h2 { font-size: 1.75rem; }
+      .newsletter-form { flex-direction: column; }
+      .footer-container { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="logo">PANORAMA</a>
+    <ul class="nav-links">
+      <li><a href="#homes">Find Your Home</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact" class="nav-cta">Get Updates</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videos/flyover1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">Luxury Foothills Living</p>
+      <h1 class="hero-title">Be Part of Something Beautiful</h1>
+      <p class="hero-subtitle">An extraordinary community taking shape in the foothills off Rosecrest. Premium builders. World-class amenities. Breathtaking views.</p>
+      <a href="#homes" class="hero-cta">Explore Homes</a>
+    </div>
+    <div class="scroll-indicator">Scroll</div>
+  </section>
+
+  <!-- Growing Stronger Section -->
+  <section class="story-section">
+    <div class="story-container">
+      <div class="story-content reveal">
+        <h3>Growing Stronger Together</h3>
+        <h2>A Community Built for Living</h2>
+        <p>Panorama isn't just another development — it's a vision for how life should be lived. Nestled in the foothills with 360° mountain views, our community brings together premium builders, world-class amenities, and a commitment to preserving the natural beauty that makes this location extraordinary.</p>
+        <p>From adventure parks and scenic trails to top-rated schools and protected open spaces, every detail has been thoughtfully planned. Because the view really is better from here.</p>
+      </div>
+      <div class="story-visual reveal">
+        <video autoplay muted loop playsinline>
+          <source src="videos/community.mp4" type="video/mp4">
+        </video>
+        <div class="story-badge">
+          <span class="number">2026</span>
+          <span class="label">Amenities Opening</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Find Your Home Section -->
+  <section class="homes-section" id="homes">
+    <div class="homes-container">
+      <div class="homes-header reveal">
+        <h2>Find Your New Home</h2>
+        <p>Choose from 6-8 premium builders, each bringing their unique vision of luxury living to Panorama.</p>
+      </div>
+      <div class="builders-grid">
+        <div class="builder-card featured reveal">
+          <div class="builder-name">Toll Brothers</div>
+          <div class="builder-type">Luxury Homes</div>
+        </div>
+        <div class="builder-card placeholder reveal">
+          <div class="builder-name">Builder #2</div>
+          <div class="builder-type">Announcing Soon</div>
+        </div>
+        <div class="builder-card placeholder reveal">
+          <div class="builder-name">Builder #3</div>
+          <div class="builder-type">Announcing Soon</div>
+        </div>
+        <div class="builder-card placeholder reveal">
+          <div class="builder-name">+ More</div>
+          <div class="builder-type">6-8 Total</div>
+        </div>
+      </div>
+      <div class="homes-cta reveal">
+        <a href="#contact" class="btn-primary">Get Priority Updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section" id="experience">
+    <video class="experience-bg" autoplay muted loop playsinline>
+      <source src="videos/fun.mp4" type="video/mp4">
+    </video>
+    <div class="experience-overlay"></div>
+    <div class="experience-content reveal">
+      <h3>Experience Panorama</h3>
+      <h2>Adventure Awaits at Your Doorstep</h2>
+      <p>From zip lines and rope courses to miles of scenic trails, Panorama is designed for those who believe home is where the adventure begins. Our amenities open May 2026 — and they're worth the wait.</p>
+      <a href="#amenities" class="btn-outline-light">Explore Amenities</a>
+    </div>
+  </section>
+
+  <!-- Amenities Section -->
+  <section class="amenities-section" id="amenities">
+    <div class="amenities-container">
+      <div class="amenities-header reveal">
+        <h2>World-Class Amenities</h2>
+      </div>
+      <div class="amenities-grid">
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">🏞️</div>
+          <h3 class="amenity-title">Adventure Parks</h3>
+          <p class="amenity-desc">Playgrounds with zip lines, towers, slides, and rope courses for all ages.</p>
+          <span class="amenity-badge">May 2026</span>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">🥾</div>
+          <h3 class="amenity-title">Scenic Trails</h3>
+          <p class="amenity-desc">Miles of walking, biking, and hiking paths with stunning mountain views.</p>
+          <span class="amenity-badge">May 2026</span>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">🏊</div>
+          <h3 class="amenity-title">Community Center</h3>
+          <p class="amenity-desc">Resort-style pool, fitness center, and spaces for community events.</p>
+          <span class="amenity-badge">May 2026</span>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">🎓</div>
+          <h3 class="amenity-title">Top Schools</h3>
+          <p class="amenity-desc">Access to excellent schools with dedicated land for future facilities.</p>
+          <span class="amenity-badge">Info Available</span>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">🛒</div>
+          <h3 class="amenity-title">Retail & Dining</h3>
+          <p class="amenity-desc">Shopping and restaurant options planned within the community.</p>
+          <span class="amenity-badge">Coming Soon</span>
+        </div>
+        <div class="amenity-card reveal">
+          <div class="amenity-icon">⛰️</div>
+          <h3 class="amenity-title">Protected Views</h3>
+          <p class="amenity-desc">Preserved open spaces ensure natural beauty for generations.</p>
+          <span class="amenity-badge">Every Home</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commercial Section -->
+  <section class="commercial-section">
+    <div class="commercial-container reveal">
+      <h3>Commercial</h3>
+      <h2>Business. Class.</h2>
+      <p>Unparalleled views meet unlimited potential. Panorama offers premium commercial opportunities for businesses that want to be part of something extraordinary.</p>
+      <a href="#contact" class="btn-outline-gold">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section" id="contact">
+    <div class="newsletter-container reveal">
+      <h3>Stay Connected</h3>
+      <p>Sign up for the latest happenings around Panorama. Be first to know when builders announce and lots release.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand">PANORAMA</div>
+        <p class="footer-tagline">Be part of something beautiful.<br>Luxury foothills living off Rosecrest.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#homes">Find Your Home</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="#">School Info</a></li>
+          <li><a href="#">Area Guide</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="#">Sales Center</a></li>
+          <li><a href="mailto:info@panoramahomes.com">info@panoramahomes.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Panorama. A DAI Development. The view is better from here.
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

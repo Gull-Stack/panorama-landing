@@ -3,37 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panorama | Be Part of Something Beautiful</title>
+  <title>Panorama | The View is Better From Here</title>
   <meta name="description" content="Panorama - Luxury foothills living off Rosecrest. Premium builders including Toll Brothers. World-class amenities coming May 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     :root {
-      --primary: #1a3a5c;
-      --primary-dark: #0f2540;
-      --gold: #c9a227;
-      --gold-light: #d4b84a;
-      --cream: #faf8f5;
+      --navy: #0a1628;
+      --navy-light: #162036;
+      --navy-medium: #1a2744;
+      --gold: #c9a96e;
+      --gold-light: #dfc291;
+      --gold-dark: #a68b4d;
       --white: #ffffff;
-      --text: #2c3e50;
-      --text-light: #5a6a7a;
-      --overlay: rgba(15, 37, 64, 0.6);
+      --cream: #faf9f7;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
     }
     
     body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
       line-height: 1.6;
-      background: var(--white);
+      overflow-x: hidden;
     }
     
+    /* Typography */
     h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
     }
+    
+    .text-gold { color: var(--gold); }
+    .text-muted { opacity: 0.7; }
     
     /* Navigation */
     .nav {
@@ -42,496 +49,573 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.25rem 4rem;
+      padding: 1.5rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: all 0.4s ease;
     }
     .nav.scrolled {
-      background: var(--white);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(20px);
       padding: 1rem 4rem;
     }
-    .nav.scrolled .logo,
-    .nav.scrolled .nav-links a { color: var(--primary); }
     .logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.75rem;
-      font-weight: 600;
+      font-weight: 400;
       color: var(--white);
       text-decoration: none;
-      letter-spacing: 2px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      transition: all 0.3s;
-    }
-    .nav-links a:hover {
-      color: var(--gold);
+      letter-spacing: 4px;
     }
     .nav-cta {
       padding: 0.75rem 1.5rem;
-      background: var(--gold);
-      color: var(--white) !important;
-      border-radius: 4px;
-      font-weight: 600;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
     }
     .nav-cta:hover {
-      background: var(--gold-light) !important;
-      color: var(--white) !important;
+      background: var(--gold);
+      color: var(--navy);
     }
     
     /* Hero */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
-    .hero-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-    .hero-overlay {
+    .hero-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(15,37,64,0.4) 0%, rgba(15,37,64,0.6) 100%);
+      object-fit: cover;
+      opacity: 0.4;
+    }
+    .hero-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.7) 50%, rgba(10, 22, 40, 0.9) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 10;
       text-align: center;
-      color: var(--white);
       padding: 0 2rem;
       max-width: 900px;
     }
-    .hero-tagline {
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(201, 169, 110, 0.15);
+      border: 1px solid var(--gold);
       color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      border-radius: 30px;
     }
     .hero-title {
       font-size: 4rem;
-      font-weight: 500;
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 1.5rem;
     }
+    .hero-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 300;
-      opacity: 0.9;
+      opacity: 0.8;
       margin-bottom: 2.5rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.8;
     }
     .hero-cta {
       display: inline-block;
-      padding: 1rem 2.5rem;
+      padding: 1.1rem 2.5rem;
       background: var(--gold);
-      color: var(--white);
+      color: var(--navy);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 4px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       transition: all 0.3s;
     }
     .hero-cta:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
     }
-    .scroll-indicator {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--white);
+    .hero-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--navy-light);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .stat-item {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--glass-border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.7;
-    }
-    .scroll-indicator::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: var(--white);
-      margin: 1rem auto 0;
-      animation: scroll 2s infinite;
-    }
-    @keyframes scroll {
-      0%, 100% { transform: scaleY(1); opacity: 1; }
-      50% { transform: scaleY(0.5); opacity: 0.5; }
+      opacity: 0.6;
     }
     
-    /* Growing Stronger Section */
-    .story-section {
+    /* Section Base */
+    .section {
       padding: 7rem 2rem;
-      background: var(--cream);
     }
-    .story-container {
-      max-width: 1200px;
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
     }
-    .story-content h3 {
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-eyebrow {
       color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.7rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 1rem;
-      font-family: 'Montserrat', sans-serif;
+      display: block;
     }
-    .story-content h2 {
+    .section-title {
       font-size: 2.75rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
       line-height: 1.2;
     }
-    .story-content p {
-      color: var(--text-light);
-      font-size: 1rem;
+    .section-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.7;
+      max-width: 650px;
+      margin: 1.5rem auto 0;
+      line-height: 1.8;
+    }
+    
+    /* Problem Section */
+    .problem-section {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .problem-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .problem-content p {
+      opacity: 0.75;
       line-height: 1.9;
       margin-bottom: 1.5rem;
     }
-    .story-visual {
-      position: relative;
+    .problem-list {
+      list-style: none;
+      margin-top: 2rem;
     }
-    .story-visual video {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
     }
-    .story-badge {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      background: var(--gold);
-      color: var(--white);
-      padding: 1.5rem 2rem;
-      border-radius: 8px;
+    .problem-list .icon {
+      color: #e74c3c;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .problem-visual {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 3rem;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
     }
-    .story-badge .number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      display: block;
+    .problem-visual .icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
     }
-    .story-badge .label {
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    
-    /* Home Finder Section */
-    .homes-section {
-      padding: 7rem 2rem;
-      background: var(--white);
-    }
-    .homes-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .homes-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .homes-header h2 {
-      font-size: 2.75rem;
-      color: var(--primary);
+    .problem-visual h3 {
+      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    .homes-header p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+    .problem-visual p {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      line-height: 1.7;
     }
-    .builders-grid {
+    
+    /* Comparison Section */
+    .comparison-section {
+      background: var(--navy-light);
+    }
+    .comparison-table {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
     }
-    .builder-card {
-      background: var(--cream);
-      border-radius: 8px;
-      padding: 2.5rem 2rem;
+    .comparison-header {
+      padding: 2rem;
       text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    .builder-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      border-color: var(--gold);
-    }
-    .builder-card.featured {
-      border-color: var(--gold);
-      background: linear-gradient(135deg, var(--cream) 0%, #fff9e6 100%);
-    }
-    .builder-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    .builder-type {
-      font-size: 0.75rem;
-      color: var(--gold);
+      font-size: 0.7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: 600;
+      border-bottom: 1px solid var(--glass-border);
     }
-    .builder-card.placeholder .builder-name {
-      color: var(--text-light);
-      opacity: 0.5;
+    .comparison-header.label { background: transparent; }
+    .comparison-header.other { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5); }
+    .comparison-header.panorama { background: rgba(201, 169, 110, 0.15); color: var(--gold); font-weight: 600; }
+    .comparison-row {
+      display: contents;
     }
-    .homes-cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--primary);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      transition: all 0.3s;
-    }
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-    
-    /* Experience Section */
-    .experience-section {
-      position: relative;
-      padding: 0;
-      min-height: 600px;
+    .comparison-cell {
+      padding: 1.25rem 2rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--glass-border);
       display: flex;
       align-items: center;
+      justify-content: center;
     }
-    .experience-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .experience-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(15,37,64,0.9) 0%, rgba(15,37,64,0.7) 50%, transparent 100%);
-    }
-    .experience-content {
-      position: relative;
-      z-index: 10;
-      max-width: 600px;
-      padding: 5rem;
-      color: var(--white);
-    }
-    .experience-content h3 {
-      color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .experience-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-    .experience-content p {
+    .comparison-cell.label {
+      justify-content: flex-start;
+      font-weight: 500;
       opacity: 0.9;
-      line-height: 1.8;
-      margin-bottom: 2rem;
     }
-    .btn-outline-light {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border: 2px solid var(--white);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      transition: all 0.3s;
+    .comparison-cell.other {
+      background: rgba(255,255,255,0.02);
+      opacity: 0.5;
     }
-    .btn-outline-light:hover {
-      background: var(--white);
-      color: var(--primary);
+    .comparison-cell.panorama {
+      background: rgba(201, 169, 110, 0.08);
+      color: var(--gold);
     }
+    .comparison-cell .check { color: var(--gold); }
+    .comparison-cell .x { color: #666; }
     
-    /* Amenities Section */
-    .amenities-section {
-      padding: 7rem 2rem;
-      background: var(--white);
-    }
-    .amenities-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .amenities-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .amenities-header h2 {
-      font-size: 2.75rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    .amenities-grid {
+    /* Features Section */
+    .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
-    .amenity-card {
-      background: var(--cream);
-      border-radius: 8px;
+    .feature-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
       padding: 2.5rem 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
-    .amenity-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px rgba(201, 169, 110, 0.1);
     }
-    .amenity-icon {
-      font-size: 3rem;
+    .feature-icon {
+      font-size: 2.5rem;
       margin-bottom: 1.5rem;
     }
-    .amenity-title {
-      font-size: 1.3rem;
-      color: var(--primary);
+    .feature-title {
+      font-size: 1.4rem;
       margin-bottom: 0.75rem;
     }
-    .amenity-desc {
-      color: var(--text-light);
+    .feature-desc {
       font-size: 0.9rem;
+      opacity: 0.7;
       line-height: 1.7;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
-    .amenity-badge {
+    .feature-badge {
       display: inline-block;
       padding: 0.4rem 1rem;
-      background: var(--gold);
-      color: var(--white);
+      background: rgba(201, 169, 110, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
       font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       border-radius: 20px;
     }
     
-    /* Commercial Section */
-    .commercial-section {
-      padding: 7rem 2rem;
-      background: var(--primary);
-      color: var(--white);
+    /* Journey Section */
+    .journey-section {
+      background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
     }
-    .commercial-container {
-      max-width: 1000px;
+    .journey-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 800px;
       margin: 0 auto;
+    }
+    .journey-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .step-number {
+      width: 70px;
+      height: 70px;
+      background: var(--glass);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      color: var(--gold);
+    }
+    .step-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .step-content h3 .emoji {
+      font-size: 1.25rem;
+    }
+    .step-content p {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      line-height: 1.8;
+    }
+    
+    /* Builders Section */
+    .builders-section {
+      background: var(--navy);
+    }
+    .builders-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .builder-featured {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 3rem;
       text-align: center;
     }
-    .commercial-container h3 {
-      color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .commercial-container h2 {
+    .builder-featured .logo-text {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 2.5rem;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+    }
+    .builder-featured .tagline {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
-    .commercial-container p {
-      opacity: 0.85;
-      font-size: 1.1rem;
+    .builder-featured p {
+      font-size: 0.9rem;
+      opacity: 0.7;
       line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto 2rem;
     }
-    .btn-outline-gold {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border: 2px solid var(--gold);
+    .builders-coming {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .builder-placeholder {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .builder-placeholder .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      opacity: 0.4;
+      margin-bottom: 0.5rem;
+    }
+    .builder-placeholder .status {
+      font-size: 0.7rem;
       color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      background: var(--navy-light);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .testimonial-quote {
+      font-size: 1rem;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-quote::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      line-height: 0;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .author-info .name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .author-info .location {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+    
+    /* Final CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-medium) 100%);
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+    .cta-section h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.7;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 1.1rem 2.5rem;
+      background: var(--gold);
+      color: var(--navy);
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 4px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       transition: all 0.3s;
     }
-    .btn-outline-gold:hover {
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      padding: 1.1rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
       background: var(--gold);
-      color: var(--white);
+      color: var(--navy);
     }
     
-    /* Newsletter Section */
-    .newsletter-section {
-      padding: 5rem 2rem;
-      background: var(--cream);
+    /* Newsletter */
+    .newsletter {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding-top: 3rem;
+      border-top: 1px solid var(--glass-border);
     }
-    .newsletter-container {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .newsletter-container h3 {
-      font-size: 1.5rem;
-      color: var(--primary);
+    .newsletter h4 {
+      font-size: 1rem;
       margin-bottom: 1rem;
-    }
-    .newsletter-container p {
-      color: var(--text-light);
-      margin-bottom: 2rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
     }
     .newsletter-form {
       display: flex;
@@ -540,24 +624,28 @@
     .newsletter-form input {
       flex: 1;
       padding: 1rem 1.5rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: 'Montserrat', sans-serif;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+    .newsletter-form input::placeholder {
+      color: rgba(255,255,255,0.4);
     }
     .newsletter-form input:focus {
       outline: none;
       border-color: var(--gold);
     }
     .newsletter-form button {
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       background: var(--gold);
-      color: var(--white);
+      color: var(--navy);
       border: none;
-      border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 1px;
+      text-transform: uppercase;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -568,56 +656,42 @@
     /* Footer */
     .footer {
       padding: 4rem 2rem 2rem;
-      background: var(--primary-dark);
-      color: var(--white);
+      border-top: 1px solid var(--glass-border);
     }
-    .footer-container {
-      max-width: 1200px;
+    .footer-content {
+      max-width: 1100px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
     .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-    .footer-tagline {
-      opacity: 0.7;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-    .footer-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
     }
     .footer-links {
+      display: flex;
+      gap: 2rem;
       list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 0.75rem;
     }
     .footer-links a {
       color: var(--white);
-      opacity: 0.7;
+      opacity: 0.5;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: opacity 0.3s;
     }
     .footer-links a:hover { opacity: 1; }
     .footer-bottom {
-      max-width: 1200px;
-      margin: 3rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
-      font-size: 0.85rem;
-      opacity: 0.5;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      font-size: 0.8rem;
+      opacity: 0.4;
     }
     
     /* Animations */
@@ -633,26 +707,26 @@
     
     /* Responsive */
     @media (max-width: 1024px) {
-      .story-container { grid-template-columns: 1fr; gap: 3rem; }
-      .story-visual { order: -1; }
-      .builders-grid { grid-template-columns: repeat(2, 1fr); }
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-container { grid-template-columns: 1fr 1fr; }
+      .comparison-table { grid-template-columns: 1fr; }
+      .comparison-header.label,
+      .comparison-cell.label { display: none; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .builders-showcase { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
       .hero-title { font-size: 2.5rem; }
-      .hero-subtitle { font-size: 1rem; }
-      .story-content h2,
-      .homes-header h2,
-      .amenities-header h2 { font-size: 2rem; }
-      .builders-grid { grid-template-columns: 1fr; }
-      .amenities-grid { grid-template-columns: 1fr; }
-      .experience-content { padding: 3rem 2rem; }
-      .experience-content h2 { font-size: 1.75rem; }
+      .section { padding: 5rem 1.5rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-bottom: 1px solid var(--glass-border); }
+      .problem-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .journey-step { grid-template-columns: 60px 1fr; gap: 1.5rem; }
+      .step-number { width: 50px; height: 50px; font-size: 1.25rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta-section h2 { font-size: 2rem; }
       .newsletter-form { flex-direction: column; }
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
+      .footer-content { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -660,194 +734,296 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <a href="#" class="logo">PANORAMA</a>
-    <ul class="nav-links">
-      <li><a href="#homes">Find Your Home</a></li>
-      <li><a href="#amenities">Amenities</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact" class="nav-cta">Get Updates</a></li>
-    </ul>
+    <a href="#contact" class="nav-cta">Get Updates →</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-bg" autoplay muted loop playsinline>
       <source src="videos/flyover1.mp4" type="video/mp4">
     </video>
-    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
     <div class="hero-content">
-      <p class="hero-tagline">Luxury Foothills Living</p>
-      <h1 class="hero-title">Be Part of Something Beautiful</h1>
-      <p class="hero-subtitle">An extraordinary community taking shape in the foothills off Rosecrest. Premium builders. World-class amenities. Breathtaking views.</p>
-      <a href="#homes" class="hero-cta">Explore Homes</a>
-    </div>
-    <div class="scroll-indicator">Scroll</div>
-  </section>
-
-  <!-- Growing Stronger Section -->
-  <section class="story-section">
-    <div class="story-container">
-      <div class="story-content reveal">
-        <h3>Growing Stronger Together</h3>
-        <h2>A Community Built for Living</h2>
-        <p>Panorama isn't just another development — it's a vision for how life should be lived. Nestled in the foothills with 360° mountain views, our community brings together premium builders, world-class amenities, and a commitment to preserving the natural beauty that makes this location extraordinary.</p>
-        <p>From adventure parks and scenic trails to top-rated schools and protected open spaces, every detail has been thoughtfully planned. Because the view really is better from here.</p>
-      </div>
-      <div class="story-visual reveal">
-        <video autoplay muted loop playsinline>
-          <source src="videos/community.mp4" type="video/mp4">
-        </video>
-        <div class="story-badge">
-          <span class="number">2026</span>
-          <span class="label">Amenities Opening</span>
-        </div>
-      </div>
+      <span class="hero-badge">🏔️ Luxury Foothills Living • Opening 2026</span>
+      <h1 class="hero-title">The View is <em>Better</em><br>From Here</h1>
+      <p class="hero-subtitle">6-8 premium builders. World-class amenities. 360° mountain views. This isn't just another subdivision — it's a destination. And it's taking shape right now off Rosecrest.</p>
+      <a href="#builders" class="hero-cta">Explore Homes →</a>
+      <p class="hero-note">Toll Brothers confirmed. More builders announcing soon.</p>
     </div>
   </section>
 
-  <!-- Find Your Home Section -->
-  <section class="homes-section" id="homes">
-    <div class="homes-container">
-      <div class="homes-header reveal">
-        <h2>Find Your New Home</h2>
-        <p>Choose from 6-8 premium builders, each bringing their unique vision of luxury living to Panorama.</p>
-      </div>
-      <div class="builders-grid">
-        <div class="builder-card featured reveal">
-          <div class="builder-name">Toll Brothers</div>
-          <div class="builder-type">Luxury Homes</div>
-        </div>
-        <div class="builder-card placeholder reveal">
-          <div class="builder-name">Builder #2</div>
-          <div class="builder-type">Announcing Soon</div>
-        </div>
-        <div class="builder-card placeholder reveal">
-          <div class="builder-name">Builder #3</div>
-          <div class="builder-type">Announcing Soon</div>
-        </div>
-        <div class="builder-card placeholder reveal">
-          <div class="builder-name">+ More</div>
-          <div class="builder-type">6-8 Total</div>
-        </div>
-      </div>
-      <div class="homes-cta reveal">
-        <a href="#contact" class="btn-primary">Get Priority Updates</a>
-      </div>
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item reveal">
+      <div class="stat-value">6-8</div>
+      <div class="stat-label">Premium Builders</div>
     </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="experience-section" id="experience">
-    <video class="experience-bg" autoplay muted loop playsinline>
-      <source src="videos/fun.mp4" type="video/mp4">
-    </video>
-    <div class="experience-overlay"></div>
-    <div class="experience-content reveal">
-      <h3>Experience Panorama</h3>
-      <h2>Adventure Awaits at Your Doorstep</h2>
-      <p>From zip lines and rope courses to miles of scenic trails, Panorama is designed for those who believe home is where the adventure begins. Our amenities open May 2026 — and they're worth the wait.</p>
-      <a href="#amenities" class="btn-outline-light">Explore Amenities</a>
+    <div class="stat-item reveal">
+      <div class="stat-value">May '26</div>
+      <div class="stat-label">Amenities Opening</div>
     </div>
-  </section>
+    <div class="stat-item reveal">
+      <div class="stat-value">360°</div>
+      <div class="stat-label">Mountain Views</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">∞</div>
+      <div class="stat-label">Protected Open Space</div>
+    </div>
+  </div>
 
-  <!-- Amenities Section -->
-  <section class="amenities-section" id="amenities">
-    <div class="amenities-container">
-      <div class="amenities-header reveal">
-        <h2>World-Class Amenities</h2>
-      </div>
-      <div class="amenities-grid">
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">🏞️</div>
-          <h3 class="amenity-title">Adventure Parks</h3>
-          <p class="amenity-desc">Playgrounds with zip lines, towers, slides, and rope courses for all ages.</p>
-          <span class="amenity-badge">May 2026</span>
+  <!-- Problem Section -->
+  <section class="section problem-section">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-content reveal">
+          <span class="section-eyebrow">The Problem Nobody Talks About</span>
+          <h2>You've Seen "Master-Planned" Before</h2>
+          <p>Most communities promise the world and deliver a subdivision. Cookie-cutter homes. Amenities that never get built. HOA fees that climb while common areas deteriorate. You've heard the pitch. You've seen the disappointment.</p>
+          <p>It doesn't have to be that way.</p>
+          <ul class="problem-list">
+            <li><span class="icon">✕</span> Generic tract homes with no character</li>
+            <li><span class="icon">✕</span> "Coming soon" amenities that never arrive</li>
+            <li><span class="icon">✕</span> Views blocked by the next phase</li>
+            <li><span class="icon">✕</span> Schools as an afterthought</li>
+            <li><span class="icon">✕</span> Zero sense of community</li>
+          </ul>
         </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">🥾</div>
-          <h3 class="amenity-title">Scenic Trails</h3>
-          <p class="amenity-desc">Miles of walking, biking, and hiking paths with stunning mountain views.</p>
-          <span class="amenity-badge">May 2026</span>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">🏊</div>
-          <h3 class="amenity-title">Community Center</h3>
-          <p class="amenity-desc">Resort-style pool, fitness center, and spaces for community events.</p>
-          <span class="amenity-badge">May 2026</span>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">🎓</div>
-          <h3 class="amenity-title">Top Schools</h3>
-          <p class="amenity-desc">Access to excellent schools with dedicated land for future facilities.</p>
-          <span class="amenity-badge">Info Available</span>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">🛒</div>
-          <h3 class="amenity-title">Retail & Dining</h3>
-          <p class="amenity-desc">Shopping and restaurant options planned within the community.</p>
-          <span class="amenity-badge">Coming Soon</span>
-        </div>
-        <div class="amenity-card reveal">
-          <div class="amenity-icon">⛰️</div>
-          <h3 class="amenity-title">Protected Views</h3>
-          <p class="amenity-desc">Preserved open spaces ensure natural beauty for generations.</p>
-          <span class="amenity-badge">Every Home</span>
+        <div class="problem-visual reveal">
+          <div class="icon">🏠</div>
+          <h3>Sound Familiar?</h3>
+          <p>The average family spends 7+ years in a home they "settled" for. At Panorama, you're not settling. You're choosing a lifestyle.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Commercial Section -->
-  <section class="commercial-section">
-    <div class="commercial-container reveal">
-      <h3>Commercial</h3>
-      <h2>Business. Class.</h2>
-      <p>Unparalleled views meet unlimited potential. Panorama offers premium commercial opportunities for businesses that want to be part of something extraordinary.</p>
-      <a href="#contact" class="btn-outline-gold">Learn More</a>
+  <!-- Comparison Section -->
+  <section class="section comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal">The Side-By-Side</span>
+        <h2 class="section-title reveal">Panorama vs. Typical Developments</h2>
+        <p class="section-subtitle reveal">See why families are waiting for Panorama instead of settling elsewhere.</p>
+      </div>
+      <div class="comparison-table reveal">
+        <div class="comparison-header label"></div>
+        <div class="comparison-header other">Typical Development</div>
+        <div class="comparison-header panorama">PANORAMA</div>
+        
+        <div class="comparison-cell label">Builder Quality</div>
+        <div class="comparison-cell other">1-2 production builders</div>
+        <div class="comparison-cell panorama">6-8 premium builders including Toll Brothers</div>
+        
+        <div class="comparison-cell label">Amenities</div>
+        <div class="comparison-cell other">"Phase 3" (maybe)</div>
+        <div class="comparison-cell panorama">Opening May 2026 — guaranteed</div>
+        
+        <div class="comparison-cell label">Views</div>
+        <div class="comparison-cell other">Until next phase blocks them</div>
+        <div class="comparison-cell panorama">Protected open space forever</div>
+        
+        <div class="comparison-cell label">Schools</div>
+        <div class="comparison-cell other">Hope for the best</div>
+        <div class="comparison-cell panorama">Dedicated land + top districts</div>
+        
+        <div class="comparison-cell label">Community</div>
+        <div class="comparison-cell other">HOA rules and fees</div>
+        <div class="comparison-cell panorama">Adventure parks, trails, gathering spaces</div>
+        
+        <div class="comparison-cell label">Location</div>
+        <div class="comparison-cell other">Sprawl adjacent</div>
+        <div class="comparison-cell panorama">Foothills off Rosecrest — nature at your door</div>
+      </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section class="newsletter-section" id="contact">
-    <div class="newsletter-container reveal">
-      <h3>Stay Connected</h3>
-      <p>Sign up for the latest happenings around Panorama. Be first to know when builders announce and lots release.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email">
-        <button type="submit">Subscribe</button>
-      </form>
+  <!-- Features Section -->
+  <section class="section" id="amenities">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal">What's Actually Coming</span>
+        <h2 class="section-title reveal">Amenities You'll Actually Use</h2>
+        <p class="section-subtitle reveal">Not "someday" amenities. These are funded, planned, and opening May 2026.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🏞️</div>
+          <h3 class="feature-title">Adventure Parks</h3>
+          <p class="feature-desc">Playgrounds with zip lines, towers, slides, and rope courses. For kids and the kid in you.</p>
+          <span class="feature-badge">Opening May 2026</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🥾</div>
+          <h3 class="feature-title">Scenic Trails</h3>
+          <p class="feature-desc">Miles of walking, biking, and hiking paths that wind through protected natural areas.</p>
+          <span class="feature-badge">Opening May 2026</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🏊</div>
+          <h3 class="feature-title">Community Center</h3>
+          <p class="feature-desc">Resort-style pool, fitness center, and event spaces for gatherings big and small.</p>
+          <span class="feature-badge">Opening May 2026</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🎓</div>
+          <h3 class="feature-title">Top Schools</h3>
+          <p class="feature-desc">Access to excellent schools with dedicated land set aside for future facilities.</p>
+          <span class="feature-badge">District Info Available</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🛒</div>
+          <h3 class="feature-title">Retail & Dining</h3>
+          <p class="feature-desc">Shopping and restaurant options planned within the community. Convenience built in.</p>
+          <span class="feature-badge">Coming Soon</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">⛰️</div>
+          <h3 class="feature-title">Protected Views</h3>
+          <p class="feature-desc">Preserved open spaces ensure natural beauty for generations. Your view stays your view.</p>
+          <span class="feature-badge">Every Homesite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section class="section journey-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal">Your Journey Home</span>
+        <h2 class="section-title reveal">From Interest to Keys</h2>
+        <p class="section-subtitle reveal">Finding your dream home at Panorama is simple. Here's how it works.</p>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3><span class="emoji">🔔</span> Get on the List</h3>
+            <p>Sign up for priority updates. You'll be first to know when new builders announce, lots release, and model homes open. Early interest means better selection.</p>
+          </div>
+        </div>
+        <div class="journey-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3><span class="emoji">🏠</span> Choose Your Builder</h3>
+            <p>Explore homes from 6-8 premium builders, each with their own style and floor plans. From Toll Brothers' signature luxury to other top-tier options announcing soon.</p>
+          </div>
+        </div>
+        <div class="journey-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3><span class="emoji">📍</span> Select Your Lot</h3>
+            <p>Pick the homesite that speaks to you. Mountain views. Trailhead access. Corner lot privacy. Every location has something special — but the best ones go first.</p>
+          </div>
+        </div>
+        <div class="journey-step reveal">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3><span class="emoji">🎉</span> Welcome Home</h3>
+            <p>Move into your dream home and enjoy everything Panorama has to offer. Adventure parks, trails, community — it's all waiting for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Builders Section -->
+  <section class="section builders-section" id="builders">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal">Premium Builders</span>
+        <h2 class="section-title reveal">Build Your Dream</h2>
+        <p class="section-subtitle reveal">Not just any builders. The best builders. Curated for quality, variety, and reputation.</p>
+      </div>
+      <div class="builders-showcase">
+        <div class="builder-featured reveal">
+          <div class="logo-text">TOLL BROTHERS</div>
+          <div class="tagline">Luxury Homes — Confirmed</div>
+          <p>America's luxury home builder brings their signature craftsmanship and design excellence to Panorama. Renowned for quality construction, stunning architecture, and exceptional customer experience.</p>
+        </div>
+        <div class="builders-coming">
+          <div class="builder-placeholder reveal">
+            <div class="name">Builder #2</div>
+            <div class="status">Announcing Soon</div>
+          </div>
+          <div class="builder-placeholder reveal">
+            <div class="name">Builder #3</div>
+            <div class="status">Announcing Soon</div>
+          </div>
+          <div class="builder-placeholder reveal">
+            <div class="name">Builder #4</div>
+            <div class="status">Announcing Soon</div>
+          </div>
+          <div class="builder-placeholder reveal">
+            <div class="name">+ More</div>
+            <div class="status">6-8 Total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal">What People Are Saying</span>
+        <h2 class="section-title reveal">The Buzz is Building</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <p class="testimonial-quote">We've been watching this area for years. When we heard Toll Brothers was coming and saw the amenity plan, we knew this was the one. Finally, a community that's actually delivering on its promises.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JM</div>
+            <div class="author-info">
+              <div class="name">Future Resident</div>
+              <div class="location">Priority List Member</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="testimonial-quote">The protected views sold us. We've seen too many 'master-planned' communities where your view becomes someone's backyard in phase 2. At Panorama, that can't happen.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SK</div>
+            <div class="author-info">
+              <div class="name">Future Resident</div>
+              <div class="location">Priority List Member</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2 class="reveal">Ready to See What's Possible?</h2>
+      <p class="reveal">The best lots go to the earliest interest. Get on the priority list today and be first to know when builders announce, models open, and lots release.</p>
+      <div class="cta-buttons reveal">
+        <a href="#" class="btn-primary">Join Priority List →</a>
+        <a href="#" class="btn-outline">Schedule a Tour</a>
+      </div>
+      <div class="newsletter reveal">
+        <h4>Stay Updated</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
-      <div>
-        <div class="footer-brand">PANORAMA</div>
-        <p class="footer-tagline">Be part of something beautiful.<br>Luxury foothills living off Rosecrest.</p>
-      </div>
-      <div>
-        <h4 class="footer-title">Explore</h4>
-        <ul class="footer-links">
-          <li><a href="#homes">Find Your Home</a></li>
-          <li><a href="#amenities">Amenities</a></li>
-          <li><a href="#experience">Experience</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-title">Resources</h4>
-        <ul class="footer-links">
-          <li><a href="#">School Info</a></li>
-          <li><a href="#">Area Guide</a></li>
-          <li><a href="#">FAQs</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-title">Contact</h4>
-        <ul class="footer-links">
-          <li><a href="#">Sales Center</a></li>
-          <li><a href="mailto:info@panoramahomes.com">info@panoramahomes.com</a></li>
-        </ul>
-      </div>
+    <div class="footer-content">
+      <div class="footer-brand">PANORAMA</div>
+      <ul class="footer-links">
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#builders">Builders</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
     <div class="footer-bottom">
       © 2026 Panorama. A DAI Development. The view is better from here.
@@ -855,9 +1031,9 @@
   </footer>
 
   <script>
-    // Nav scroll effect
+    // Nav scroll
     window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 100);
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Reveal on scroll
@@ -875,8 +1051,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
