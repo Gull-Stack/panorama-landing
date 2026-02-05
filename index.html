@@ -619,10 +619,13 @@
     }
     .newsletter-form {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
     .newsletter-form input {
-      flex: 1;
+      flex: 1 1 180px;
       padding: 1rem 1.5rem;
       background: var(--glass);
       border: 1px solid var(--glass-border);
@@ -638,19 +641,25 @@
       border-color: var(--gold);
     }
     .newsletter-form button {
+      flex: 1 1 100%;
       padding: 1rem 1.5rem;
       background: var(--gold);
       color: var(--navy);
       border: none;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.3s;
+      border-radius: 8px;
     }
     .newsletter-form button:hover {
       background: var(--gold-light);
+    }
+    .newsletter-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
     
     /* Footer */
@@ -1005,12 +1014,15 @@
         <a href="#" class="btn-primary">Join Priority List →</a>
         <a href="#" class="btn-outline">Schedule a Tour</a>
       </div>
-      <div class="newsletter reveal">
-        <h4>Stay Updated</h4>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email">
-          <button type="submit">Subscribe</button>
+      <div class="newsletter reveal" id="lead-form">
+        <h4>Join the Priority List</h4>
+        <form class="newsletter-form" id="panoramaLeadForm">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="tel" name="phone" placeholder="Phone (optional)">
+          <button type="submit">Get Priority Access</button>
         </form>
+        <p id="formSuccess" style="display:none; color: var(--gold); margin-top: 1rem;">✓ You're on the list! We'll be in touch soon.</p>
       </div>
     </div>
   </section>
@@ -1053,6 +1065,49 @@
         e.preventDefault();
         document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
       });
+    });
+
+    // Lead form submission
+    // TODO: Replace with actual Google Apps Script URL after deployment
+    const WEBHOOK_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    
+    document.getElementById('panoramaLeadForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button');
+      const originalText = btn.textContent;
+      
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value || '',
+        source: 'Panorama Website'
+      };
+      
+      try {
+        // If webhook is configured, send data
+        if (WEBHOOK_URL && !WEBHOOK_URL.includes('YOUR_')) {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+        }
+        
+        // Show success
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        
+      } catch (err) {
+        console.error('Form error:', err);
+        alert('Something went wrong. Please try again.');
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
     });
   </script>
 </body>
