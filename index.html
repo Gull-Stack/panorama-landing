@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panorama | The View is Better From Here</title>
+  <meta name="description" content="Panorama - A new home development in the foothills off Rosecrest. Premium builders including Toll Brothers. Parks, trails, schools, and mountain views.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #1a3a5c;
+      --secondary: #c9a962;
+      --accent: #2d5a7b;
+      --text: #333;
+      --light: #f8f9fa;
+      --white: #fff;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(26, 58, 92, 0.95);
+      padding: 1rem 3rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(26, 58, 92, 0.7) 0%, rgba(26, 58, 92, 0.4) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: var(--white);
+      padding: 0 2rem;
+      max-width: 900px;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--secondary);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    .hero-cta:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 6rem 2rem;
+    }
+    .section-dark {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .section-light {
+      background: var(--light);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-label {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Interactive Map Section */
+    .map-section {
+      padding: 4rem 2rem;
+      background: var(--white);
+    }
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .map-wrapper {
+      position: relative;
+      background: #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-placeholder {
+      text-align: center;
+      color: #666;
+    }
+    .map-placeholder-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .map-placeholder-text {
+      font-size: 1.1rem;
+    }
+    
+    /* Amenities Grid */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .amenity-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .amenity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .amenity-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    .amenity-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .amenity-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.7;
+    }
+    .amenity-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 1rem;
+      background: rgba(201, 169, 98, 0.15);
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 20px;
+    }
+    
+    /* Builders Section */
+    .builders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .builder-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .builder-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--secondary);
+    }
+    .builder-logo {
+      height: 60px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .builder-logo-placeholder {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      opacity: 0.9;
+    }
+    .builder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .builder-type {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 1rem;
+    }
+    .builder-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--secondary);
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .builder-link:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    
+    /* Coming Soon Section */
+    .coming-soon {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: var(--white);
+    }
+    .coming-soon-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .coming-soon-text {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    .timeline {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    .timeline-item {
+      text-align: center;
+    }
+    .timeline-date {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #0d1f2d;
+      color: var(--white);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: var(--white);
+      opacity: 0.7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+    .footer-links a:hover {
+      opacity: 1;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.75rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .section-title { font-size: 2rem; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="logo">PANORAMA</a>
+    <ul class="nav-links">
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#builders">Builders</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Video placeholder - replace src with actual drone footage -->
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="videos/drone-flyover.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tagline">A New Home Development in the Foothills</span>
+      <h1 class="hero-title">The View is Better<br>From Here</h1>
+      <p class="hero-subtitle">Discover an extraordinary community nestled in the foothills off Rosecrest, where mountain views meet modern living.</p>
+      <a href="#builders" class="hero-cta">Explore Builders</a>
+    </div>
+    <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="map-section" id="map">
+    <div class="map-container">
+      <div class="section-header">
+        <span class="section-label">Community Map</span>
+        <h2 class="section-title" style="color: var(--primary);">Explore the Buildout</h2>
+        <p class="section-subtitle" style="color: #666;">Click on lots to see available builders and home designs</p>
+      </div>
+      <div class="map-wrapper">
+        <div class="map-placeholder">
+          <div class="map-placeholder-icon">🗺️</div>
+          <p class="map-placeholder-text">Interactive Map Coming Soon</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.6;">Aerial view with lot availability and builder assignments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities Section -->
+  <section class="section section-light" id="amenities">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Community Amenities</span>
+        <h2 class="section-title" style="color: var(--primary);">Everything You Need, Right Here</h2>
+        <p class="section-subtitle" style="color: #666;">World-class amenities designed for families to thrive</p>
+      </div>
+      <div class="amenities-grid">
+        <div class="amenity-card">
+          <div class="amenity-icon">🏞️</div>
+          <h3 class="amenity-title">Parks & Playgrounds</h3>
+          <p class="amenity-desc">Adventure playgrounds featuring zip lines, towers, slides, and rope courses. Green spaces for every age.</p>
+          <span class="amenity-badge">Coming May 2026</span>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🥾</div>
+          <h3 class="amenity-title">Trails & Paths</h3>
+          <p class="amenity-desc">Miles of interconnected walking, biking, and hiking trails with stunning mountain views throughout.</p>
+          <span class="amenity-badge">Phase 1 Ready</span>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🎓</div>
+          <h3 class="amenity-title">Top-Rated Schools</h3>
+          <p class="amenity-desc">Access to excellent public and private schools, with dedicated land for future educational facilities.</p>
+          <span class="amenity-badge">District Info Available</span>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🛒</div>
+          <h3 class="amenity-title">Shopping & Dining</h3>
+          <p class="amenity-desc">Convenient retail and restaurant options planned within the community for everyday needs.</p>
+          <span class="amenity-badge">Coming Soon</span>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🏊</div>
+          <h3 class="amenity-title">Community Center</h3>
+          <p class="amenity-desc">Resort-style pool, fitness center, and gathering spaces for community events and activities.</p>
+          <span class="amenity-badge">Coming 2026</span>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">⛰️</div>
+          <h3 class="amenity-title">Mountain Views</h3>
+          <p class="amenity-desc">Breathtaking panoramic views from nearly every homesite. Protected open spaces preserve the natural beauty.</p>
+          <span class="amenity-badge">Every Home</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Builders Section -->
+  <section class="section section-dark" id="builders">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Premium Builders</span>
+        <h2 class="section-title">Build Your Dream Home</h2>
+        <p class="section-subtitle">Partner with the region's most trusted home builders</p>
+      </div>
+      <div class="builders-grid">
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">TOLL BROTHERS</span>
+          </div>
+          <h3 class="builder-name">Toll Brothers</h3>
+          <p class="builder-type">Luxury Homes</p>
+          <a href="#" class="builder-link">View Plans</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 2</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Premium Homes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 3</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Custom Homes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 4</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Family Homes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 5</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Modern Homes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 6</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Townhomes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 7</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Estate Homes</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+        <div class="builder-card">
+          <div class="builder-logo">
+            <span class="builder-logo-placeholder">Builder 8</span>
+          </div>
+          <h3 class="builder-name">Coming Soon</h3>
+          <p class="builder-type">Cottages</p>
+          <a href="#" class="builder-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon / Timeline -->
+  <section class="coming-soon">
+    <div class="container">
+      <h2 class="coming-soon-title">A Community Taking Shape</h2>
+      <p class="coming-soon-text">Watch Panorama come to life with exciting developments on the horizon</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Now</div>
+          <div class="timeline-label">Lot Sales Open</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Spring 2026</div>
+          <div class="timeline-label">First Homes Complete</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 2026</div>
+          <div class="timeline-label">Amenities Open</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2027</div>
+          <div class="timeline-label">Phase 2 Launch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">PANORAMA</div>
+        <p class="footer-tagline">The view is better from here.<br>A new community in the foothills off Rosecrest.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#builders">Builders</a></li>
+          <li><a href="#map">Community Map</a></li>
+          <li><a href="#">Register Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="#">Sales Center</a></li>
+          <li><a href="#">info@panoramahomes.com</a></li>
+          <li><a href="#">(801) 555-0123</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Panorama. A DAI Development. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
