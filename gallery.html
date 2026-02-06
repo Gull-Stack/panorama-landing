@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aerial Gallery | Panorama</title>
-  <meta name="description" content="Stunning aerial photography of Panorama - Herriman's premier foothills community with panoramic Wasatch views.">
+  <meta name="description" content="Stunning aerial photography of Panorama, Herriman's premier foothills community with panoramic Wasatch Mountain views.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,311 +14,465 @@
     :root {
       --navy: #0a1628;
       --navy-light: #162036;
+      --navy-medium: #1a2744;
       --gold: #c9a96e;
       --gold-light: #dfc291;
+      --gold-dark: #a68b4d;
       --white: #ffffff;
       --cream: #faf9f7;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
     }
     
+    html { overflow-x: hidden; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--navy);
       color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
       min-height: 100vh;
     }
     
-    /* Header */
-    header {
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    
+    .text-gold { color: var(--gold); }
+    
+    /* Navigation - matches main site */
+    .nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1000;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: rgba(10, 22, 40, 0.95);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(20px);
     }
-    
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: var(--white);
-      text-decoration: none;
+    .logo img {
+      height: 40px;
+      width: auto;
     }
-    
-    .back-link {
-      color: var(--gold);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 500;
       letter-spacing: 1px;
+      text-transform: uppercase;
       transition: color 0.3s;
     }
-    
-    .back-link:hover {
-      color: var(--gold-light);
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold);
     }
-    
-    /* Main Content */
-    main {
-      padding: 120px 2rem 4rem;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-    
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .page-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 300;
-      margin-bottom: 1rem;
+    .nav-cta {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
       letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
     }
     
+    /* Page Header */
+    .page-header {
+      padding: 140px 4rem 60px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+    .page-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
     .page-header p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      opacity: 0.8;
       max-width: 600px;
       margin: 0 auto;
     }
     
     /* Gallery Grid */
+    .gallery-container {
+      padding: 40px 4rem 80px;
+      background: var(--navy-light);
+    }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 1.5rem;
+      gap: 20px;
+      max-width: 1600px;
+      margin: 0 auto;
     }
-    
     .gallery-item {
       position: relative;
-      aspect-ratio: 16/10;
       overflow: hidden;
       border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: var(--navy);
+      aspect-ratio: 3/2;
     }
-    
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-    
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease, opacity 0.3s;
+      opacity: 0;
     }
-    
+    .gallery-item img.loaded {
+      opacity: 1;
+    }
     .gallery-item:hover img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
-    
     .gallery-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,22,40,0.5), transparent);
+      background: linear-gradient(180deg, transparent 60%, rgba(10,22,40,0.6) 100%);
       opacity: 0;
       transition: opacity 0.3s;
     }
-    
     .gallery-item:hover::after {
       opacity: 1;
+    }
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery-item-overlay span {
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    /* Loading placeholder */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy) 100%);
+      animation: shimmer 1.5s infinite;
+    }
+    .gallery-item.loaded::before {
+      display: none;
+    }
+    @keyframes shimmer {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
     
     /* Lightbox */
     .lightbox {
-      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-    
-    .lightbox.active {
+      background: rgba(5, 13, 24, 0.97);
+      z-index: 2000;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
     }
-    
-    .lightbox img {
-      max-width: 95%;
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
       max-height: 90vh;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .lightbox.active .lightbox-content {
+      transform: scale(1);
+    }
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 85vh;
       object-fit: contain;
       border-radius: 4px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.5);
     }
-    
     .lightbox-close {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
+      top: 20px;
+      right: 20px;
       width: 50px;
       height: 50px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s;
+      transition: all 0.3s;
+      z-index: 2001;
     }
-    
     .lightbox-close:hover {
-      transform: scale(1.1);
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
     }
-    
     .lightbox-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
       width: 60px;
       height: 60px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
       border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
-    
     .lightbox-nav:hover {
-      background: rgba(255,255,255,0.2);
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 2px;
     }
     
-    .lightbox-prev { left: 2rem; }
-    .lightbox-next { right: 2rem; }
+    /* Footer */
+    footer {
+      background: #050d18;
+      padding: 40px 4rem;
+      text-align: center;
+    }
+    .footer-logo img {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .footer-legal {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
     
-    /* Mobile */
+    /* Responsive */
     @media (max-width: 768px) {
-      header { padding: 1rem; }
-      main { padding: 100px 1rem 2rem; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .lightbox-nav { display: none; }
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .nav-link {
+        display: none;
+      }
+      .page-header {
+        padding: 120px 1.5rem 40px;
+      }
+      .gallery-container {
+        padding: 20px 1rem 60px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+      }
+      .lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+      footer {
+        padding: 30px 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" class="logo">PANORAMA</a>
-    <a href="/" class="back-link">← Back to Home</a>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-white.png" alt="Panorama">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="gallery.html" class="nav-link active">Gallery</a>
+      <a href="index.html#contact" class="nav-cta">Schedule a Tour</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Aerial <span class="text-gold">Gallery</span></h1>
+    <p>Experience the breathtaking views of Panorama from above. Every angle reveals why this is Herriman's most coveted address.</p>
   </header>
-  
-  <main>
-    <div class="page-header">
-      <h1>Aerial Gallery</h1>
-      <p>Stunning aerial views of Panorama and the surrounding Wasatch Mountains. Click any image to view full size.</p>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-container">
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Images loaded via JS -->
     </div>
-    
-    <div class="gallery-grid">
-      <div class="gallery-item" data-index="0"><img src="images/aerial/aerial-01.jpg" alt="Panorama Aerial View 1" loading="lazy"></div>
-      <div class="gallery-item" data-index="1"><img src="images/aerial/aerial-02.jpg" alt="Panorama Aerial View 2" loading="lazy"></div>
-      <div class="gallery-item" data-index="2"><img src="images/aerial/aerial-03.jpg" alt="Panorama Aerial View 3" loading="lazy"></div>
-      <div class="gallery-item" data-index="3"><img src="images/aerial/aerial-04.jpg" alt="Panorama Aerial View 4" loading="lazy"></div>
-      <div class="gallery-item" data-index="4"><img src="images/aerial/aerial-05.jpg" alt="Panorama Aerial View 5" loading="lazy"></div>
-      <div class="gallery-item" data-index="5"><img src="images/aerial/aerial-06.jpg" alt="Panorama Aerial View 6" loading="lazy"></div>
-      <div class="gallery-item" data-index="6"><img src="images/aerial/aerial-07.jpg" alt="Panorama Aerial View 7" loading="lazy"></div>
-      <div class="gallery-item" data-index="7"><img src="images/aerial/aerial-08.jpg" alt="Panorama Aerial View 8" loading="lazy"></div>
-      <div class="gallery-item" data-index="8"><img src="images/aerial/aerial-09.jpg" alt="Panorama Aerial View 9" loading="lazy"></div>
-      <div class="gallery-item" data-index="9"><img src="images/aerial/aerial-10.jpg" alt="Panorama Aerial View 10" loading="lazy"></div>
-      <div class="gallery-item" data-index="10"><img src="images/aerial/aerial-11.jpg" alt="Panorama Aerial View 11" loading="lazy"></div>
-      <div class="gallery-item" data-index="11"><img src="images/aerial/aerial-12.jpg" alt="Panorama Aerial View 12" loading="lazy"></div>
-      <div class="gallery-item" data-index="12"><img src="images/aerial/aerial-13.jpg" alt="Panorama Aerial View 13" loading="lazy"></div>
-      <div class="gallery-item" data-index="13"><img src="images/aerial/aerial-14.jpg" alt="Panorama Aerial View 14" loading="lazy"></div>
-      <div class="gallery-item" data-index="14"><img src="images/aerial/aerial-15.jpg" alt="Panorama Aerial View 15" loading="lazy"></div>
-      <div class="gallery-item" data-index="15"><img src="images/aerial/aerial-16.jpg" alt="Panorama Aerial View 16" loading="lazy"></div>
-      <div class="gallery-item" data-index="16"><img src="images/aerial/aerial-17.jpg" alt="Panorama Aerial View 17" loading="lazy"></div>
-      <div class="gallery-item" data-index="17"><img src="images/aerial/aerial-18.jpg" alt="Panorama Aerial View 18" loading="lazy"></div>
-      <div class="gallery-item" data-index="18"><img src="images/aerial/aerial-19.jpg" alt="Panorama Aerial View 19" loading="lazy"></div>
-      <div class="gallery-item" data-index="19"><img src="images/aerial/aerial-20.jpg" alt="Panorama Aerial View 20" loading="lazy"></div>
-      <div class="gallery-item" data-index="20"><img src="images/aerial/aerial-21.jpg" alt="Panorama Aerial View 21" loading="lazy"></div>
-      <div class="gallery-item" data-index="21"><img src="images/aerial/aerial-22.jpg" alt="Panorama Aerial View 22" loading="lazy"></div>
-      <div class="gallery-item" data-index="22"><img src="images/aerial/aerial-23.jpg" alt="Panorama Aerial View 23" loading="lazy"></div>
-      <div class="gallery-item" data-index="23"><img src="images/aerial/aerial-24.jpg" alt="Panorama Aerial View 24" loading="lazy"></div>
-      <div class="gallery-item" data-index="24"><img src="images/aerial/aerial-25.jpg" alt="Panorama Aerial View 25" loading="lazy"></div>
-      <div class="gallery-item" data-index="25"><img src="images/aerial/aerial-26.jpg" alt="Panorama Aerial View 26" loading="lazy"></div>
-      <div class="gallery-item" data-index="26"><img src="images/aerial/aerial-27.jpg" alt="Panorama Aerial View 27" loading="lazy"></div>
-      <div class="gallery-item" data-index="27"><img src="images/aerial/aerial-28.jpg" alt="Panorama Aerial View 28" loading="lazy"></div>
-      <div class="gallery-item" data-index="28"><img src="images/aerial/aerial-29.jpg" alt="Panorama Aerial View 29" loading="lazy"></div>
-      <div class="gallery-item" data-index="29"><img src="images/aerial/aerial-30.jpg" alt="Panorama Aerial View 30" loading="lazy"></div>
-      <div class="gallery-item" data-index="30"><img src="images/aerial/aerial-31.jpg" alt="Panorama Aerial View 31" loading="lazy"></div>
-      <div class="gallery-item" data-index="31"><img src="images/aerial/aerial-32.jpg" alt="Panorama Aerial View 32" loading="lazy"></div>
-      <div class="gallery-item" data-index="32"><img src="images/aerial/aerial-33.jpg" alt="Panorama Aerial View 33" loading="lazy"></div>
-      <div class="gallery-item" data-index="33"><img src="images/aerial/aerial-34.jpg" alt="Panorama Aerial View 34" loading="lazy"></div>
-      <div class="gallery-item" data-index="34"><img src="images/aerial/aerial-35.jpg" alt="Panorama Aerial View 35" loading="lazy"></div>
-      <div class="gallery-item" data-index="35"><img src="images/aerial/aerial-36.jpg" alt="Panorama Aerial View 36" loading="lazy"></div>
-      <div class="gallery-item" data-index="36"><img src="images/aerial/aerial-37.jpg" alt="Panorama Aerial View 37" loading="lazy"></div>
-      <div class="gallery-item" data-index="37"><img src="images/aerial/aerial-38.jpg" alt="Panorama Aerial View 38" loading="lazy"></div>
-      <div class="gallery-item" data-index="38"><img src="images/aerial/aerial-39.jpg" alt="Panorama Aerial View 39" loading="lazy"></div>
-    </div>
-  </main>
-  
+  </section>
+
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <button class="lightbox-nav lightbox-prev" onclick="prevImage()">‹</button>
-    <img id="lightbox-img" src="" alt="Full size aerial view">
-    <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</button>
+    <div class="lightbox-content">
+      <img src="" alt="Gallery image" id="lightboxImg">
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
-  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">
+      <img src="assets/logo-white.png" alt="Panorama">
+    </div>
+    <p class="footer-tagline">The View Is Better From Here</p>
+    <p class="footer-legal">© 2026 Panorama. A DAI Development. All rights reserved.</p>
+  </footer>
+
   <script>
-    const images = [];
-    for (let i = 1; i <= 39; i++) {
-      images.push(`images/aerial/aerial-${i.toString().padStart(2, '0')}.jpg`);
+    // Gallery configuration
+    const totalImages = 39;
+    const imageBasePath = 'images/aerial/aerial-';
+    
+    // Generate gallery items
+    const galleryGrid = document.getElementById('galleryGrid');
+    
+    for (let i = 1; i <= totalImages; i++) {
+      const num = String(i).padStart(2, '0');
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `
+        <img 
+          data-src="${imageBasePath}${num}.jpg" 
+          alt="Panorama aerial view ${num}"
+          loading="lazy"
+        >
+        <div class="gallery-item-overlay">
+          <span>View ${num} of ${totalImages}</span>
+        </div>
+      `;
+      item.addEventListener('click', () => openLightbox(i - 1));
+      galleryGrid.appendChild(item);
     }
+
+    // Lazy loading with Intersection Observer
+    const lazyImages = document.querySelectorAll('.gallery-item img[data-src]');
     
-    let currentIndex = 0;
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    
-    document.querySelectorAll('.gallery-item').forEach((item, index) => {
-      item.addEventListener('click', () => {
-        currentIndex = index;
-        lightboxImg.src = images[currentIndex];
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.onload = () => {
+            img.classList.add('loaded');
+            img.parentElement.classList.add('loaded');
+          };
+          observer.unobserve(img);
+        }
       });
+    }, {
+      rootMargin: '100px 0px',
+      threshold: 0.1
     });
-    
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Lightbox functionality
+    let currentImageIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      updateLightboxImage();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
     function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
     }
-    
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex];
+
+    function navigateLightbox(direction) {
+      currentImageIndex = (currentImageIndex + direction + totalImages) % totalImages;
+      updateLightboxImage();
     }
-    
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex];
+
+    function updateLightboxImage() {
+      const num = String(currentImageIndex + 1).padStart(2, '0');
+      lightboxImg.src = `${imageBasePath}${num}.jpg`;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
     }
-    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (!lightbox.classList.contains('active')) return;
+      
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
     });
-    
-    // Click outside to close
+
+    // Close lightbox on background click
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
     });
