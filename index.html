@@ -197,6 +197,68 @@
       color: var(--navy);
     }
     
+    /* Dropdown Navigation */
+    .nav-item {
+      position: relative;
+    }
+    .nav-link .arrow {
+      font-size: 0.6rem;
+      transition: transform 0.3s;
+      margin-left: 2px;
+    }
+    .nav-item:hover .arrow {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: -1rem;
+      background: rgba(10, 22, 40, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      min-width: 200px;
+      padding: 0.75rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+    .nav-item:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+    }
+    .nav-dropdown a:hover {
+      color: var(--gold);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    /* Mobile Toggle */
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: white;
+      transition: all 0.3s;
+    }
+    
     /* Hero */
     .hero {
       position: relative;
@@ -913,23 +975,54 @@
       .nav {
         padding: 0.75rem 1rem;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+        justify-content: space-between;
       }
       .logo img {
         height: 32px;
       }
+      .mobile-toggle {
+        display: flex;
+      }
       .nav-links {
-        gap: 0.75rem;
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid var(--glass-border);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-item {
+        width: 100%;
+      }
+      .nav-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: rgba(255,255,255,0.05);
+        margin-top: 0.5rem;
+        display: none;
+      }
+      .nav-item:hover .nav-dropdown,
+      .nav-item:focus-within .nav-dropdown {
+        display: block;
       }
       .nav-link {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         letter-spacing: 0.5px;
+        display: block;
+        padding: 0.5rem 0;
       }
       .nav-cta {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.65rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.7rem;
         letter-spacing: 1px;
+        text-align: center;
+        margin-top: 0.5rem;
       }
       .section {
         padding: 60px 1.5rem;
@@ -954,7 +1047,41 @@
     <a href="#" class="logo">
       <img src="assets/logo-white.png" alt="Panorama">
     </a>
-    <div class="nav-links">
+    <div class="mobile-toggle" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="find-a-home/" class="nav-link">Find A Home <span class="arrow">▼</span></a>
+        <div class="nav-dropdown">
+          <a href="find-a-home/">Overview</a>
+          <a href="find-a-home/builders.html">Our Builders</a>
+          <a href="find-a-home/villages.html">Villages</a>
+          <a href="find-a-home/homesites.html">Available Homesites</a>
+          <a href="find-a-home/floorplans.html">Floor Plans</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="life-culture/" class="nav-link">Life & Culture <span class="arrow">▼</span></a>
+        <div class="nav-dropdown">
+          <a href="life-culture/">Overview</a>
+          <a href="life-culture/amenities.html">Amenities</a>
+          <a href="life-culture/schools.html">Schools</a>
+          <a href="life-culture/why-herriman.html">Why Herriman</a>
+          <a href="life-culture/history.html">Our Story</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="things-to-do/" class="nav-link">Things To Do <span class="arrow">▼</span></a>
+        <div class="nav-dropdown">
+          <a href="things-to-do/">Overview</a>
+          <a href="things-to-do/parks-trails.html">Parks & Trails</a>
+          <a href="things-to-do/dining.html">Dining</a>
+          <a href="things-to-do/shopping.html">Shopping</a>
+          <a href="things-to-do/recreation.html">Recreation</a>
+        </div>
+      </div>
+      <a href="maps/" class="nav-link">Maps</a>
       <a href="gallery.html" class="nav-link">Gallery</a>
       <a href="#contact" class="nav-cta">Schedule a Tour</a>
     </div>
@@ -1241,9 +1368,12 @@
     </div>
     <p class="footer-tagline">The View Is Better From Here</p>
     <div class="footer-links">
+      <a href="find-a-home/">Find A Home</a>
+      <a href="life-culture/">Life & Culture</a>
+      <a href="things-to-do/">Things To Do</a>
+      <a href="maps/">Maps</a>
+      <a href="gallery.html">Gallery</a>
       <a href="#contact">Contact</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
     </div>
     <p class="footer-legal">
       © 2026 Panorama. A DAI Development. All rights reserved.<br>
@@ -1252,6 +1382,11 @@
   </footer>
 
   <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+    
     // ===== SCROLL ANIMATIONS ENGINE =====
     (function() {
       'use strict';
