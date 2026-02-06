@@ -24,13 +24,12 @@
       --glass-border: rgba(255, 255, 255, 0.12);
     }
     
-    html, body {
+    body {
       font-family: 'Inter', sans-serif;
       background: var(--navy);
       color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
-      max-width: 100vw;
     }
     
     h1, h2, h3, h4 {
@@ -41,67 +40,6 @@
     
     .text-gold { color: var(--gold); }
     .text-muted { opacity: 0.7; }
-    
-    /* ===== DYNAMIC MOVEMENT ANIMATIONS ===== */
-    
-    /* Ken Burns zoom on hero */
-    @keyframes kenBurns {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.1); }
-    }
-    
-    /* Fade in from bottom */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* Fade in from left */
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    /* Fade in from right */
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    /* Scale in */
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    
-    /* Smooth section transitions */
-    .section {
-      opacity: 1;
-    }
     
     /* Navigation */
     .nav {
@@ -135,26 +73,11 @@
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .nav-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: var(--gold);
-      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: -1;
+      transition: all 0.3s;
     }
     .nav-cta:hover {
+      background: var(--gold);
       color: var(--navy);
-    }
-    .nav-cta:hover::before {
-      width: 100%;
     }
     
     /* Hero */
@@ -174,7 +97,11 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(0.5);
-      animation: kenBurns 20s ease-in-out infinite alternate;
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
     }
     .hero-overlay {
       position: absolute;
@@ -190,19 +117,6 @@
       text-align: center;
       max-width: 900px;
       padding: 0 2rem;
-      animation: fadeInUp 1.2s ease-out;
-    }
-    .hero-tagline {
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-    .hero h1 {
-      animation: fadeInUp 1s ease-out 0.4s both;
-    }
-    .hero-subtitle {
-      animation: fadeInUp 1s ease-out 0.6s both;
-    }
-    .hero-cta {
-      animation: fadeInUp 1s ease-out 0.8s both;
     }
     .hero-tagline {
       font-size: 0.85rem;
@@ -234,27 +148,12 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
+      transition: all 0.3s ease;
     }
     .hero-cta:hover {
       background: var(--gold-light);
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.4);
-    }
-    .hero-cta:hover::before {
-      left: 100%;
+      box-shadow: 0 10px 25px rgba(201, 169, 110, 0.4);
     }
     
     /* Section Styles */
@@ -326,12 +225,12 @@
       border: 1px solid var(--glass-border);
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.4s ease, background 0.3s, box-shadow 0.4s ease;
     }
     .amenity-card:hover {
-      transform: translateY(-12px) scale(1.02);
+      transform: translateY(-10px);
       background: rgba(255,255,255,0.12);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.35);
     }
     .amenity-image-wrapper {
       overflow: hidden;
@@ -342,10 +241,10 @@
       height: 200px;
       object-fit: cover;
       display: block;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.6s ease;
     }
     .amenity-card:hover .amenity-image {
-      transform: scale(1.15);
+      transform: scale(1.1);
     }
     .amenity-content {
       padding: 1.75rem;
@@ -417,17 +316,17 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .home-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
     }
     .home-card img {
-      transition: transform 0.6s ease;
+      transition: transform 0.5s ease;
     }
     .home-card:hover img {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
     .home-image {
       height: 220px;
@@ -604,28 +503,11 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s;
       margin-top: 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .form-submit::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: left 0.6s;
     }
     .form-submit:hover {
       background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
-    }
-    .form-submit:hover::before {
-      left: 100%;
     }
     
     /* Footer */
@@ -1015,7 +897,6 @@
         }
       });
     });
-
   </script>
 </body>
 </html>
