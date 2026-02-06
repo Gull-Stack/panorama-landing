@@ -41,6 +41,143 @@
     .text-gold { color: var(--gold); }
     .text-muted { opacity: 0.7; }
     
+    /* ===== DYNAMIC MOVEMENT ANIMATIONS ===== */
+    
+    /* Ken Burns zoom on hero */
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+    
+    /* Fade in from bottom */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Fade in from left */
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Fade in from right */
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Scale in */
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* Scroll-triggered reveal class */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Staggered delays for grid items */
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+    
+    /* Parallax scroll effect */
+    .parallax-bg {
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+    
+    /* Floating animation for decorative elements */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+    
+    /* Pulse glow for CTAs */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4); }
+      50% { box-shadow: 0 0 20px 5px rgba(201, 169, 110, 0.2); }
+    }
+    
+    /* Text shimmer effect */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+    
     /* Navigation */
     .nav {
       position: fixed;
@@ -73,11 +210,26 @@
       font-weight: 500;
       letter-spacing: 2px;
       text-transform: uppercase;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--gold);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
     }
     .nav-cta:hover {
-      background: var(--gold);
       color: var(--navy);
+    }
+    .nav-cta:hover::before {
+      width: 100%;
     }
     
     /* Hero */
@@ -97,6 +249,7 @@
       height: 100%;
       object-fit: cover;
       filter: brightness(0.5);
+      animation: kenBurns 20s ease-in-out infinite alternate;
     }
     .hero-overlay {
       position: absolute;
@@ -112,6 +265,19 @@
       text-align: center;
       max-width: 900px;
       padding: 0 2rem;
+      animation: fadeInUp 1.2s ease-out;
+    }
+    .hero-tagline {
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+    .hero h1 {
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+    .hero-subtitle {
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+    .hero-cta {
+      animation: fadeInUp 1s ease-out 0.8s both;
     }
     .hero-tagline {
       font-size: 0.85rem;
@@ -143,11 +309,27 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
     }
     .hero-cta:hover {
       background: var(--gold-light);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.4);
+    }
+    .hero-cta:hover::before {
+      left: 100%;
     }
     
     /* Section Styles */
@@ -219,12 +401,12 @@
       border: 1px solid var(--glass-border);
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.4s ease, background 0.3s, box-shadow 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .amenity-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-12px) scale(1.02);
       background: rgba(255,255,255,0.12);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
     }
     .amenity-image-wrapper {
       overflow: hidden;
@@ -235,7 +417,7 @@
       height: 200px;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s ease;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .amenity-card:hover .amenity-image {
       transform: scale(1.15);
@@ -310,10 +492,17 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
     }
     .home-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    }
+    .home-card img {
+      transition: transform 0.6s ease;
+    }
+    .home-card:hover img {
+      transform: scale(1.08);
     }
     .home-image {
       height: 220px;
@@ -490,11 +679,28 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s;
     }
     .form-submit:hover {
       background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+    }
+    .form-submit:hover::before {
+      left: 100%;
     }
     
     /* Footer */
@@ -883,6 +1089,69 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // Scroll-triggered reveal animations
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Parallax effect on scroll
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      parallaxElements.forEach(el => {
+        const speed = el.dataset.speed || 0.5;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+
+    // Add reveal classes to elements on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Section headers
+      document.querySelectorAll('.section-header').forEach(el => el.classList.add('reveal'));
+      
+      // Story grid items
+      document.querySelectorAll('.story-image').forEach(el => el.classList.add('reveal-left'));
+      document.querySelectorAll('.story-content').forEach(el => el.classList.add('reveal-right'));
+      
+      // Amenity cards with stagger
+      document.querySelectorAll('.amenity-card').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.classList.add(`stagger-${(i % 6) + 1}`);
+      });
+      
+      // Home cards with stagger
+      document.querySelectorAll('.home-card').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.classList.add(`stagger-${i + 1}`);
+      });
+      
+      // Park feature
+      document.querySelectorAll('.park-content').forEach(el => el.classList.add('reveal-left'));
+      document.querySelectorAll('.park-image').forEach(el => el.classList.add('reveal-right'));
+      
+      // Location content
+      document.querySelectorAll('.location-text').forEach(el => el.classList.add('reveal-left'));
+      document.querySelectorAll('.location-map').forEach(el => el.classList.add('reveal-right'));
+      
+      // Lead form
+      document.querySelectorAll('.lead-form').forEach(el => el.classList.add('reveal-scale'));
+      
+      // Trigger initial check
+      revealOnScroll();
     });
   </script>
 </body>
