@@ -94,6 +94,16 @@
       justify-content: center;
       overflow: hidden;
     }
+    
+    /* Rotating Hero Backgrounds */
+    .hero-backgrounds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
     .hero-bg {
       position: absolute;
       top: -5%;
@@ -102,12 +112,25 @@
       height: 110%;
       object-fit: cover;
       filter: brightness(0.5);
-      animation: kenBurns 25s ease-in-out infinite alternate;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      animation: kenBurnsSlide 35s ease-in-out infinite;
     }
-    @keyframes kenBurns {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
+    .hero-bg.active {
+      opacity: 1;
     }
+    @keyframes kenBurnsSlide {
+      0% { transform: scale(1) translateX(0); }
+      50% { transform: scale(1.08) translateX(-1%); }
+      100% { transform: scale(1) translateX(0); }
+    }
+    /* Stagger Ken Burns effect per slide */
+    .hero-bg:nth-child(1) { animation-delay: 0s; }
+    .hero-bg:nth-child(2) { animation-delay: -5s; }
+    .hero-bg:nth-child(3) { animation-delay: -10s; }
+    .hero-bg:nth-child(4) { animation-delay: -15s; }
+    .hero-bg:nth-child(5) { animation-delay: -20s; }
+    .hero-bg:nth-child(6) { animation-delay: -25s; }
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -115,10 +138,11 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.7) 100%);
+      z-index: 2;
     }
     .hero-content {
       position: relative;
-      z-index: 10;
+      z-index: 5;
       text-align: center;
       max-width: 900px;
       padding: 0 2rem;
@@ -599,7 +623,14 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img src="assets/drone-1.jpg" alt="Panorama aerial view" class="hero-bg">
+    <div class="hero-backgrounds">
+      <img src="images/aerial/aerial-01.jpg" alt="Panorama aerial view" class="hero-bg active">
+      <img src="images/aerial/aerial-05.jpg" alt="Panorama mountain view" class="hero-bg">
+      <img src="images/aerial/aerial-20.jpg" alt="Panorama community view" class="hero-bg">
+      <img src="images/aerial/aerial-25.jpg" alt="Panorama winter mountains" class="hero-bg">
+      <img src="images/aerial/aerial-26.jpg" alt="Panorama valley panorama" class="hero-bg">
+      <img src="images/aerial/aerial-35.jpg" alt="Panorama foothills view" class="hero-bg">
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-tagline">You've Worked Hard. You've Earned This.</p>
@@ -902,6 +933,27 @@
         }
       });
     });
+
+    // Hero background rotation
+    (function() {
+      const heroImages = document.querySelectorAll('.hero-bg');
+      let currentIndex = 0;
+      const intervalTime = 6000; // 6 seconds per image
+
+      function rotateHero() {
+        // Remove active class from current
+        heroImages[currentIndex].classList.remove('active');
+        
+        // Move to next image
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        
+        // Add active class to new current
+        heroImages[currentIndex].classList.add('active');
+      }
+
+      // Start rotation
+      setInterval(rotateHero, intervalTime);
+    })();
   </script>
 </body>
 </html>
