@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panorama | The View is Better From Here</title>
-  <meta name="description" content="Panorama - Luxury foothills living off Rosecrest. Premium builders including Toll Brothers. World-class amenities coming May 2026.">
+  <meta name="description" content="Panorama - Herriman's premier foothills community. Panoramic Wasatch views, world-class amenities, and elevated living. Homes available now.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
     
-    /* Typography */
     h1, h2, h3, h4 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
@@ -60,13 +59,9 @@
       backdrop-filter: blur(20px);
       padding: 1rem 4rem;
     }
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 400;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 4px;
+    .logo img {
+      height: 40px;
+      width: auto;
     }
     .nav-cta {
       padding: 0.75rem 1.5rem;
@@ -101,61 +96,50 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.4;
+      filter: brightness(0.5);
     }
-    .hero-gradient {
+    .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.7) 50%, rgba(10, 22, 40, 0.9) 100%);
+      background: linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.7) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 10;
       text-align: center;
-      padding: 0 2rem;
       max-width: 900px;
+      padding: 0 2rem;
     }
-    .hero-badge {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: rgba(201, 169, 110, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-size: 0.7rem;
-      letter-spacing: 3px;
+    .hero-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 2rem;
-      border-radius: 30px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
     }
-    .hero-title {
-      font-size: 4rem;
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 300;
       line-height: 1.1;
       margin-bottom: 1.5rem;
     }
-    .hero-title em {
-      color: var(--gold);
-      font-style: italic;
-    }
     .hero-subtitle {
-      font-size: 1.15rem;
-      font-weight: 300;
-      opacity: 0.8;
-      margin-bottom: 2.5rem;
+      font-size: 1.25rem;
+      opacity: 0.9;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 2.5rem;
       line-height: 1.8;
     }
     .hero-cta {
       display: inline-block;
-      padding: 1.1rem 2.5rem;
+      padding: 1rem 2.5rem;
       background: var(--gold);
       color: var(--navy);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -164,950 +148,683 @@
     .hero-cta:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
-    }
-    .hero-note {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      opacity: 0.5;
     }
     
-    /* Stats Bar */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      background: var(--navy-light);
-      border-top: 1px solid var(--glass-border);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .stat-item {
-      padding: 3rem 2rem;
-      text-align: center;
-      border-right: 1px solid var(--glass-border);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.75rem;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.6;
-    }
-    
-    /* Section Base */
+    /* Section Styles */
     .section {
-      padding: 7rem 2rem;
+      padding: 100px 4rem;
+    }
+    .section-light {
+      background: var(--cream);
+      color: var(--navy);
+    }
+    .section-dark {
+      background: var(--navy-light);
     }
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 60px;
     }
-    .section-eyebrow {
-      color: var(--gold);
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .section-header h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       margin-bottom: 1rem;
-      display: block;
     }
-    .section-title {
-      font-size: 2.75rem;
-      line-height: 1.2;
-    }
-    .section-subtitle {
-      font-size: 1.05rem;
-      opacity: 0.7;
-      max-width: 650px;
-      margin: 1.5rem auto 0;
-      line-height: 1.8;
-    }
-    
-    /* Problem Section */
-    .problem-section {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .problem-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .problem-content p {
-      opacity: 0.75;
-      line-height: 1.9;
-      margin-bottom: 1.5rem;
-    }
-    .problem-list {
-      list-style: none;
-      margin-top: 2rem;
-    }
-    .problem-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-    .problem-list .icon {
-      color: #e74c3c;
+    .section-header p {
       font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .problem-visual {
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 3rem;
-      text-align: center;
-    }
-    .problem-visual .icon {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
-    }
-    .problem-visual h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .problem-visual p {
-      font-size: 0.9rem;
-      opacity: 0.6;
-      line-height: 1.7;
-    }
-    
-    /* Comparison Section */
-    .comparison-section {
-      background: var(--navy-light);
-    }
-    .comparison-table {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-    }
-    .comparison-header {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .comparison-header.label { background: transparent; }
-    .comparison-header.other { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5); }
-    .comparison-header.panorama { background: rgba(201, 169, 110, 0.15); color: var(--gold); font-weight: 600; }
-    .comparison-row {
-      display: contents;
-    }
-    .comparison-cell {
-      padding: 1.25rem 2rem;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--glass-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .comparison-cell.label {
-      justify-content: flex-start;
-      font-weight: 500;
-      opacity: 0.9;
-    }
-    .comparison-cell.other {
-      background: rgba(255,255,255,0.02);
-      opacity: 0.5;
-    }
-    .comparison-cell.panorama {
-      background: rgba(201, 169, 110, 0.08);
-      color: var(--gold);
-    }
-    .comparison-cell .check { color: var(--gold); }
-    .comparison-cell .x { color: #666; }
-    
-    /* Features Section */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .feature-card {
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      transition: all 0.4s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 40px rgba(201, 169, 110, 0.1);
-    }
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .feature-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-    .feature-desc {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-    .feature-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(201, 169, 110, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 20px;
-    }
-    
-    /* Journey Section */
-    .journey-section {
-      background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
-    }
-    .journey-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      max-width: 800px;
+      opacity: 0.8;
+      max-width: 700px;
       margin: 0 auto;
     }
-    .journey-step {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    .step-number {
-      width: 70px;
-      height: 70px;
-      background: var(--glass);
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      color: var(--gold);
-    }
-    .step-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .step-content h3 .emoji {
-      font-size: 1.25rem;
-    }
-    .step-content p {
-      font-size: 0.95rem;
-      opacity: 0.7;
-      line-height: 1.8;
-    }
     
-    /* Builders Section */
-    .builders-section {
-      background: var(--navy);
-    }
-    .builders-showcase {
+    /* Story Section */
+    .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 60px;
       align-items: center;
     }
-    .builder-featured {
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
+    .story-image {
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .builder-featured .logo-text {
-      font-family: 'Cormorant Garamond', serif;
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .story-content h3 {
       font-size: 2.5rem;
-      letter-spacing: 3px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--navy);
     }
-    .builder-featured .tagline {
-      color: var(--gold);
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    .story-content p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #4a5568;
       margin-bottom: 1.5rem;
     }
-    .builder-featured p {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      line-height: 1.8;
-    }
-    .builders-coming {
+    
+    /* Amenities */
+    .amenities-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
-    .builder-placeholder {
+    .amenity-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
+      transition: transform 0.3s, background 0.3s;
     }
-    .builder-placeholder .name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      opacity: 0.4;
-      margin-bottom: 0.5rem;
+    .amenity-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.12);
     }
-    .builder-placeholder .status {
-      font-size: 0.7rem;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    .amenity-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .amenity-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .amenity-card p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.7;
     }
     
-    /* Testimonials */
-    .testimonials-section {
-      background: var(--navy-light);
-    }
-    .testimonials-grid {
+    /* Park Feature */
+    .park-feature {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 80px;
     }
-    .testimonial-card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 2.5rem;
+    .park-image {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
     }
-    .testimonial-quote {
-      font-size: 1rem;
-      line-height: 1.8;
-      opacity: 0.85;
+    .park-image img {
+      width: 100%;
+      height: auto;
+    }
+    .park-content h3 {
+      font-size: 2.5rem;
       margin-bottom: 1.5rem;
-      font-style: italic;
     }
-    .testimonial-quote::before {
-      content: '"';
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: var(--gold);
-      line-height: 0;
-      display: block;
-      margin-bottom: 0.5rem;
+    .park-content p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
-    .testimonial-author {
+    .park-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .park-feature-item {
       display: flex;
       align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .park-feature-item::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: bold;
+    }
+    
+    /* Homes Section */
+    .homes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .home-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .home-card:hover {
+      transform: translateY(-8px);
+    }
+    .home-image {
+      height: 220px;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+    .home-content {
+      padding: 1.75rem;
+    }
+    .home-content h4 {
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .home-content .price {
+      color: var(--gold-dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .home-content p {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    
+    /* Location */
+    .location-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .location-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--navy);
+    }
+    .location-text p {
+      font-size: 1.05rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .location-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .location-item {
+      display: flex;
+      align-items: flex-start;
       gap: 1rem;
     }
-    .author-avatar {
-      width: 50px;
-      height: 50px;
+    .location-item-icon {
+      width: 40px;
+      height: 40px;
       background: var(--gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .location-item h5 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
       font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--navy);
     }
-    .author-info .name {
-      font-weight: 500;
-      font-size: 0.95rem;
+    .location-item p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
     }
-    .author-info .location {
-      font-size: 0.8rem;
-      opacity: 0.5;
+    .location-map {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    .location-map img {
+      width: 100%;
+      height: auto;
     }
     
-    /* Final CTA */
+    /* CTA Section */
     .cta-section {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-medium) 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
       text-align: center;
-      padding: 8rem 2rem;
+      padding: 100px 4rem;
     }
     .cta-section h2 {
       font-size: 3rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     .cta-section p {
-      font-size: 1.1rem;
-      opacity: 0.7;
-      max-width: 550px;
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
       margin: 0 auto 2.5rem;
-      line-height: 1.8;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      padding: 1.1rem 2.5rem;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      padding: 1.1rem 2.5rem;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .btn-outline:hover {
-      background: var(--gold);
-      color: var(--navy);
     }
     
-    /* Newsletter */
-    .newsletter {
-      max-width: 500px;
-      margin: 3rem auto 0;
-      padding-top: 3rem;
-      border-top: 1px solid var(--glass-border);
-    }
-    .newsletter h4 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-    }
-    .newsletter-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .newsletter-form input {
-      flex: 1 1 180px;
-      padding: 1rem 1.5rem;
+    /* Lead Form */
+    .lead-form {
       background: var(--glass);
       border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .lead-form h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .lead-form .form-subtitle {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 8px;
-      color: var(--white);
-      font-size: 0.9rem;
+      color: white;
+      font-size: 1rem;
+      transition: border-color 0.3s;
     }
-    .newsletter-form input::placeholder {
-      color: rgba(255,255,255,0.4);
-    }
-    .newsletter-form input:focus {
+    .form-group input:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--gold);
     }
-    .newsletter-form button {
-      flex: 1 1 100%;
-      padding: 1rem 1.5rem;
+    .form-group input::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+    .form-group select option {
+      background: var(--navy);
+      color: white;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
       background: var(--gold);
       color: var(--navy);
       border: none;
+      border-radius: 8px;
       font-size: 0.85rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.3s;
-      border-radius: 8px;
+      margin-top: 1rem;
     }
-    .newsletter-form button:hover {
+    .form-submit:hover {
       background: var(--gold-light);
-    }
-    .newsletter-form button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
     }
     
     /* Footer */
-    .footer {
-      padding: 4rem 2rem 2rem;
-      border-top: 1px solid var(--glass-border);
+    footer {
+      background: #050d18;
+      padding: 60px 4rem 30px;
+      text-align: center;
     }
-    .footer-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+    .footer-logo img {
+      height: 50px;
+      margin-bottom: 1.5rem;
     }
-    .footer-brand {
+    .footer-tagline {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      letter-spacing: 3px;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 2rem;
     }
     .footer-links {
       display: flex;
+      justify-content: center;
       gap: 2rem;
-      list-style: none;
+      margin-bottom: 2rem;
     }
     .footer-links a {
-      color: var(--white);
-      opacity: 0.5;
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 0.85rem;
-      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      transition: color 0.3s;
     }
-    .footer-links a:hover { opacity: 1; }
-    .footer-bottom {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--glass-border);
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    .footer-legal {
       font-size: 0.8rem;
-      opacity: 0.4;
-    }
-    
-    /* Animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 0.5;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      margin-top: 2rem;
     }
     
     /* Responsive */
     @media (max-width: 1024px) {
-      .comparison-table { grid-template-columns: 1fr; }
-      .comparison-header.label,
-      .comparison-cell.label { display: none; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .builders-showcase { grid-template-columns: 1fr; }
+      .story-grid,
+      .park-feature,
+      .location-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .amenities-grid,
+      .homes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     @media (max-width: 768px) {
-      .nav { padding: 1rem 1.5rem; }
-      .hero-title { font-size: 2.5rem; }
-      .section { padding: 5rem 1.5rem; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .stat-item { border-bottom: 1px solid var(--glass-border); }
-      .problem-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .journey-step { grid-template-columns: 60px 1fr; gap: 1.5rem; }
-      .step-number { width: 50px; height: 50px; font-size: 1.25rem; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .cta-section h2 { font-size: 2rem; }
-      .newsletter-form { flex-direction: column; }
-      .footer-content { flex-direction: column; text-align: center; }
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+      .section {
+        padding: 60px 1.5rem;
+      }
+      .amenities-grid,
+      .homes-grid {
+        grid-template-columns: 1fr;
+      }
+      .park-features,
+      .location-highlights {
+        grid-template-columns: 1fr;
+      }
+      .cta-section {
+        padding: 60px 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="nav" id="nav">
-    <a href="#" class="logo">PANORAMA</a>
-    <a href="#contact" class="nav-cta">Get Updates →</a>
+    <a href="#" class="logo">
+      <img src="assets/logo-white.png" alt="Panorama">
+    </a>
+    <a href="#contact" class="nav-cta">Schedule a Tour</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <video class="hero-bg" autoplay muted loop playsinline>
-      <source src="videos/flyover1.mp4" type="video/mp4">
-    </video>
-    <div class="hero-gradient"></div>
+    <img src="assets/drone-1.jpg" alt="Panorama aerial view" class="hero-bg">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-badge">🏔️ Luxury Foothills Living • Opening 2026</span>
-      <h1 class="hero-title">The View is <em>Better</em><br>From Here</h1>
-      <p class="hero-subtitle">6-8 premium builders. World-class amenities. 360° mountain views. This isn't just another subdivision — it's a destination. And it's taking shape right now off Rosecrest.</p>
-      <a href="#builders" class="hero-cta">Explore Homes →</a>
-      <p class="hero-note">Toll Brothers confirmed. More builders announcing soon.</p>
+      <p class="hero-tagline">Herriman's Premier Foothills Community</p>
+      <h1>The View Is Better<br><span class="text-gold">From Here</span></h1>
+      <p class="hero-subtitle">Set in Herriman's scenic foothills, Panorama offers sweeping views of the Wasatch Mountains, world-class amenities, and homes designed for how you live now.</p>
+      <a href="#contact" class="hero-cta">Come See the View</a>
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat-item reveal">
-      <div class="stat-value">6-8</div>
-      <div class="stat-label">Premium Builders</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-value">May '26</div>
-      <div class="stat-label">Amenities Opening</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-value">360°</div>
-      <div class="stat-label">Mountain Views</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-value">∞</div>
-      <div class="stat-label">Protected Open Space</div>
-    </div>
-  </div>
-
-  <!-- Problem Section -->
-  <section class="section problem-section">
+  <!-- Story Section -->
+  <section class="section section-light">
     <div class="container">
-      <div class="problem-grid">
-        <div class="problem-content reveal">
-          <span class="section-eyebrow">The Problem Nobody Talks About</span>
-          <h2>You've Seen "Master-Planned" Before</h2>
-          <p>Most communities promise the world and deliver a subdivision. Cookie-cutter homes. Amenities that never get built. HOA fees that climb while common areas deteriorate. You've heard the pitch. You've seen the disappointment.</p>
-          <p>It doesn't have to be that way.</p>
-          <ul class="problem-list">
-            <li><span class="icon">✕</span> Generic tract homes with no character</li>
-            <li><span class="icon">✕</span> "Coming soon" amenities that never arrive</li>
-            <li><span class="icon">✕</span> Views blocked by the next phase</li>
-            <li><span class="icon">✕</span> Schools as an afterthought</li>
-            <li><span class="icon">✕</span> Zero sense of community</li>
-          </ul>
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="assets/drone-2.jpg" alt="Panorama community views">
         </div>
-        <div class="problem-visual reveal">
-          <div class="icon">🏠</div>
-          <h3>Sound Familiar?</h3>
-          <p>The average family spends 7+ years in a home they "settled" for. At Panorama, you're not settling. You're choosing a lifestyle.</p>
+        <div class="story-content">
+          <h3>Where Home Becomes the Destination</h3>
+          <p>At Panorama, the view is better from here — in every sense of the word. This master-planned community is the last development along Herriman's hillside, offering open skies and panoramic mountain views that never get old.</p>
+          <p>Homes and roads are thoughtfully positioned to take advantage of the natural elevation, whether you're savoring a quiet morning coffee or hosting friends on your deck as the sun sets behind the peaks.</p>
+          <p>From townhomes and cottage lots to custom estates, every home reflects a higher standard of design, landscaping, and architectural detail. This isn't just where you live — it's where your home becomes the destination for connection, celebration, and everyday beauty.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison Section -->
-  <section class="section comparison-section">
+  <!-- Amenities Section -->
+  <section class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow reveal">The Side-By-Side</span>
-        <h2 class="section-title reveal">Panorama vs. Typical Developments</h2>
-        <p class="section-subtitle reveal">See why families are waiting for Panorama instead of settling elsewhere.</p>
+        <h2>Play at Every Level</h2>
+        <p>Adventure, connection, and fun are built into life at every elevation. From trails to parks to gathering spaces, Panorama's amenities are seamlessly woven into everyday life.</p>
       </div>
-      <div class="comparison-table reveal">
-        <div class="comparison-header label"></div>
-        <div class="comparison-header other">Typical Development</div>
-        <div class="comparison-header panorama">PANORAMA</div>
-        
-        <div class="comparison-cell label">Builder Quality</div>
-        <div class="comparison-cell other">1-2 production builders</div>
-        <div class="comparison-cell panorama">6-8 premium builders including Toll Brothers</div>
-        
-        <div class="comparison-cell label">Amenities</div>
-        <div class="comparison-cell other">"Phase 3" (maybe)</div>
-        <div class="comparison-cell panorama">Opening May 2026 — guaranteed</div>
-        
-        <div class="comparison-cell label">Views</div>
-        <div class="comparison-cell other">Until next phase blocks them</div>
-        <div class="comparison-cell panorama">Protected open space forever</div>
-        
-        <div class="comparison-cell label">Schools</div>
-        <div class="comparison-cell other">Hope for the best</div>
-        <div class="comparison-cell panorama">Dedicated land + top districts</div>
-        
-        <div class="comparison-cell label">Community</div>
-        <div class="comparison-cell other">HOA rules and fees</div>
-        <div class="comparison-cell panorama">Adventure parks, trails, gathering spaces</div>
-        
-        <div class="comparison-cell label">Location</div>
-        <div class="comparison-cell other">Sprawl adjacent</div>
-        <div class="comparison-cell panorama">Foothills off Rosecrest — nature at your door</div>
+      
+      <div class="amenities-grid">
+        <div class="amenity-card">
+          <div class="amenity-icon">🏔️</div>
+          <h4>Panorama Park</h4>
+          <p>A dramatic three-level playground built into the hillside with iconic lit towers, slides connecting each level, and a 75-foot double zip line.</p>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🛤️</div>
+          <h4>Trail System</h4>
+          <p>Wide paved trails loop through every neighborhood and connect directly to nearby mountain hiking and biking paths.</p>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🛹</div>
+          <h4>Wheels Park</h4>
+          <p>Designed by American Ramp Company for bikes, scooters, and skateboards — plus a dedicated RC car course built into the natural topography.</p>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🐕</div>
+          <h4>Dog Park</h4>
+          <p>Open space for off-leash play and socializing, because your four-legged family members deserve the view too.</p>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">👶</div>
+          <h4>Tot Lot</h4>
+          <p>A dedicated play area for ages 2-4 with whimsical structures, shared swings, and shaded areas for parents to stay close.</p>
+        </div>
+        <div class="amenity-card">
+          <div class="amenity-icon">🏡</div>
+          <h4>Gathering Spaces</h4>
+          <p>Pocket parks, shaded pavilions, and community areas throughout for connection and celebration.</p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Features Section -->
-  <section class="section" id="amenities">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow reveal">What's Actually Coming</span>
-        <h2 class="section-title reveal">Amenities You'll Actually Use</h2>
-        <p class="section-subtitle reveal">Not "someday" amenities. These are funded, planned, and opening May 2026.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏞️</div>
-          <h3 class="feature-title">Adventure Parks</h3>
-          <p class="feature-desc">Playgrounds with zip lines, towers, slides, and rope courses. For kids and the kid in you.</p>
-          <span class="feature-badge">Opening May 2026</span>
+      <!-- Park Feature -->
+      <div class="park-feature">
+        <div class="park-content">
+          <h3>Panorama Park</h3>
+          <p>At the heart of the community is Panorama Park — a playground experience unlike any other. Iconic lit towers rise above the park, while slides and pathways connect each level, inviting kids to play their way up and down the hillside.</p>
+          <div class="park-features">
+            <div class="park-feature-item">Three-level playground</div>
+            <div class="park-feature-item">75-ft double zip line</div>
+            <div class="park-feature-item">Mighty Descent hill slide</div>
+            <div class="park-feature-item">Double-decker cone spinner</div>
+            <div class="park-feature-item">Unity ring spinner</div>
+            <div class="park-feature-item">Hoopla multi-user swing</div>
+            <div class="park-feature-item">Traditional swing set</div>
+            <div class="park-feature-item">Lit towers at night</div>
+          </div>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🥾</div>
-          <h3 class="feature-title">Scenic Trails</h3>
-          <p class="feature-desc">Miles of walking, biking, and hiking paths that wind through protected natural areas.</p>
-          <span class="feature-badge">Opening May 2026</span>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏊</div>
-          <h3 class="feature-title">Community Center</h3>
-          <p class="feature-desc">Resort-style pool, fitness center, and event spaces for gatherings big and small.</p>
-          <span class="feature-badge">Opening May 2026</span>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🎓</div>
-          <h3 class="feature-title">Top Schools</h3>
-          <p class="feature-desc">Access to excellent schools with dedicated land set aside for future facilities.</p>
-          <span class="feature-badge">District Info Available</span>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🛒</div>
-          <h3 class="feature-title">Retail & Dining</h3>
-          <p class="feature-desc">Shopping and restaurant options planned within the community. Convenience built in.</p>
-          <span class="feature-badge">Coming Soon</span>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">⛰️</div>
-          <h3 class="feature-title">Protected Views</h3>
-          <p class="feature-desc">Preserved open spaces ensure natural beauty for generations. Your view stays your view.</p>
-          <span class="feature-badge">Every Homesite</span>
+        <div class="park-image">
+          <img src="assets/drone-3.jpg" alt="Panorama Park">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Journey Section -->
-  <section class="section journey-section">
+  <!-- Homes Section -->
+  <section class="section section-light">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow reveal">Your Journey Home</span>
-        <h2 class="section-title reveal">From Interest to Keys</h2>
-        <p class="section-subtitle reveal">Finding your dream home at Panorama is simple. Here's how it works.</p>
+        <h2 style="color: var(--navy);">Find Your View</h2>
+        <p style="color: #4a5568;">From townhomes to custom estates, every home at Panorama is designed to take advantage of the views and reflect a higher standard of living.</p>
       </div>
-      <div class="journey-steps">
-        <div class="journey-step reveal">
-          <div class="step-number">01</div>
-          <div class="step-content">
-            <h3><span class="emoji">🔔</span> Get on the List</h3>
-            <p>Sign up for priority updates. You'll be first to know when new builders announce, lots release, and model homes open. Early interest means better selection.</p>
+      
+      <div class="homes-grid">
+        <div class="home-card">
+          <div class="home-image">TOWNHOMES</div>
+          <div class="home-content">
+            <h4>Townhomes</h4>
+            <p class="price">From the $400s</p>
+            <p>Modern living with mountain views. Lock-and-leave convenience meets elevated design.</p>
           </div>
         </div>
-        <div class="journey-step reveal">
-          <div class="step-number">02</div>
-          <div class="step-content">
-            <h3><span class="emoji">🏠</span> Choose Your Builder</h3>
-            <p>Explore homes from 6-8 premium builders, each with their own style and floor plans. From Toll Brothers' signature luxury to other top-tier options announcing soon.</p>
+        <div class="home-card">
+          <div class="home-image">COTTAGE LOTS</div>
+          <div class="home-content">
+            <h4>Cottage Homes</h4>
+            <p class="price">From the $500s</p>
+            <p>Thoughtfully designed single-family homes on cottage-sized lots. All the space you need, none you don't.</p>
           </div>
         </div>
-        <div class="journey-step reveal">
-          <div class="step-number">03</div>
-          <div class="step-content">
-            <h3><span class="emoji">📍</span> Select Your Lot</h3>
-            <p>Pick the homesite that speaks to you. Mountain views. Trailhead access. Corner lot privacy. Every location has something special — but the best ones go first.</p>
-          </div>
-        </div>
-        <div class="journey-step reveal">
-          <div class="step-number">04</div>
-          <div class="step-content">
-            <h3><span class="emoji">🎉</span> Welcome Home</h3>
-            <p>Move into your dream home and enjoy everything Panorama has to offer. Adventure parks, trails, community — it's all waiting for you.</p>
+        <div class="home-card">
+          <div class="home-image">ESTATE LOTS</div>
+          <div class="home-content">
+            <h4>Custom Estates</h4>
+            <p class="price">From the $700s</p>
+            <p>Premium lots for those who want to build their dream. The best views, the most space, your vision.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Builders Section -->
-  <section class="section builders-section" id="builders">
+  <!-- Location Section -->
+  <section class="section section-light" style="padding-top: 0;">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow reveal">Premium Builders</span>
-        <h2 class="section-title reveal">Build Your Dream</h2>
-        <p class="section-subtitle reveal">Not just any builders. The best builders. Curated for quality, variety, and reputation.</p>
-      </div>
-      <div class="builders-showcase">
-        <div class="builder-featured reveal">
-          <div class="logo-text">TOLL BROTHERS</div>
-          <div class="tagline">Luxury Homes — Confirmed</div>
-          <p>America's luxury home builder brings their signature craftsmanship and design excellence to Panorama. Renowned for quality construction, stunning architecture, and exceptional customer experience.</p>
-        </div>
-        <div class="builders-coming">
-          <div class="builder-placeholder reveal">
-            <div class="name">Builder #2</div>
-            <div class="status">Announcing Soon</div>
-          </div>
-          <div class="builder-placeholder reveal">
-            <div class="name">Builder #3</div>
-            <div class="status">Announcing Soon</div>
-          </div>
-          <div class="builder-placeholder reveal">
-            <div class="name">Builder #4</div>
-            <div class="status">Announcing Soon</div>
-          </div>
-          <div class="builder-placeholder reveal">
-            <div class="name">+ More</div>
-            <div class="status">6-8 Total</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="section testimonials-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow reveal">What People Are Saying</span>
-        <h2 class="section-title reveal">The Buzz is Building</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <p class="testimonial-quote">We've been watching this area for years. When we heard Toll Brothers was coming and saw the amenity plan, we knew this was the one. Finally, a community that's actually delivering on its promises.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JM</div>
-            <div class="author-info">
-              <div class="name">Future Resident</div>
-              <div class="location">Priority List Member</div>
+      <div class="location-content">
+        <div class="location-text">
+          <h3>Close to Everything.<br>Elevated Above the Ordinary.</h3>
+          <p>Just minutes from Mountain View Village — shopping, dining, entertainment, Harmon's, and Cinemark. Easy access to Mountain View Corridor, Bangerter Highway, and I-15 keeps the entire valley within reach.</p>
+          <p>Here, you're close to everything yet elevated above the ordinary.</p>
+          
+          <div class="location-highlights">
+            <div class="location-item">
+              <div class="location-item-icon">🛒</div>
+              <div>
+                <h5>Mountain View Village</h5>
+                <p>Shopping, dining & entertainment</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🏫</div>
+              <div>
+                <h5>Top-Rated Schools</h5>
+                <p>Jordan School District</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🚗</div>
+              <div>
+                <h5>Easy Commute</h5>
+                <p>Quick access to I-15 & Bangerter</p>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">⛰️</div>
+              <div>
+                <h5>Mountain Access</h5>
+                <p>Trails connect to foothills</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="testimonial-card reveal">
-          <p class="testimonial-quote">The protected views sold us. We've seen too many 'master-planned' communities where your view becomes someone's backyard in phase 2. At Panorama, that can't happen.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SK</div>
-            <div class="author-info">
-              <div class="name">Future Resident</div>
-              <div class="location">Priority List Member</div>
-            </div>
-          </div>
+        <div class="location-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12148.123456789!2d-112.03!3d40.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPanorama%20Herriman!5e0!3m2!1sen!2sus!4v1234567890"
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius: 12px;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- CTA / Lead Form Section -->
   <section class="cta-section" id="contact">
     <div class="container">
-      <h2 class="reveal">Ready to See What's Possible?</h2>
-      <p class="reveal">The best lots go to the earliest interest. Get on the priority list today and be first to know when builders announce, models open, and lots release.</p>
-      <div class="cta-buttons reveal">
-        <a href="#" class="btn-primary">Join Priority List →</a>
-        <a href="#" class="btn-outline">Schedule a Tour</a>
-      </div>
-      <div class="newsletter reveal" id="lead-form">
-        <h4>Join the Priority List</h4>
-        <form class="newsletter-form" id="panoramaLeadForm">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
-          <input type="tel" name="phone" placeholder="Phone (optional)">
-          <button type="submit">Get Priority Access</button>
+      <h2>Come See the View</h2>
+      <p>Schedule a tour and discover why life really is better from here.</p>
+      
+      <div class="lead-form">
+        <h3>Request Information</h3>
+        <p class="form-subtitle">Get updates on available homes and community news</p>
+        
+        <form id="leadForm" action="https://script.google.com/macros/s/YOUR_APPS_SCRIPT_URL/exec" method="POST">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(801) 555-0123">
+          </div>
+          <div class="form-group">
+            <label>I'm Interested In</label>
+            <select name="interest">
+              <option value="">Select home type...</option>
+              <option value="townhome">Townhomes (from $400s)</option>
+              <option value="cottage">Cottage Homes (from $500s)</option>
+              <option value="estate">Custom Estates (from $700s)</option>
+              <option value="general">General Information</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Get Information</button>
         </form>
-        <p id="formSuccess" style="display:none; color: var(--gold); margin-top: 1rem;">✓ You're on the list! We'll be in touch soon.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-brand">PANORAMA</div>
-      <ul class="footer-links">
-        <li><a href="#amenities">Amenities</a></li>
-        <li><a href="#builders">Builders</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <footer>
+    <div class="footer-logo">
+      <img src="assets/logo-white.png" alt="Panorama">
     </div>
-    <div class="footer-bottom">
-      © 2026 Panorama. A DAI Development. The view is better from here.
+    <p class="footer-tagline">The View Is Better From Here</p>
+    <div class="footer-links">
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
     </div>
+    <p class="footer-legal">
+      © 2026 Panorama. A DAI Development. All rights reserved.<br>
+      Prices, plans, and availability subject to change without notice.
+    </p>
   </footer>
 
   <script>
-    // Nav scroll
+    // Nav scroll effect
     window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
     });
-
-    // Reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Lead form submission
-    // TODO: Replace with actual Google Apps Script URL after deployment
-    const WEBHOOK_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
-    
-    document.getElementById('panoramaLeadForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('button');
-      const originalText = btn.textContent;
-      
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-      
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value || '',
-        source: 'Panorama Website'
-      };
-      
-      try {
-        // If webhook is configured, send data
-        if (WEBHOOK_URL && !WEBHOOK_URL.includes('YOUR_')) {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        
-        // Show success
-        form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-        
-      } catch (err) {
-        console.error('Form error:', err);
-        alert('Something went wrong. Please try again.');
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
+      });
     });
   </script>
 </body>
