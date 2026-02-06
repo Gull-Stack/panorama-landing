@@ -1,3 +1,14 @@
+# Robots.txt for Panorama - panoramahomes.com
+
 User-agent: *
 Allow: /
-Sitemap: https://premierplasticsurgery.com/sitemap.xml
+
+# Sitemap
+Sitemap: https://panoramahomes.com/sitemap.xml
+
+# Crawl-delay suggestion (optional)
+Crawl-delay: 1
+
+# Disallow admin/system paths if any
+Disallow: /.vercel/
+Disallow: /.git/
