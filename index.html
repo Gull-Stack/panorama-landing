@@ -690,6 +690,158 @@
       margin-top: 2rem;
     }
     
+    /* ===== SCROLL ANIMATIONS ===== */
+    
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Staggered reveal for children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal-stagger.active > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.active > *:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger.active > *:nth-child(3) { transition-delay: 0.2s; }
+    .reveal-stagger.active > *:nth-child(4) { transition-delay: 0.3s; }
+    .reveal-stagger.active > *:nth-child(5) { transition-delay: 0.4s; }
+    .reveal-stagger.active > *:nth-child(6) { transition-delay: 0.5s; }
+    .reveal-stagger.active > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Reveal from sides */
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Parallax hero */
+    .hero-backgrounds {
+      will-change: transform;
+    }
+    
+    /* Progress zoom on images */
+    .zoom-on-scroll {
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+    
+    /* Sticky image section */
+    .sticky-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 100vh;
+    }
+    .sticky-image-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .sticky-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sticky-content {
+      padding: 100px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* Horizontal scroll gallery */
+    .horizontal-scroll-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .horizontal-scroll-track {
+      display: flex;
+      gap: 30px;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+    .horizontal-scroll-track .amenity-card {
+      flex: 0 0 350px;
+      min-width: 350px;
+    }
+    
+    /* Scale animation */
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .scale-in.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sticky-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .sticky-image-container {
+        position: relative;
+        height: 50vh;
+      }
+      .sticky-content {
+        padding: 60px 40px;
+      }
+      .horizontal-scroll-track .amenity-card {
+        flex: 0 0 300px;
+        min-width: 300px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+        transform: translateY(20px);
+      }
+      .sticky-content {
+        padding: 40px 20px;
+      }
+      .horizontal-scroll-track .amenity-card {
+        flex: 0 0 280px;
+        min-width: 280px;
+      }
+    }
+    
     /* Responsive */
     @media (max-width: 1024px) {
       .story-grid,
@@ -777,10 +929,10 @@
   <section class="section section-light">
     <div class="container">
       <div class="story-grid">
-        <div class="story-image">
-          <img src="assets/drone-2.jpg" alt="Panorama community views">
+        <div class="story-image reveal-left">
+          <img src="assets/drone-2.jpg" alt="Panorama community views" class="zoom-on-scroll">
         </div>
-        <div class="story-content">
+        <div class="story-content reveal-right">
           <h3>Where Home Becomes<br>the Destination</h3>
           <p>At Panorama, the view is better from here — in every sense of the word. Set in Herriman's scenic foothills, this master-planned community is the last development along the hillside, offering open skies and sweeping views of the Wasatch Mountains.</p>
           <p>Homes and roads are thoughtfully positioned to take advantage of the natural elevation, whether you're savoring a quiet morning coffee or hosting friends on your deck as the sun sets behind the peaks.</p>
@@ -793,12 +945,12 @@
   <!-- Amenities Section -->
   <section class="section section-dark">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Play at Every Level</h2>
         <p>Wide internal trails weave through the community, connecting neighborhoods to each other and to nearby mountain paths — making hiking, biking, and evening walks part of daily life.</p>
       </div>
       
-      <div class="amenities-grid">
+      <div class="amenities-grid reveal-stagger">
         <div class="amenity-card">
           <div class="amenity-image-wrapper"><img src="https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=600&h=400&fit=crop" alt="Three-level playground" class="amenity-image"></div>
           <div class="amenity-content">
@@ -845,7 +997,7 @@
 
       <!-- Park Feature -->
       <div class="park-feature">
-        <div class="park-content">
+        <div class="park-content reveal-left">
           <h3>Panorama Park</h3>
           <p>This isn't a token playground. At the heart of the community is Panorama Park — a three-level experience built into the hillside with iconic lit towers, slides connecting each level, and the kind of design that makes your home the place every kid wants to visit.</p>
           <div class="park-features">
@@ -859,8 +1011,8 @@
             <div class="park-feature-item">Lit towers at night</div>
           </div>
         </div>
-        <div class="park-image">
-          <img src="assets/drone-3.jpg" alt="Panorama Park">
+        <div class="park-image reveal-right">
+          <img src="assets/drone-3.jpg" alt="Panorama Park" class="zoom-on-scroll">
         </div>
       </div>
     </div>
@@ -869,12 +1021,12 @@
   <!-- Builders Section -->
   <section class="section section-dark" style="padding-bottom: 60px;">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Utah's Finest Builders</h2>
         <p>Six of Utah's most respected builders. Elevated design standards. Homes built to last — and built to impress. Where you live should reflect who you've become.</p>
       </div>
       
-      <div style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 60px;">
+      <div class="reveal" style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 60px;">
         <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: rgba(255,255,255,0.9); letter-spacing: 2px;">TRI POINTE</span>
         <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: rgba(255,255,255,0.9); letter-spacing: 2px;">TOLL BROTHERS</span>
         <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: rgba(255,255,255,0.9); letter-spacing: 2px;">PULTE</span>
@@ -884,29 +1036,29 @@
       </div>
       
       <!-- Master Plan Overview -->
-      <div style="text-align: center; margin-bottom: 30px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 30px;">
         <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">The Master Plan</h3>
         <p style="opacity: 0.8; max-width: 650px; margin: 0 auto;">Five distinct villages. Six world-class builders. 1,082 homesites — every one positioned to capture the panoramic views you deserve.</p>
       </div>
-      <div style="background: white; border-radius: 12px; padding: 30px; margin-bottom: 50px;">
-        <img src="images/master-plan-aerial.jpg" alt="Panorama Master Plan - Aerial View" style="width: 100%; border-radius: 8px;">
+      <div class="scale-in" style="background: white; border-radius: 12px; padding: 30px; margin-bottom: 50px;">
+        <img src="images/master-plan-aerial.jpg" alt="Panorama Master Plan - Aerial View" style="width: 100%; border-radius: 8px;" class="zoom-on-scroll">
       </div>
       
       <!-- Builder Homes Gallery -->
-      <img src="images/tripointe-toll-brothers.jpg" alt="Homes by Tri Pointe and Toll Brothers" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); margin-bottom: 30px;">
-      <img src="images/builder-collage.jpg" alt="Homes by J.Craft and Elevation Homes" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      <img src="images/tripointe-toll-brothers.jpg" alt="Homes by Tri Pointe and Toll Brothers" class="reveal zoom-on-scroll" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); margin-bottom: 30px;">
+      <img src="images/builder-collage.jpg" alt="Homes by J.Craft and Elevation Homes" class="reveal zoom-on-scroll" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
     </div>
   </section>
 
   <!-- Homes Section -->
   <section class="section section-light">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2 style="color: var(--navy);">Find Your View</h2>
         <p style="color: #4a5568;">Whether you're moving up, starting fresh, or downsizing without downgrading — there's a Panorama home designed for your next chapter.</p>
       </div>
       
-      <div class="homes-grid">
+      <div class="homes-grid reveal-stagger">
         <div class="home-card">
           <img src="images/dai-townhomes.jpg" alt="DAI Townhomes at Panorama" style="width: 100%; height: 220px; object-fit: cover;">
           <div class="home-content">
@@ -939,7 +1091,7 @@
   <section class="section section-light" style="padding-top: 0;">
     <div class="container">
       <div class="location-content">
-        <div class="location-text">
+        <div class="location-text reveal-left">
           <h3>Close to Everything.<br>Elevated Above the Ordinary.</h3>
           <p>Just minutes away, Mountain View Village offers shopping, dining, entertainment, and conveniences like Harmon's and Cinemark. Easy access to Mountain View Corridor, Bangerter Highway, and I-15 keeps the entire valley within reach.</p>
           <p><strong>Here, you're close to everything — yet elevated above the ordinary.</strong></p>
@@ -975,7 +1127,7 @@
             </div>
           </div>
         </div>
-        <div class="location-map">
+        <div class="location-map reveal-right">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12148.123456789!2d-112.03!3d40.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPanorama%20Herriman!5e0!3m2!1sen!2sus!4v1234567890"
             width="100%" 
@@ -992,10 +1144,10 @@
   <!-- CTA / Lead Form Section -->
   <section class="cta-section" id="contact">
     <div class="container">
-      <h2>Come See the View<br><span class="text-gold">For Yourself</span></h2>
-      <p>At Panorama, the combination of location, design, and lifestyle proves that when it comes to where you live and how you live, the view truly is better from here.</p>
+      <h2 class="reveal">Come See the View<br><span class="text-gold">For Yourself</span></h2>
+      <p class="reveal">At Panorama, the combination of location, design, and lifestyle proves that when it comes to where you live and how you live, the view truly is better from here.</p>
       
-      <div class="lead-form">
+      <div class="lead-form scale-in">
         <h3>Your Next Chapter Starts Here</h3>
         <p class="form-subtitle">Get priority access to available homesites and community updates</p>
         
@@ -1046,46 +1198,159 @@
   </footer>
 
   <script>
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Hero background rotation
+    // ===== SCROLL ANIMATIONS ENGINE =====
     (function() {
+      'use strict';
+      
+      // Detect mobile for performance optimization
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // ===== 1. PARALLAX HERO =====
+      const heroBackgrounds = document.querySelector('.hero-backgrounds');
+      const hero = document.querySelector('.hero');
+      let ticking = false;
+      
+      function updateParallax() {
+        if (prefersReducedMotion) return;
+        
+        const scrollY = window.scrollY;
+        const heroHeight = hero.offsetHeight;
+        
+        // Only apply parallax while hero is visible
+        if (scrollY < heroHeight) {
+          const parallaxOffset = scrollY * 0.5; // 0.5 factor = slower scroll
+          heroBackgrounds.style.transform = `translateY(${parallaxOffset}px)`;
+        }
+        ticking = false;
+      }
+      
+      // ===== 2. INTERSECTION OBSERVER FOR REVEAL ANIMATIONS =====
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Optionally unobserve after reveal (performance)
+            // revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      // Observe all reveal elements
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger, .scale-in').forEach(el => {
+        revealObserver.observe(el);
+      });
+      
+      // ===== 3. PROGRESS-BASED IMAGE ZOOM =====
+      const zoomImages = document.querySelectorAll('.zoom-on-scroll');
+      
+      function updateImageZoom() {
+        if (prefersReducedMotion || isMobile) return;
+        
+        zoomImages.forEach(img => {
+          const rect = img.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          // Calculate visibility progress (0 to 1)
+          const visibleTop = Math.max(0, windowHeight - rect.top);
+          const visibleBottom = Math.max(0, rect.bottom);
+          const totalVisible = Math.min(rect.height + windowHeight, visibleTop + visibleBottom);
+          const progress = Math.min(1, Math.max(0, visibleTop / (windowHeight + rect.height)));
+          
+          // Scale from 1.0 to 1.05 based on scroll progress
+          const scale = 1 + (progress * 0.05);
+          img.style.transform = `scale(${scale})`;
+        });
+      }
+      
+      // ===== 4. NAV SCROLL EFFECT =====
+      const nav = document.getElementById('nav');
+      
+      function updateNav() {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      
+      // ===== MAIN SCROLL HANDLER (uses requestAnimationFrame) =====
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateParallax();
+            updateImageZoom();
+            updateNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      
+      window.addEventListener('scroll', onScroll, { passive: true });
+      
+      // Initial call
+      onScroll();
+      
+      // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+      
+      // ===== HERO BACKGROUND ROTATION =====
       const heroImages = document.querySelectorAll('.hero-bg');
       let currentIndex = 0;
-      const intervalTime = 6000; // 6 seconds per image
-
+      const intervalTime = 6000;
+      
       function rotateHero() {
-        // Remove active class from current
         heroImages[currentIndex].classList.remove('active');
-        
-        // Move to next image
         currentIndex = (currentIndex + 1) % heroImages.length;
-        
-        // Add active class to new current
         heroImages[currentIndex].classList.add('active');
       }
-
-      // Start rotation
+      
       setInterval(rotateHero, intervalTime);
+      
+      // ===== HORIZONTAL SCROLL GALLERY (if present) =====
+      const horizontalWrapper = document.querySelector('.horizontal-scroll-wrapper');
+      if (horizontalWrapper && !isMobile) {
+        const track = horizontalWrapper.querySelector('.horizontal-scroll-track');
+        
+        function updateHorizontalScroll() {
+          const rect = horizontalWrapper.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+            const maxScroll = track.scrollWidth - horizontalWrapper.offsetWidth;
+            const scrollAmount = Math.min(maxScroll, Math.max(0, progress * maxScroll));
+            track.style.transform = `translateX(-${scrollAmount}px)`;
+          }
+        }
+        
+        window.addEventListener('scroll', () => {
+          requestAnimationFrame(updateHorizontalScroll);
+        }, { passive: true });
+      }
+      
+      // ===== PERFORMANCE: Pause animations when tab not visible =====
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          // Pause heavy animations
+        } else {
+          // Resume
+          onScroll();
+        }
+      });
+      
     })();
   </script>
 </body>
