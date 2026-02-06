@@ -200,7 +200,7 @@
     /* Hero */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -743,6 +743,60 @@
     .reveal-right.active {
       opacity: 1;
       transform: translateX(0);
+    }
+    
+    /* Slide-in CTA Banner (Summerlin-style) */
+    .slide-in-cta {
+      position: fixed;
+      bottom: -120px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #c17f59 0%, #b8735a 100%);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 900;
+      transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
+    }
+    .slide-in-cta.visible {
+      bottom: 0;
+    }
+    .slide-in-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+    .slide-in-cta-btn {
+      padding: 0.9rem 2rem;
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .slide-in-cta-btn:hover {
+      background: var(--white);
+      color: #b8735a;
+    }
+    @media (max-width: 768px) {
+      .slide-in-cta {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        text-align: center;
+      }
+      .slide-in-cta-text {
+        font-size: 1.3rem;
+      }
     }
     
     /* Parallax hero */
@@ -1351,6 +1405,43 @@
         }
       });
       
+    })();
+  </script>
+  
+  <!-- Slide-in CTA Banner -->
+  <div class="slide-in-cta" id="slideInCta">
+    <span class="slide-in-cta-text">Stay in the loop on Panorama's newest homes & events</span>
+    <a href="#contact" class="slide-in-cta-btn">Get Updates</a>
+  </div>
+  
+  <script>
+    // Show slide-in CTA after scrolling past hero
+    (function() {
+      const cta = document.getElementById('slideInCta');
+      const hero = document.querySelector('.hero');
+      let ctaVisible = false;
+      
+      function checkScroll() {
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        
+        // Show CTA after scrolling 50% past hero
+        if (scrollY > heroBottom * 0.5 && !ctaVisible) {
+          cta.classList.add('visible');
+          ctaVisible = true;
+        }
+        
+        // Hide CTA when near footer or back at top
+        const docHeight = document.documentElement.scrollHeight;
+        if (scrollY < heroBottom * 0.3 || scrollY + viewportHeight > docHeight - 200) {
+          cta.classList.remove('visible');
+          ctaVisible = false;
+        }
+      }
+      
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      checkScroll();
     })();
   </script>
 </body>
