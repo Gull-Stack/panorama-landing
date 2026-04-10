@@ -7,8 +7,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Panorama Herriman - Coming Soon | Premium Foothills Community with Wasatch Mountain Views</title>
-  <meta name="description" content="Panorama - Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views, elevated design, and a thoughtfully planned community positioned above the valley.">
-  <meta name="keywords" content="panorama herriman, herriman foothills community, wasatch mountain views, utah premium homes coming soon, herriman new construction, mountain view homes utah, elevated living herriman, foothills real estate utah">
+  <meta name="description" content="Panorama - Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views, elevated design standards, and luxury living positioned above the valley. Join the waitlist for priority access to homesites.">
+  <meta name="keywords" content="panorama herriman, herriman foothills community, wasatch mountain views, utah luxury homes coming soon, herriman new construction, mountain view homes utah, elevated living herriman, foothills real estate utah">
   <link rel="canonical" href="https://panorama-landing-chi.vercel.app/">
   
   <!-- Enhanced SEO Meta Tags -->
@@ -25,13 +25,13 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
   
   <!-- Page Topic Keywords for AEO -->
-  <meta name="topic" content="Real Estate, New Construction, Mountain Views, Premium Homes, Utah Communities">
+  <meta name="topic" content="Real Estate, New Construction, Mountain Views, Luxury Homes, Utah Communities">
   <meta name="subject" content="Premium foothills community development in Herriman, Utah">
   <meta name="abstract" content="Panorama offers elevated living with panoramic Wasatch Mountain views in Herriman's last foothills location. A master-planned community focused on views, location, and elevated design standards.">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Panorama Herriman - Coming Soon | Premium Foothills Community">
-  <meta property="og:description" content="Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views and elevated design standards. A master-planned community above the valley.">
+  <meta property="og:description" content="Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views and elevated design standards. Join the waitlist for priority access.">
   <meta property="og:image" content="https://panorama-landing-chi.vercel.app/images/aerial/aerial-01.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -44,7 +44,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Panorama Herriman - Coming Soon | Premium Foothills Community">
-  <meta name="twitter:description" content="Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views and elevated design standards. Coming soon to Herriman's foothills.">
+  <meta name="twitter:description" content="Herriman's last foothills community coming soon. Panoramic Wasatch Mountain views and elevated design standards.">
   <meta name="twitter:image" content="https://panorama-landing-chi.vercel.app/images/aerial/aerial-01.jpg">
   <meta name="twitter:image:alt" content="Panoramic aerial view of Panorama community in Herriman foothills">
   
@@ -471,8 +471,7 @@
       z-index: 5;
       text-align: center;
       max-width: 900px;
-      padding: 2rem 2rem 0;
-      margin-top: 2rem;
+      padding: 0 2rem;
     }
     .hero-tagline {
       font-size: 0.85rem;
@@ -1316,7 +1315,16 @@
       <span></span><span></span><span></span>
     </div>
     <div class="nav-links" id="navLinks">
-
+      <div class="nav-item">
+        <a href="find-a-home/" class="nav-link">Find A Home <span class="arrow">▼</span></a>
+        <div class="nav-dropdown">
+          <a href="find-a-home/">Overview</a>
+          <a href="find-a-home/builders.html">Our Builders</a>
+          <a href="find-a-home/villages.html">Villages</a>
+          <a href="find-a-home/homesites.html">Available Homesites</a>
+          <a href="find-a-home/floorplans.html">Floor Plans</a>
+        </div>
+      </div>
       <div class="nav-item">
         <a href="life-culture/" class="nav-link">Life & Culture <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
@@ -1339,7 +1347,7 @@
       </div>
       <a href="maps/" class="nav-link">Maps</a>
       <a href="gallery.html" class="nav-link">Gallery</a>
-
+      <a href="#contact" class="nav-cta">Schedule a Tour</a>
     </div>
   </nav>
 
@@ -1358,18 +1366,44 @@
       <p class="hero-tagline">Coming Soon</p>
       <h1>The View Is Better<br><span class="text-gold">From Here</span></h1>
       <p class="hero-subtitle">Panoramic Wasatch views. World-class amenities. A home that finally reflects how far you've come. This is Panorama — Herriman's last foothills community.</p>
-
+      <a href="#contact" class="hero-cta">Join the Waitlist</a>
     </div>
   </section>
 
 
 
-  <!-- Builder Announcements Section -->
-  <section class="cta-section" id="builders">
+  <!-- CTA / Lead Form Section -->
+  <section class="cta-section" id="contact">
     <div class="container">
-      <div class="scale-in" style="text-align: center; padding: 4rem 2rem;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 1.5rem; color: var(--navy);">Builder Announcements<br><span class="text-gold">Coming Soon</span></h2>
-        <p style="font-size: 1.1rem; color: #666; max-width: 550px; margin: 0 auto; line-height: 1.8;">Premium builders are being selected for Panorama. Details will be announced as partnerships are finalized.</p>
+      <div class="lead-form scale-in">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 2rem; text-align: center; color: var(--navy);">Come See the View<br><span class="text-gold">For Yourself</span></h2>
+        
+        <form id="leadForm" action="https://script.google.com/macros/s/YOUR_APPS_SCRIPT_URL/exec" method="POST">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(801) 555-0123">
+          </div>
+          <div class="form-group">
+            <label>I'm Interested In</label>
+            <select name="interest">
+              <option value="">Select interest...</option>
+              <option value="townhome">Townhomes</option>
+              <option value="single-family">Single Family Homes</option>
+              <option value="estate">Custom Estates</option>
+              <option value="tour">Schedule a Tour</option>
+              <option value="updates">General Updates</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Join the Waitlist</button>
+        </form>
       </div>
     </div>
   </section>
@@ -1400,10 +1434,12 @@
     </div>
     <p class="footer-tagline">The View Is Better From Here</p>
     <div class="footer-links" style="display: none;">
+      <a href="find-a-home/">Find A Home</a>
       <a href="life-culture/">Life & Culture</a>
       <a href="things-to-do/">Things To Do</a>
       <a href="maps/">Maps</a>
       <a href="gallery.html">Gallery</a>
+      <a href="#contact">Contact</a>
     </div>
     <p class="footer-legal">
       © 2026 Panorama. A DAI Development. All rights reserved.<br>
