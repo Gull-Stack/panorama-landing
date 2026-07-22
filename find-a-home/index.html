@@ -109,21 +109,61 @@
     </div>
   </section>
 
-  <!-- Villages Preview -->
-  <section class="section section-dark">
+  <!-- Villages + interactive village map (per redline: the dynamic hover map lives on the Find/builder page) -->
+  <section class="section section-dark" id="villages">
     <div class="container">
-      <div class="grid-2">
-        <div class="reveal">
-          <h2>Five Distinctive Villages</h2>
-          <p style="margin: 1.5rem 0; opacity: 0.9; line-height: 1.8;">Each of Panorama's five villages offers its own character and advantages — from cottage-style neighborhoods to estate-lot enclaves. Every village is connected by our trail system and positioned to maximize views of the Wasatch Mountains and Salt Lake Valley.</p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
-            <a href="villages.html" class="btn btn-gold">Explore Villages</a>
-            <a href="bring-your-own-builder.html" class="btn btn-outline">View Available Lots</a>
-          </div>
+      <div class="section-header reveal">
+        <h2>Five Distinctive Villages</h2>
+        <p>Each of Panorama's five villages has its own character — from cottage-style neighborhoods to estate-lot enclaves, all connected by the trail system. Hover (or tap) a village to see who's building there.</p>
+      </div>
+      <div class="village-map asset-pending reveal" role="group" aria-label="Interactive Panorama village map">
+        <img src="../images/master-plan-aerial.jpg" alt="Panorama master plan aerial" class="village-map-bg">
+        <span class="pending-note">New Google Earth aerial (roads + terrain) coming from Ranee</span>
+
+        <div class="village-hotspot" style="top: 68%; left: 20%;">
+          <span class="village-dot" tabindex="0" role="button" aria-label="The Gateway village — builders"></span>
+          <span class="village-label">The Gateway</span>
+          <div class="village-popup"><h4>The Gateway</h4><ul>
+            <li><a href="builder-dai.html">DAI Homes →</a></li>
+            <li><a href="builder-pulte.html">Pulte Homes →</a></li>
+          </ul></div>
         </div>
-        <div class="reveal">
-          <img src="../images/master-plan-aerial.jpg" alt="Panorama Master Plan" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+        <div class="village-hotspot" style="top: 52%; left: 40%;">
+          <span class="village-dot" tabindex="0" role="button" aria-label="The Heart village — builders"></span>
+          <span class="village-label">The Heart</span>
+          <div class="village-popup"><h4>The Heart</h4><ul>
+            <li><a href="builder-tri-pointe.html">Tri Pointe Homes →</a></li>
+            <li><a href="builder-pulte.html">Pulte Homes →</a></li>
+          </ul></div>
         </div>
+        <div class="village-hotspot" style="top: 39%; left: 58%;">
+          <span class="village-dot" tabindex="0" role="button" aria-label="The Ridge village — builders"></span>
+          <span class="village-label">The Ridge</span>
+          <div class="village-popup"><h4>The Ridge</h4><ul>
+            <li><a href="builder-toll-brothers.html">Toll Brothers →</a></li>
+            <li><a href="builder-tri-pointe.html">Tri Pointe Homes →</a></li>
+          </ul></div>
+        </div>
+        <div class="village-hotspot" style="top: 29%; left: 74%;">
+          <span class="village-dot" tabindex="0" role="button" aria-label="The Summit village — builders"></span>
+          <span class="village-label">The Summit</span>
+          <div class="village-popup"><h4>The Summit</h4><ul>
+            <li><a href="builder-toll-brothers.html">Toll Brothers →</a></li>
+            <li><a href="builder-jcraft.html">J-Craft Homes →</a></li>
+          </ul></div>
+        </div>
+        <div class="village-hotspot" style="top: 58%; left: 82%;">
+          <span class="village-dot" tabindex="0" role="button" aria-label="The Estates village — builders"></span>
+          <span class="village-label">The Estates</span>
+          <div class="village-popup"><h4>The Estates</h4><ul>
+            <li><a href="builder-jcraft.html">J-Craft Homes →</a></li>
+            <li><a href="builder-elevation.html">Elevation Homes →</a></li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="reveal" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+        <a href="villages.html" class="btn btn-gold">Explore Villages</a>
+        <a href="bring-your-own-builder.html" class="btn btn-outline">View Available Lots</a>
       </div>
     </div>
   </section>

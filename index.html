@@ -1438,59 +1438,19 @@
     </div>
   </section>
 
-  <!-- Dynamic village map — location context; hover a village to see its builders (per redline) -->
-  <section class="section section-dark" id="villages">
+  <!-- Location context — per redline, Home shows the site in relation to LOCATION
+       (Google-Earth-style aerial). The dynamic village/builder map lives on Find Your Builder. -->
+  <section class="section section-dark" id="location-map">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Find Your Village</h2>
-        <p>Five distinct villages, positioned to capture the view. Hover (or tap) a village to see who's building there. The detailed site plan lives on each builder's page.</p>
+        <h2>Where Panorama Sits</h2>
+        <p>Perched in Herriman's foothills off Rosecrest, positioned to capture the Wasatch views. See who's building in each village over on Find Your Builder.</p>
       </div>
-      <div class="village-map asset-pending reveal" role="group" aria-label="Interactive Panorama village map">
-        <img src="images/master-plan-aerial.jpg" alt="Panorama master plan aerial" class="village-map-bg">
+      <div class="asset-pending reveal" style="position: relative; max-width: 1100px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+        <img src="images/master-plan-aerial.jpg" alt="Panorama in relation to Herriman and the Wasatch foothills" style="width: 100%; display: block;">
         <span class="pending-note">New Google Earth aerial (roads + terrain) coming from Ranee</span>
-
-        <div class="village-hotspot" style="top: 68%; left: 20%;">
-          <span class="village-dot" tabindex="0" role="button" aria-label="The Gateway village — builders"></span>
-          <span class="village-label">The Gateway</span>
-          <div class="village-popup"><h4>The Gateway</h4><ul>
-            <li><a href="find-a-home/builder-dai.html">DAI Homes →</a></li>
-            <li><a href="find-a-home/builder-pulte.html">Pulte Homes →</a></li>
-          </ul></div>
-        </div>
-        <div class="village-hotspot" style="top: 52%; left: 40%;">
-          <span class="village-dot" tabindex="0" role="button" aria-label="The Heart village — builders"></span>
-          <span class="village-label">The Heart</span>
-          <div class="village-popup"><h4>The Heart</h4><ul>
-            <li><a href="find-a-home/builder-tri-pointe.html">Tri Pointe Homes →</a></li>
-            <li><a href="find-a-home/builder-pulte.html">Pulte Homes →</a></li>
-          </ul></div>
-        </div>
-        <div class="village-hotspot" style="top: 39%; left: 58%;">
-          <span class="village-dot" tabindex="0" role="button" aria-label="The Ridge village — builders"></span>
-          <span class="village-label">The Ridge</span>
-          <div class="village-popup"><h4>The Ridge</h4><ul>
-            <li><a href="find-a-home/builder-toll-brothers.html">Toll Brothers →</a></li>
-            <li><a href="find-a-home/builder-tri-pointe.html">Tri Pointe Homes →</a></li>
-          </ul></div>
-        </div>
-        <div class="village-hotspot" style="top: 29%; left: 74%;">
-          <span class="village-dot" tabindex="0" role="button" aria-label="The Summit village — builders"></span>
-          <span class="village-label">The Summit</span>
-          <div class="village-popup"><h4>The Summit</h4><ul>
-            <li><a href="find-a-home/builder-toll-brothers.html">Toll Brothers →</a></li>
-            <li><a href="find-a-home/builder-jcraft.html">J-Craft Homes →</a></li>
-          </ul></div>
-        </div>
-        <div class="village-hotspot" style="top: 58%; left: 82%;">
-          <span class="village-dot" tabindex="0" role="button" aria-label="The Estates village — builders"></span>
-          <span class="village-label">The Estates</span>
-          <div class="village-popup"><h4>The Estates</h4><ul>
-            <li><a href="find-a-home/builder-jcraft.html">J-Craft Homes →</a></li>
-            <li><a href="find-a-home/builder-elevation.html">Elevation Homes →</a></li>
-          </ul></div>
-        </div>
       </div>
-      <p class="reveal" style="text-align: center; margin-top: 1.5rem; opacity: 0.75; font-size: 0.9rem;">Full site plan &amp; homesites: <a href="find-a-home/" style="color: var(--gold);">Find Your Builder →</a></p>
+      <p class="reveal" style="text-align: center; margin-top: 1.75rem;"><a href="find-a-home/#villages" class="btn btn-gold">Explore Villages &amp; Builders</a></p>
     </div>
   </section>
 
