@@ -489,3 +489,236 @@ footer {
     padding: 40px 1.5rem 20px;
   }
 }
+
+/* ============================================================
+   Ranee redline components (shared)
+   ============================================================ */
+
+/* Pending-asset flag — makes it obvious what is waiting on Ranee */
+.asset-pending { position: relative; outline: 2px dashed var(--gold); outline-offset: 4px; }
+.pending-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  margin-top: 0.75rem;
+}
+.pending-note {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(10,22,40,0.82);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  z-index: 6;
+}
+
+/* Panorama Builders — clickable logo grid */
+.builder-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.builder-logo-link {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  min-height: 160px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s;
+}
+.builder-logo-link:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+/* Logo image, or a text placeholder until real logo art arrives */
+.builder-logo-img {
+  height: 64px;
+  width: 100%;
+  max-width: 180px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--gold-light);
+}
+.builder-logo-img.placeholder {
+  border: 2px dashed var(--glass-border);
+  border-radius: 8px;
+}
+.builder-logo-link:hover .builder-logo-img.placeholder { border-color: var(--gold); }
+.builder-logo-link .builder-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--white); }
+.builder-logo-link .builder-meta { font-size: 0.8rem; opacity: 0.7; }
+.builder-logo-link .view-plans { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
+.builder-logo-link .coming-soon { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+/* Dynamic village map — hover/focus a village to see its builders */
+.village-map {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy) 100%);
+}
+.village-map img.village-map-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.55;
+}
+.village-hotspot { position: absolute; transform: translate(-50%, -50%); z-index: 3; }
+.village-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--gold); border: 3px solid var(--white);
+  cursor: pointer;
+  animation: villagePulse 2.4s infinite;
+}
+.village-dot:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+@keyframes villagePulse {
+  0% { box-shadow: 0 0 0 0 rgba(201,169,110,0.6); }
+  70% { box-shadow: 0 0 0 16px rgba(201,169,110,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
+}
+.village-label {
+  position: absolute; top: 27px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; color: var(--white); font-size: 0.78rem; font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7); pointer-events: none;
+}
+.village-popup {
+  position: absolute; bottom: 34px; left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 230px;
+  background: var(--white); color: var(--navy);
+  border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  padding: 1.1rem 1.2rem; text-align: left;
+  opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 7;
+}
+.village-hotspot:hover .village-popup,
+.village-hotspot:focus-within .village-popup {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.village-popup h4 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.5rem; }
+.village-popup ul { list-style: none; }
+.village-popup li { margin-bottom: 0.3rem; }
+.village-popup a { font-size: 0.85rem; color: var(--gold-dark); text-decoration: none; font-weight: 600; }
+.village-popup a:hover { color: var(--navy); }
+
+/* Full-screen video hero (amenity fly-through) */
+.video-hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; text-align: center;
+}
+.video-hero video, .video-hero .video-fallback {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+}
+.video-hero .video-fallback {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-size: 0.9rem;
+}
+.video-hero .interior-hero-overlay { z-index: 2; }
+.video-hero .interior-hero-content { z-index: 5; }
+
+/* Lifestyle amenity squares with custom icon frame */
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+.lifestyle-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.25rem;
+  transition: transform 0.4s ease, background 0.3s;
+}
+.lifestyle-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.12); }
+/* Custom icon frame — stands in for Ranee's forthcoming bespoke icon set */
+.lifestyle-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem; color: var(--navy); margin-bottom: 1.25rem;
+}
+.lifestyle-card h4 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+.lifestyle-card p { font-size: 0.92rem; opacity: 0.8; line-height: 1.7; }
+.coming-badge {
+  display: inline-block; background: var(--gold); color: var(--navy);
+  padding: 0.2rem 0.65rem; border-radius: 20px; font-size: 0.62rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.75rem;
+}
+
+/* Trail loops + app links */
+.trail-loops { display: flex; flex-direction: column; gap: 1rem; }
+.trail-loop {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 10px; padding: 1rem 1.25rem;
+}
+.trail-loop .loop-name { font-weight: 600; }
+.trail-loop .loop-miles { font-size: 0.82rem; opacity: 0.7; }
+.trail-loop a { font-size: 0.78rem; letter-spacing: 0.5px; color: var(--gold); text-decoration: none; font-weight: 600; }
+.app-links { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.app-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid var(--glass-border); border-radius: 8px;
+  padding: 0.6rem 1rem; text-decoration: none; color: var(--white);
+  font-size: 0.9rem; transition: border-color 0.3s;
+}
+.app-link:hover { border-color: var(--gold); }
+
+/* Lots table — the ONLY place with lot inventory. No fake prices. */
+.lots-table-wrap { max-width: 1000px; margin: 0 auto; overflow-x: auto; }
+.lots-table {
+  width: 100%; border-collapse: collapse; min-width: 620px;
+  background: var(--white); color: var(--navy);
+  border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+.lots-table th, .lots-table td { padding: 1.1rem 1.25rem; text-align: left; border-bottom: 1px solid #eee; }
+.lots-table th { background: var(--navy); color: var(--white); font-size: 0.85rem; letter-spacing: 0.5px; }
+.lots-table td:first-child { font-weight: 700; }
+.lots-table tr:last-child td { border-bottom: none; }
+.lot-status { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.lot-status.available { color: #16a34a; }
+.lot-status.reserved { color: #94a3b8; }
+.price-on-request { color: var(--gold-dark); font-weight: 600; }
+
+/* Product-type builder logo row (small, inline in sections) */
+.product-builders { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; align-items: center; }
+.product-builders .plabel { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; opacity: 0.6; width: 100%; }
+.product-builder-logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 110px; height: 46px; padding: 0 1rem;
+  border: 1px solid var(--glass-border); border-radius: 8px;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--gold-light);
+  text-decoration: none; transition: border-color 0.3s, color 0.3s;
+}
+.product-builder-logo:hover { border-color: var(--gold); color: var(--white); }
+
+@media (max-width: 768px) {
+  .village-popup { width: 200px; }
+  .video-hero { min-height: 80vh; }
+}
