@@ -1,6 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/find-your-builder", "destination": "/find-a-home", "permanent": false },
+    { "source": "/builders", "destination": "/find-a-home/builders", "permanent": false },
+    { "source": "/lifestyle", "destination": "/life-culture", "permanent": false },
+    { "source": "/location", "destination": "/maps", "permanent": false },
+    { "source": "/bring-your-own-builder", "destination": "/find-a-home/bring-your-own-builder", "permanent": false },
+    { "source": "/rentals", "destination": "/find-a-home/rentals", "permanent": false },
+    { "source": "/townhomes-for-rent", "destination": "/find-a-home/rentals", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
