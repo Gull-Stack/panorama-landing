@@ -1,0 +1,251 @@
+/* ⛔ THE SITE CHROME'S CSS, IN ONE FILE, BECAUSE ITS HTML IS IN ONE FILE.
+ *
+ * tools/panorama_site.py became the single source of the nav and the footer on
+ * 2026-09-21, and writing that markup into all 41 pages immediately broke 16 of
+ * them: areas/, blog/, villages/ and gallery.html had a FLAT nav with no
+ * dropdowns, styled by their own inline <style>, and none of them defines
+ * .nav-item, .nav-dropdown, .arrow or .mobile-toggle. The new markup rendered
+ * with a permanently-open dropdown and three bare <span>s where the hamburger
+ * should be.
+ *
+ * ⛔ Caught by tools/check-css.py, which was written the same hour for a
+ * different bug and found this one: 118 classes used by a page that nothing
+ * the page loads defines. A class name that is merely UNDEFINED fails nothing
+ * and looks fine in the markup.
+ *
+ * ⛔ THIS FILE IS ONLY LINKED ON PAGES THAT DO NOT LOAD css/interior.css, which
+ * carries the same rules. Loading both would be two definitions of one thing,
+ * which is the problem this file exists to end. tools/sweep-site.py decides.
+ * index.html is excluded too -- it styles its own nav inline, including a
+ * ::before sweep on the CTA that this file does not have.
+ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(20px);
+}
+.nav.scrolled {
+  padding: 1rem 4rem;
+}
+.logo img {
+  height: 40px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-item {
+  position: relative;
+}
+.nav-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.nav-link:hover {
+  color: var(--gold);
+}
+.nav-link .arrow {
+  font-size: 0.6rem;
+  transition: transform 0.3s;
+}
+.nav-item:hover .arrow {
+  transform: rotate(180deg);
+}
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  background: rgba(10, 22, 40, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  min-width: 200px;
+  padding: 0.75rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown a {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.nav-dropdown a:hover {
+  color: var(--gold);
+  background: rgba(255,255,255,0.05);
+}
+.nav-cta {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* Mobile Menu */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s;
+}
+
+
+/* Mobile Menu */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s;
+}
+
+
+footer {
+  background: #050d18;
+  padding: 60px 4rem 30px;
+  text-align: center;
+}
+.footer-logo img {
+  height: 50px;
+  margin-bottom: 1.5rem;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: var(--gold);
+}
+.footer-legal {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-item {
+    width: 100%;
+  }
+  .nav-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: rgba(255,255,255,0.05);
+    margin-top: 0.5rem;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  .section {
+    padding: 60px 1.5rem;
+  }
+  .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .interior-hero {
+    height: 50vh;
+    min-height: 350px;
+  }
+  footer {
+    padding: 40px 1.5rem 20px;
+  }
+}
+
+
+/* The outlined nav CTA that still carries a dropdown. */
+.nav-cta-drop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-item:hover .nav-cta-drop { background: var(--gold); color: var(--navy); }
+.nav-cta-drop .arrow { font-size: 0.6rem; transition: transform 0.3s; }
+/* The dropdown hangs off the BUTTON EDGE, not the text -- the -1rem offset
+   that suits a bare link leaves it hanging past a bordered button. */
+.nav-cta-drop + .nav-dropdown { left: 0; margin-top: 0.35rem; }
+

@@ -1,0 +1,80 @@
+/* ⛔ THE PAGE PAINTED BLANK WHITE ON REFRESH, AND THIS IS WHY.
+ *
+ * Ranee, 2026-09-21, watching it reload:
+ *   "The white looks like an error out here because it loads late. Watch when
+ *    they refresh. This is just all white. So it looks kind of broken. Then
+ *    you scroll, now you see it."
+ *
+ * She was reading the symptom exactly right. `.reveal { opacity: 0 }` is
+ * applied by the stylesheet the instant the markup is parsed, and it is only
+ * lifted by an IntersectionObserver that lives in a <script> at the BOTTOM of
+ * a 1,653-line document. So on every load there is a window where the hero has
+ * painted, the white `.section-light` below it has painted, and every word
+ * inside it is still at opacity 0 -- a tall blank white slab that looks like a
+ * broken page. Scrolling only "fixed" it because by then the script had run.
+ *
+ * ⛔ AND IF THE SCRIPT NEVER RUNS, THE CONTENT IS GONE FOR GOOD. One JS error,
+ * one blocked file, one old browser, and the site is a hero and nothing else.
+ * An animation must never be the thing that decides whether words exist.
+ *
+ * THE RULE: hiding is opt-in, and only script can opt in. A one-line <script>
+ * in <head> adds `.js` to <html> -- it runs before the body is parsed, so the
+ * animation still works exactly as designed for everyone who has script. With
+ * no script, none of these selectors match and every word is simply visible.
+ *
+ * ⛔ This file must load AFTER the stylesheet (or inline block) that defines
+ * the unguarded `.reveal` rules, because it wins by being later, not by
+ * specificity. tools/sweep-site.py inserts the link immediately before the
+ * head script, and index.html keeps its inline rules above it.
+ *
+ * ⛔ Do not "simplify" this by deleting the un-prefixed rules elsewhere and
+ * leaving only `.js .reveal`. Someone will later paste a fresh `.reveal`
+ * block from another page in the set and the guard silently stops covering
+ * it. The guard is written to neutralise ANY earlier definition.
+ */
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.scale-in,
+.reveal-stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.js .reveal,
+.js .reveal-left,
+.js .reveal-right,
+.js .scale-in,
+.js .reveal-stagger > * {
+  opacity: 0 !important;
+}
+
+.js .reveal          { transform: translateY(40px) !important; }
+.js .reveal-stagger > * { transform: translateY(30px) !important; }
+.js .reveal-left     { transform: translateX(-60px) !important; }
+.js .reveal-right    { transform: translateX(60px) !important; }
+.js .scale-in        { transform: scale(0.94) !important; }
+
+.js .reveal.active,
+.js .reveal-left.active,
+.js .reveal-right.active,
+.js .scale-in.active,
+.js .reveal-stagger.active > * {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Someone who has asked the OS for less motion gets the words, not the slide.
+ * Same reasoning as the no-script case: motion is the enhancement. */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal-left,
+  .js .reveal-right,
+  .js .scale-in,
+  .js .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -722,3 +722,148 @@ footer {
   .village-popup { width: 200px; }
   .video-hero { min-height: 80vh; }
 }
+
+/* ============================================================
+   RANEE'S BUILDER PAGE — 2026-09-21
+   The shape she specified on the call, and nothing else:
+   logo · 50-word intro · exterior+interior photos · ~150 words
+   on the homes · 4-8 differentiators · model home addresses ·
+   one link out. ⛔ No floor plans, no lots, no forms, no tours.
+   ============================================================ */
+
+/* The outlined nav CTA that still carries a dropdown. Ranee: "maybe the find
+   your builder has the outline around it. And, but it still has the drop
+   down." .nav-cta was built as a bare <a>; inside a .nav-item it needs to sit
+   on the same baseline as the plain links and give the dropdown something to
+   hang from. */
+.nav-cta-drop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-item:hover .nav-cta-drop { background: var(--gold); color: var(--navy); }
+.nav-cta-drop .arrow { font-size: 0.6rem; transition: transform 0.3s; }
+/* The dropdown hangs off the BUTTON EDGE, not the text -- the -1rem offset
+   that suits a bare link leaves it hanging past a bordered button. */
+.nav-cta-drop + .nav-dropdown { left: 0; margin-top: 0.35rem; }
+
+/* A builder hero with no photograph. ⛔ The old pages used a stock shot of
+   somebody else's homes as a builder's hero; until that builder sends their
+   own exteriors there is no honest image to use, so the hero is type. */
+.interior-hero-plain {
+  min-height: auto;
+  padding: 10rem 1.5rem 4rem;
+  background: linear-gradient(160deg, #0a1628 0%, #14263f 100%);
+  text-align: center;
+}
+.interior-hero-plain .interior-hero-content { max-width: 820px; margin: 0 auto; }
+.builder-product {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+
+.builder-body { max-width: 820px; }
+.builder-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  margin: 3rem 0 1rem;
+  color: var(--white);
+}
+.builder-body p { line-height: 1.85; opacity: 0.92; margin-bottom: 1rem; }
+.builder-intro p { font-size: 1.15rem; opacity: 1; }
+.builder-diffs, .builder-models { padding-left: 1.2rem; line-height: 1.9; opacity: 0.92; }
+.builder-diffs li, .builder-models li { margin-bottom: 0.4rem; }
+
+/* ⛔ A GAP THAT NAMES ITSELF. The pages this replaced filled every gap with
+   invented copy -- three floor plans with bedroom counts and square footage no
+   builder ever sent. A missing field has to LOOK missing, to Ranee and to the
+   next agent, or it gets written over with something plausible. */
+.asset-pending-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  opacity: 0.75;
+  border-left: 2px dashed var(--gold);
+  padding: 0.5rem 0 0.5rem 0.9rem;
+  margin: 0.5rem 0 1rem;
+}
+
+/* Photos: "the images, scrolls, you scroll through the images or click through
+   the images." Scroll-snap does the scrolling; the dots do the clicking.
+   ⛔ The <img> tags are in the markup, not injected -- the whole reason this
+   pass exists is a page that painted blank until script ran. With no script
+   this is still a working horizontal photo strip. */
+.builder-gallery { margin: 2rem 0 1rem; }
+.builder-gallery.is-empty { margin-bottom: 2rem; }
+.builder-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+.builder-track::-webkit-scrollbar { height: 6px; }
+.builder-track::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+.builder-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  margin: 0;
+}
+.builder-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.builder-slide figcaption {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+.builder-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.9rem; }
+.builder-dot {
+  width: 9px; height: 9px; padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.builder-dot[aria-current="true"] { background: var(--gold); }
+
+/* A CTA that cannot be pressed must not look pressable. The old pages shipped
+   `href="#"` with opacity 0.6 and onclick="return false" -- a link that lies. */
+.btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  display: inline-block;
+}
+
+/* Outline button on a LIGHT ground. .btn-outline is white-on-dark and
+   disappears on .section-light. */
+.btn-outline-navy {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+@media (min-width: 720px) {
+  .builder-slide { flex: 0 0 calc(50% - 0.5rem); }
+}

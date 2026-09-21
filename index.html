@@ -1342,7 +1342,54 @@
     .home-visit .visit-contact { font-size: 1.05rem; color: var(--gold-light); }
     .home-visit .visit-contact a { color: var(--gold-light); text-decoration: none; }
     @media (max-width: 768px) { .village-popup { width: 200px; } .home-visit h2 { font-size: 2rem; } }
+
+    /* ⛔ .btn AND .btn-gold WERE NEVER DEFINED ON THIS PAGE. index.html carries
+       its own inline stylesheet and does not load css/interior.css, where the
+       button styles live -- so "Explore Villages & Builders" has been
+       rendering as a raw blue underlined link on the live home page. Found
+       2026-09-21 by screenshotting the page rather than reading the markup;
+       tools/check-css.py now fails the build on any class a page uses and
+       nothing it loads defines. */
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2.1rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .btn-gold:hover { background: transparent; color: var(--gold); }
+    .btn-outline-navy { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+    /* The nav CTA that also carries a dropdown -- see css/interior.css for the
+       ruling. Repeated here because this page does not load that file. */
+    .nav-cta-drop { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-cta-drop .arrow { font-size: 0.6rem; transition: transform 0.3s; }
+    .nav-item:hover .nav-cta-drop { background: var(--gold); color: var(--navy); }
+    .nav-cta-drop + .nav-dropdown { left: 0; margin-top: 0.35rem; }
+
+    /* A builder card with no logo yet. */
+    .builder-logo-img.placeholder {
+      border: 1px dashed rgba(184, 146, 63, 0.5);
+      display: flex; align-items: center; justify-content: center;
+    }
   </style>
+  <link rel="stylesheet" href="css/reveal-guard.css">
+  <script>/* reveal guard - see css/reveal-guard.css */
+(function(){var h=document.documentElement;h.classList.add('js');
+try{if(!window.IntersectionObserver||!window.MutationObserver){h.classList.remove('js');return;}
+var sel='.reveal,.reveal-left,.reveal-right,.scale-in,.reveal-stagger';
+var io=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.classList.add('active');io.unobserve(es[i].target);}}},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+var scan=function(){var n=document.querySelectorAll(sel);for(var i=0;i<n.length;i++){if(!n[i].hasAttribute('data-rv')){n[i].setAttribute('data-rv','');io.observe(n[i]);}}};
+var mo=new MutationObserver(scan);mo.observe(h,{childList:true,subtree:true});
+document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();});
+}catch(e){h.classList.remove('js');}})();</script>
 </head>
 <body>
   <!-- Navigation -->
@@ -1355,12 +1402,11 @@
     </div>
     <div class="nav-links" id="navLinks">
       <div class="nav-item">
-        <a href="find-a-home/" class="nav-link">Find Your Builder <span class="arrow">▼</span></a>
+        <a href="find-a-home/" class="nav-cta nav-cta-drop">Find Your Home <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="find-a-home/">Overview</a>
           <a href="find-a-home/builders.html">Panorama Builders</a>
           <a href="find-a-home/villages.html">Villages</a>
-          <a href="find-a-home/floorplans.html">Floor Plans</a>
           <a href="find-a-home/rentals.html">Townhomes For Rent</a>
           <a href="find-a-home/bring-your-own-builder.html">Bring Your Own Builder</a>
         </div>
@@ -1369,16 +1415,15 @@
         <a href="life-culture/" class="nav-link">Lifestyle <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="life-culture/">Life at Panorama</a>
-          <a href="life-culture/amenities.html">Amenities</a>
           <a href="things-to-do/parks-trails.html">Trails</a>
           <a href="things-to-do/">Things To Do</a>
           <a href="life-culture/schools.html">Schools</a>
           <a href="life-culture/why-herriman.html">Why Herriman</a>
         </div>
       </div>
+      <a href="life-culture/amenities.html" class="nav-link">Amenities</a>
       <a href="maps/" class="nav-link">Location</a>
       <a href="gallery.html" class="nav-link">Gallery</a>
-      <a href="#visit" class="nav-cta">Visit Us</a>
     </div>
   </nav>
 
@@ -1426,25 +1471,33 @@
         <h2 style="color: var(--navy);">Panorama Builders</h2>
         <p style="color: #4a5568;">Choose from the region's premier builders. Select a builder to explore their homes at Panorama.</p>
       </div>
-      <div class="builder-logo-grid reveal">
-        <a href="find-a-home/builder-tri-pointe.html" class="builder-logo-link"><span class="builder-logo-img">Tri Pointe</span><span class="builder-name">Tri Pointe Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes →</span></a>
-        <a href="find-a-home/builder-toll-brothers.html" class="builder-logo-link"><span class="builder-logo-img">Toll Brothers</span><span class="builder-name">Toll Brothers</span><span class="builder-meta">Luxury homes</span><span class="view-plans">View homes →</span></a>
-        <a href="find-a-home/builder-pulte.html" class="builder-logo-link"><span class="builder-logo-img">Pulte</span><span class="builder-name">Pulte Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes →</span></a>
-        <a href="find-a-home/builder-dai.html" class="builder-logo-link"><span class="builder-logo-img">DAI</span><span class="builder-name">DAI Homes</span><span class="builder-meta">Townhomes</span><span class="view-plans">View homes →</span></a>
-        <a href="find-a-home/builder-jcraft.html" class="builder-logo-link"><span class="builder-logo-img">J-Craft</span><span class="builder-name">J-Craft Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes →</span></a>
-        <a href="find-a-home/builder-elevation.html" class="builder-logo-link"><span class="builder-logo-img">Elevation</span><span class="builder-name">Elevation Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes →</span></a>
+      <!-- BUILDER-GRID:START -->
+      <div class="builder-logo-grid">
+        <a href="find-a-home/builder-tri-pointe.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Tri Pointe Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-toll-brothers.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Toll Brothers</span><span class="builder-meta">Luxury homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-pulte.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Pulte Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-candlelight.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Candlelight Homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-dai.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">DAI Homes</span><span class="builder-meta">Townhomes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-jcraft.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">J-Craft Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-elevation.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Elevation Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
       </div>
-      <p class="reveal" style="text-align: center; margin-top: 1.75rem;"><span class="pending-tag">Logos pending</span> &nbsp;<span style="color: #8a7f6a; font-size: 0.85rem;">Builder logo art coming from Ranee.</span></p>
+      <!-- BUILDER-GRID:END -->
+      <p class="reveal" style="text-align: center; margin-top: 1.75rem;"><a href="find-a-home/builders.html" class="btn btn-outline-navy">See all builders</a></p>
     </div>
   </section>
 
   <!-- Location context — per redline, Home shows the site in relation to LOCATION
-       (Google-Earth-style aerial). The dynamic village/builder map lives on Find Your Builder. -->
+       (Google-Earth-style aerial).
+       ⛔ The village/builder hotspot map that used to live on Find Your Home is
+       GONE (2026-09-21). It named two builders per village, and Ranee ruled
+       against exactly that: "no specific lots for each builder... we're not
+       gonna tell them where their lots are." The plain master plan now sits at
+       the bottom of find-a-home/index.html. -->
   <section class="section section-dark" id="location-map">
     <div class="container">
       <div class="section-header reveal">
         <h2>Where Panorama Sits</h2>
-        <p>Perched in Herriman's foothills off Rosecrest, positioned to capture the Wasatch views. See who's building in each village over on Find Your Builder.</p>
+        <p>Perched in Herriman's foothills off Rosecrest, positioned to capture the Wasatch views. See every builder at Panorama over on Find Your Home.</p>
       </div>
       <div class="asset-pending reveal" style="position: relative; max-width: 1100px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
         <img src="images/master-plan-aerial.jpg" alt="Panorama in relation to Herriman and the Wasatch foothills" style="width: 100%; display: block;">
@@ -1454,34 +1507,33 @@
     </div>
   </section>
 
-  <!-- Visit strip (replaces the crossed-out Schedule-a-Tour dead-ends) -->
-  <section class="home-visit" id="visit">
-    <div class="container">
-      <h2>Visit Panorama</h2>
-      <p>Come see why the view is better from here. Reach out to arrange a visit or ask about builders, homesites, and availability.</p>
-      <p class="visit-contact">✉️ <a href="mailto:info@panoramaherriman.com">info@panoramaherriman.com</a></p>
+  <!-- See Amenities. Ranee, 2026-09-21: "amenities will be its own thing, and
+       we can have a link on this front page to say see amenities." -->
+  <section class="section section-light" id="amenities-cta">
+    <div class="container" style="text-align: center;">
+      <div class="reveal" style="max-width: 720px; margin: 0 auto;">
+        <p style="letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dark); font-size: 0.8rem; margin-bottom: 1rem;">Life at Panorama</p>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--navy); margin-bottom: 1.25rem;">Trails, Parks and the Places Between</h2>
+        <p style="font-size: 1.05rem; color: #4a5568; line-height: 1.9; margin-bottom: 1.75rem;">Everything the community shares &mdash; the open space, the trail network, the gathering places &mdash; on one page.</p>
+        <a href="life-culture/amenities.html" class="btn btn-gold">See Amenities</a>
+      </div>
     </div>
   </section>
 
-
-
-
   <!-- Footer -->
   <footer>
-    <div class="footer-logo">
-      <img src="assets/logo-white.png" alt="Panorama">
-    </div>
+    <div class="footer-logo"><img src="assets/logo-white.png" alt="Panorama"></div>
     <p class="footer-tagline">The View Is Better From Here</p>
-    <div class="footer-links" style="display: none;">
+    <div class="footer-links">
+      <a href="find-a-home/">Find Your Home</a>
+      <a href="find-a-home/builders.html">Panorama Builders</a>
+      <a href="life-culture/amenities.html">Amenities</a>
       <a href="life-culture/">Lifestyle</a>
       <a href="things-to-do/">Things To Do</a>
       <a href="maps/">Location</a>
       <a href="gallery.html">Gallery</a>
     </div>
-    <p class="footer-legal">
-      © 2026 Panorama. A DAI Development. All rights reserved.<br>
-      Prices, plans, and availability subject to change without notice.
-    </p>
+    <p class="footer-legal">&copy; 2026 Panorama. A DAI Development. All rights reserved.<br>Builder participation, plans, and availability subject to change without notice.</p>
   </footer>
 
   <script>
