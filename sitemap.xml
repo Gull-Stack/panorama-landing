@@ -1,222 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Pages -->
   <url>
     <loc>https://panoramahomes.com/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/gallery.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/builders.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-  
-  <!-- Find A Home Section -->
   <url>
     <loc>https://panoramahomes.com/find-a-home/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/find-a-home/builders.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/builder-candlelight.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/find-a-home/villages.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/builder-dai.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/find-a-home/homesites.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://panoramahomes.com/find-a-home/floorplans.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/builder-elevation.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Life & Culture Section -->
   <url>
-    <loc>https://panoramahomes.com/life-culture/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/builder-jcraft.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/find-a-home/builder-pulte.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/find-a-home/builder-toll-brothers.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/find-a-home/builder-tri-pointe.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/life-culture/amenities.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/life-culture/schools.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/bring-your-own-builder.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/life-culture/why-herriman.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/find-a-home/rentals.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/find-a-home/villages.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/life-culture/history.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Things To Do Section -->
-  <url>
-    <loc>https://panoramahomes.com/things-to-do/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/things-to-do/parks-trails.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/life-culture/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/life-culture/schools.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/life-culture/why-herriman.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/maps/</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/things-to-do/dining.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/things-to-do/shopping.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/things-to-do/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/things-to-do/parks-trails.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/things-to-do/recreation.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- Maps Section -->
   <url>
-    <loc>https://panoramahomes.com/maps/</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/things-to-do/shopping.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-  
-  <!-- Village Pages -->
   <url>
     <loc>https://panoramahomes.com/villages/village-1.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/villages/village-2.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/villages/village-3.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/villages/village-4.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/villages/village-5.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Area Pages -->
-  <url>
-    <loc>https://panoramahomes.com/areas/herriman.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://panoramahomes.com/areas/south-jordan.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/areas/riverton.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/gallery.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/areas/bluffdale.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/areas/daybreak.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Blog Pages -->
-  <url>
-    <loc>https://panoramahomes.com/blog/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/blog/why-herriman-utah.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/areas/herriman.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/blog/wasatch-mountain-views.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/areas/riverton.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://panoramahomes.com/blog/utah-real-estate-2026.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <loc>https://panoramahomes.com/areas/south-jordan.html</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://panoramahomes.com/blog/new-construction-vs-resale.html</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://panoramahomes.com/blog/herriman-schools-guide.html</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/blog/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/blog/new-construction-vs-resale.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/blog/utah-real-estate-2026.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/blog/wasatch-mountain-views.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://panoramahomes.com/blog/why-herriman-utah.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

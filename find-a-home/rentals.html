@@ -9,6 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/interior.css">
+  <link rel="stylesheet" href="../css/reveal-guard.css">
+  <script>/* reveal guard - see css/reveal-guard.css */
+(function(){var h=document.documentElement;h.classList.add('js');
+try{if(!window.IntersectionObserver||!window.MutationObserver){h.classList.remove('js');return;}
+var sel='.reveal,.reveal-left,.reveal-right,.scale-in,.reveal-stagger';
+var io=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.classList.add('active');io.unobserve(es[i].target);}}},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+var scan=function(){var n=document.querySelectorAll(sel);for(var i=0;i<n.length;i++){if(!n[i].hasAttribute('data-rv')){n[i].setAttribute('data-rv','');io.observe(n[i]);}}};
+var mo=new MutationObserver(scan);mo.observe(h,{childList:true,subtree:true});
+document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();});
+}catch(e){h.classList.remove('js');}})();</script>
 </head>
 <body>
   <!-- NAV: paste this EXACT block; it will be normalized site-wide later -->
@@ -21,12 +31,11 @@
     </div>
     <div class="nav-links" id="navLinks">
       <div class="nav-item">
-        <a href="../find-a-home/" class="nav-link">Find Your Builder <span class="arrow">▼</span></a>
+        <a href="../find-a-home/" class="nav-cta nav-cta-drop">Find Your Home <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="../find-a-home/">Overview</a>
           <a href="../find-a-home/builders.html">Panorama Builders</a>
           <a href="../find-a-home/villages.html">Villages</a>
-          <a href="../find-a-home/floorplans.html">Floor Plans</a>
           <a href="../find-a-home/rentals.html">Townhomes For Rent</a>
           <a href="../find-a-home/bring-your-own-builder.html">Bring Your Own Builder</a>
         </div>
@@ -35,16 +44,15 @@
         <a href="../life-culture/" class="nav-link">Lifestyle <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="../life-culture/">Life at Panorama</a>
-          <a href="../life-culture/amenities.html">Amenities</a>
           <a href="../things-to-do/parks-trails.html">Trails</a>
           <a href="../things-to-do/">Things To Do</a>
           <a href="../life-culture/schools.html">Schools</a>
           <a href="../life-culture/why-herriman.html">Why Herriman</a>
         </div>
       </div>
+      <a href="../life-culture/amenities.html" class="nav-link">Amenities</a>
       <a href="../maps/" class="nav-link">Location</a>
       <a href="../gallery.html" class="nav-link">Gallery</a>
-      <a href="../#visit" class="nav-cta">Visit Us</a>
     </div>
   </nav>
 
@@ -53,7 +61,7 @@
     <img src="../images/dai-townhomes.jpg" alt="Rental townhomes at Panorama in Herriman" class="interior-hero-bg">
     <div class="interior-hero-overlay"></div>
     <div class="interior-hero-content">
-      <div class="breadcrumb"><a href="../">Home</a> / <a href="../find-a-home/">Find Your Builder</a> / Townhomes For Rent</div>
+      <div class="breadcrumb"><a href="../">Home</a> / <a href="../find-a-home/">Find Your Home</a> / Townhomes For Rent</div>
       <h1>Townhomes For Rent</h1>
       <p>Not ready to buy? Live at Panorama in a rental townhome and enjoy every community amenity.</p>
     </div>
@@ -82,7 +90,7 @@
         <div class="lifestyle-card">
           <div class="lifestyle-icon">&#128273;</div>
           <h3>Leasing Info</h3>
-          <p>Ask about current availability, floor plans, and move-in timing. Our leasing team will help you find the right fit.</p>
+          <p>Ask about current availability and move-in timing. Our leasing team will help you find the right fit.</p>
           <p><a href="mailto:leasing@panoramaherriman.com?subject=Panorama%20Leasing%20Inquiry" class="btn btn-gold">Ask About Availability</a></p>
         </div>
       </div>
@@ -128,14 +136,23 @@
         <a href="mailto:leasing@panoramaherriman.com">leasing@panoramaherriman.com</a>
       </p>
       <a href="mailto:leasing@panoramaherriman.com?subject=Panorama%20Townhome%20Rental%20Inquiry" class="btn btn-gold">Email Our Leasing Team</a>
-      <div style="margin-top:1rem;"><a href="../find-a-home/" class="btn btn-outline">Back to Find Your Builder</a></div>
+      <div style="margin-top:1rem;"><a href="../find-a-home/" class="btn btn-outline">Back to Find Your Home</a></div>
     </div>
   </section>
 
   <footer>
     <div class="footer-logo"><img src="../assets/logo-white.png" alt="Panorama"></div>
     <p class="footer-tagline">The View Is Better From Here</p>
-    <p class="footer-legal">&copy; 2026 Panorama. A DAI Development. All rights reserved.<br>Prices, plans, and availability subject to change without notice.</p>
+    <div class="footer-links">
+      <a href="../find-a-home/">Find Your Home</a>
+      <a href="../find-a-home/builders.html">Panorama Builders</a>
+      <a href="../life-culture/amenities.html">Amenities</a>
+      <a href="../life-culture/">Lifestyle</a>
+      <a href="../things-to-do/">Things To Do</a>
+      <a href="../maps/">Location</a>
+      <a href="../gallery.html">Gallery</a>
+    </div>
+    <p class="footer-legal">&copy; 2026 Panorama. A DAI Development. All rights reserved.<br>Builder participation, plans, and availability subject to change without notice.</p>
   </footer>
   <script>function toggleMobileMenu(){document.getElementById('navLinks').classList.toggle('active');}</script>
 </body>

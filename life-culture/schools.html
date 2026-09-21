@@ -11,6 +11,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/interior.css">
+  <link rel="stylesheet" href="../css/reveal-guard.css">
+  <script>/* reveal guard - see css/reveal-guard.css */
+(function(){var h=document.documentElement;h.classList.add('js');
+try{if(!window.IntersectionObserver||!window.MutationObserver){h.classList.remove('js');return;}
+var sel='.reveal,.reveal-left,.reveal-right,.scale-in,.reveal-stagger';
+var io=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.classList.add('active');io.unobserve(es[i].target);}}},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+var scan=function(){var n=document.querySelectorAll(sel);for(var i=0;i<n.length;i++){if(!n[i].hasAttribute('data-rv')){n[i].setAttribute('data-rv','');io.observe(n[i]);}}};
+var mo=new MutationObserver(scan);mo.observe(h,{childList:true,subtree:true});
+document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();});
+}catch(e){h.classList.remove('js');}})();</script>
 </head>
 <body>
   <!-- Navigation -->
@@ -23,12 +33,11 @@
     </div>
     <div class="nav-links" id="navLinks">
       <div class="nav-item">
-        <a href="../find-a-home/" class="nav-link">Find Your Builder <span class="arrow">▼</span></a>
+        <a href="../find-a-home/" class="nav-cta nav-cta-drop">Find Your Home <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="../find-a-home/">Overview</a>
           <a href="../find-a-home/builders.html">Panorama Builders</a>
           <a href="../find-a-home/villages.html">Villages</a>
-          <a href="../find-a-home/floorplans.html">Floor Plans</a>
           <a href="../find-a-home/rentals.html">Townhomes For Rent</a>
           <a href="../find-a-home/bring-your-own-builder.html">Bring Your Own Builder</a>
         </div>
@@ -37,16 +46,15 @@
         <a href="../life-culture/" class="nav-link">Lifestyle <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
           <a href="../life-culture/">Life at Panorama</a>
-          <a href="../life-culture/amenities.html">Amenities</a>
           <a href="../things-to-do/parks-trails.html">Trails</a>
           <a href="../things-to-do/">Things To Do</a>
           <a href="../life-culture/schools.html">Schools</a>
           <a href="../life-culture/why-herriman.html">Why Herriman</a>
         </div>
       </div>
+      <a href="../life-culture/amenities.html" class="nav-link">Amenities</a>
       <a href="../maps/" class="nav-link">Location</a>
       <a href="../gallery.html" class="nav-link">Gallery</a>
-      <a href="../#visit" class="nav-cta">Visit Us</a>
     </div>
   </nav>
 
@@ -225,28 +233,24 @@
     <div class="container">
       <h2 class="reveal">Learn More About <span class="text-gold">Living at Panorama</span></h2>
       <p class="reveal">Visit us to explore the community and learn more about schools serving the area.</p>
-      <a href="../#visit" class="btn btn-gold reveal">Visit Us</a>
+      <a href="../find-a-home/" class="btn btn-gold reveal">Find Your Home</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-logo">
-      <img src="../assets/logo-white.png" alt="Panorama">
-    </div>
+    <div class="footer-logo"><img src="../assets/logo-white.png" alt="Panorama"></div>
     <p class="footer-tagline">The View Is Better From Here</p>
     <div class="footer-links">
-      <a href="../find-a-home/">Find Your Builder</a>
+      <a href="../find-a-home/">Find Your Home</a>
+      <a href="../find-a-home/builders.html">Panorama Builders</a>
+      <a href="../life-culture/amenities.html">Amenities</a>
       <a href="../life-culture/">Lifestyle</a>
       <a href="../things-to-do/">Things To Do</a>
       <a href="../maps/">Location</a>
       <a href="../gallery.html">Gallery</a>
-      <a href="../#visit">Contact</a>
     </div>
-    <p class="footer-legal">
-      © 2026 Panorama. A DAI Development. All rights reserved.<br>
-      School information subject to change. Contact Jordan School District for current boundaries.
-    </p>
+    <p class="footer-legal">&copy; 2026 Panorama. A DAI Development. All rights reserved.<br>Builder participation, plans, and availability subject to change without notice.</p>
   </footer>
 
   <script>
