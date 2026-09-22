@@ -344,7 +344,9 @@ h1, h2, h3, h4 {
 .feature-icon {
   width: 60px;
   height: 60px;
-  background: var(--gold);
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  font-size: 1.75rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -674,12 +676,12 @@ footer {
   transition: transform 0.4s ease, background 0.3s;
 }
 .lifestyle-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.12); }
-/* Custom icon frame — stands in for Ranee's forthcoming bespoke icon set */
+/* Icon frame: an outline, not a fill. A gold fill would hide a gold stroke. */
 .lifestyle-icon {
   width: 64px; height: 64px; border-radius: 16px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  background: transparent; border: 1.5px solid var(--gold);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.7rem; color: var(--navy); margin-bottom: 1.25rem;
+  font-size: 1.9rem; margin-bottom: 1.25rem;
 }
 .lifestyle-card h4 { font-size: 1.35rem; margin-bottom: 0.5rem; }
 .lifestyle-card p { font-size: 0.92rem; opacity: 0.8; line-height: 1.7; }
@@ -895,3 +897,13 @@ footer {
   border-bottom: 1px solid rgba(184, 146, 63, 0.4);
 }
 .lifestyle-card a:hover { border-bottom-color: var(--gold); }
+
+/* Panorama icon family. Ranee, 21 Sept 2026: "simple, outline, abstract ...
+   make them all gold and just an outline." Stroke-only inline SVG, one weight,
+   gold from the token. No emoji anywhere: tools/check-icons.py enforces it. */
+svg.pi {
+  width: 1em; height: 1em; flex-shrink: 0;
+  fill: none; stroke: var(--gold); stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+  vertical-align: -0.15em;
+}

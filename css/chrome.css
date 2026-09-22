@@ -249,3 +249,12 @@ footer {
    that suits a bare link leaves it hanging past a bordered button. */
 .nav-cta-drop + .nav-dropdown { left: 0; margin-top: 0.35rem; }
 
+/* Panorama icon family. Ranee, 21 Sept 2026: "simple, outline, abstract ...
+   make them all gold and just an outline." Stroke-only inline SVG, one weight,
+   gold from the token. No emoji anywhere: tools/check-icons.py enforces it. */
+svg.pi {
+  width: 1em; height: 1em; flex-shrink: 0;
+  fill: none; stroke: var(--gold); stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+  vertical-align: -0.15em;
+}

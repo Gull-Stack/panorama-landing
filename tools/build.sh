@@ -16,6 +16,7 @@ python3 tools/sweep-site.py     $A
 python3 tools/build-sitemap.py  $A
 python3 tools/check-links.py
 python3 tools/check-css.py
+python3 tools/check-icons.py
 
 # External images live on somebody else's CDN, so this one needs the network.
 # Skipped under --check in CI-less runs only if it cannot reach out.

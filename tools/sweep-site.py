@@ -94,12 +94,6 @@ PROSE = [
     # the button.
     ("Visit us to see Panorama Park and explore our trail system firsthand.",
      "Panorama Park and the trail system are open &mdash; come up and walk them."),
-    # ⛔ A .section-header nested INSIDE a .section-header. The class sets its
-    # own max-width and bottom margin, so the inner one re-applies both and the
-    # note sits at a different measure from the paragraph above it. One of the
-    # "CSS airs" Ranee could see without opening devtools.
-    ('<p class="section-header" style="margin-top: 1rem; opacity: 0.9;"><span class="pending-tag">Custom icons pending</span>',
-     '<p style="margin-top: 1rem; opacity: 0.9;"><span class="pending-tag">Custom icons pending</span>'),
     ("Schedule a private tour of available homesites in Village 1 and discover why Panorama Herriman is Utah&#39;s most sought-after new community.",
      "Village 1 is where Panorama meets Rosecrest &mdash; the closest homesites to the way in and out."),
     ("Schedule a private tour of available homesites in Village 1 and discover why Panorama Herriman is Utah's most sought-after new community.",
