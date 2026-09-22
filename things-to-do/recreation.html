@@ -153,9 +153,13 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         </div>
         
         <div class="card card-light">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1468186503690-ddd97580d6fe?w=400&h=300&fit=crop" alt="Jordanelle Reservoir">
-          </div>
+            <!-- ⛔ THIS IMAGE 404'd ON THE LIVE SITE. It was a hotlink to
+                 images.unsplash.com/photo-1468186503690 and the photo is gone
+                 from their CDN. Found 2026-09-21 by rendering all 41 pages, not
+                 by any link check -- tools/check-links.py only resolves
+                 INTERNAL hrefs, by design. Replaced with nothing rather than a
+                 substitute nobody chose. See the note in the header of this
+                 file about the other 32 hotlinks. -->
           <div class="card-content">
             <h4>Jordanelle Reservoir</h4>
             <p style="color: var(--gold-dark); font-size: 0.85rem;">45 min from Panorama</p>
