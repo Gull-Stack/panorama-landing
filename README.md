@@ -145,3 +145,32 @@ Two fixes, both in `css/reveal-guard.css` and the head script that
 ⛔ Never add a `.reveal` rule that is not scoped under `.js`, and never move
 that script out of `<head>` or behind `defer`. Either one brings the white page
 back.
+
+---
+
+## ⛔ 32 stock photos on this site are hotlinked from somebody else's server
+
+Eight pages — Lifestyle, Schools, Why Herriman, and all five Things To Do
+pages — render images straight off `images.unsplash.com`. Skiing, golf,
+reservoirs, restaurants, shopping.
+
+**One of them was already dead.** `photo-1468186503690`, on the Recreation page,
+returns 404 — a grey broken-image box on a client page, for an unknown length of
+time. Every gate in this repo reported the site clean, because `check-links.py`
+only resolves *internal* hrefs against files on disk. Found on 2026-09-21 by
+rendering all 41 pages, not by any check.
+
+`tools/check-external-images.py` now catches the next one.
+
+**But the dead link is the symptom.** The other 32:
+
+- **are not Panorama.** They are stock photographs of other places.
+- **are not DAI's.** A third party can change or remove any of them, at any
+  time, and the page changes with it.
+- **load from a domain the site does not control**, on a site whose entire
+  audience arrives from a sign on the property.
+
+⛔ **Not cleaned up unilaterally.** Replacing 32 images means either licensing
+real photography or cutting the sections that use them, and both are Ranee's
+call. Raised, not decided.
+
