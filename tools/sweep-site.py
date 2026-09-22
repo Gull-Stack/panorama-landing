@@ -107,6 +107,8 @@ PROSE = [
 NAV_RE = re.compile(r'[ \t]*<nav class="nav"[^>]*>.*?</nav>', re.S)
 FOOT_RE = re.compile(r'[ \t]*<footer>.*?</footer>', re.S)
 HEAD_RE = re.compile(r"</head>", re.I)
+CRUMB_RE = re.compile(r'[ \t]*<p class="breadcrumb">.*?</p>')
+EYEBROW_RE = re.compile(r'\n[ \t]*<p class="hero-eyebrow">[^<]*</p>')
 
 # Link text on anything that used to point at the retired #visit anchor.
 CTA_TEXT = "Find Your Home"
@@ -136,6 +138,21 @@ def sweep(p: pathlib.Path):
         if t2 != t:
             notes.append("footer")
         t = t2
+
+    # 1c. Area pages say they are about the area. See S.AREA_PAGES.
+    rp = str(p.relative_to(ROOT))
+    eyebrow = f'      <p class="hero-eyebrow">{S.AREA_EYEBROW}</p>\n'
+    has = EYEBROW_RE.search(t)
+    if rp in S.AREA_PAGES:
+        if not has:
+            t2 = CRUMB_RE.sub(lambda m: m.group(0) + "\n" + eyebrow.rstrip("\n"), t, count=1)
+            if t2 != t:
+                notes.append("area-eyebrow")
+            t = t2
+    elif has:
+        # A page that left the area group must not keep the label.
+        t = EYEBROW_RE.sub("", t, count=1)
+        notes.append("area-eyebrow")
 
     # 2. Retired pages -> their replacement, so a deleted page leaves no 404.
     # ⛔ A page in the SAME FOLDER links to a sibling with no folder prefix at

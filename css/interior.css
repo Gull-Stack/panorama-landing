@@ -231,6 +231,25 @@ h1, h2, h3, h4 {
   margin: 0 auto;
 }
 
+/* "Around Herriman" -- the label on every page about the AREA rather than
+ * the community (tools/panorama_site.py AREA_PAGES). Ranee, 2026-09-21: "we
+ * need to differentiate more between those two." More specific than
+ * `.interior-hero p` on purpose, or that rule's 1.15rem body type wins. */
+.interior-hero p.hero-eyebrow, .video-hero p.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 1;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  margin: 0 auto 1rem;
+  max-width: none;
+}
+
 /* Sections */
 .section {
   padding: 80px 4rem;
