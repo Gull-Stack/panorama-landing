@@ -1,0 +1,3 @@
+# Build scripts and their gates. Not pages; Vercel served them publicly (200).
+# No build runs on Vercel for this static site, so nothing needs them there.
+tools/

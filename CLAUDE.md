@@ -8,6 +8,25 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-09-22 (b) — Nav splits the community from the area; /tools/ no longer public
+
+- Ranee, 21 Sept: "Lifestyle, life at Panorama, and amenities are one thing
+  ... The rest is about the area around it, so we need to differentiate more."
+- The "Lifestyle" dropdown is gone. Two groups now: **Life at Panorama**
+  (Overview, Panorama Trails, Our Story) and **Around Herriman** (Things To
+  Do, Dining, Recreation, Shopping, Schools, Why Herriman). Amenities, Location
+  and Gallery stay top level. Location stays out of both groups because its
+  page carries Panorama's master plan AND nearby destinations.
+- The six area pages carry an "Around Herriman" eyebrow above the h1.
+  `AREA_PAGES` in `tools/panorama_site.py`; `sweep-site.py` writes it and
+  `--check` fails on a missing one or a stray one. Both planted, both red.
+- Footer follows the same split.
+- `.vercelignore` keeps `tools/` out of the deploy (it served the Python
+  scripts, 200). No build runs on Vercel, so nothing there needs them.
+- `./tools/build.sh --check` green. Rendered 6 pages at 1440 and 390, no
+  sideways scroll, dropdown and mobile menu checked.
+- Not touched: README.md, STORYBRAND.md and this file are still served too.
+
 ### 2026-09-22 — Every emoji icon is now a gold outline SVG
 
 - Ranee on the 21 Sept call: "make them all gold and just an outline. I don't

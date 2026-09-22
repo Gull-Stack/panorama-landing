@@ -35,15 +35,30 @@ NAV = [
         ("Townhomes For Rent", "find-a-home/rentals.html"),
         ("Bring Your Own Builder", "find-a-home/bring-your-own-builder.html"),
     ], "nav-cta nav-cta-drop"),
-    ("Lifestyle", "life-culture/", [
-        ("Life at Panorama", "life-culture/"),
-        ("Trails", "things-to-do/parks-trails.html"),
-        ("Things To Do", "things-to-do/"),
-        ("Schools", "life-culture/schools.html"),
-        ("Why Herriman", "life-culture/why-herriman.html"),
+    # ⛔ TWO GROUPS, NOT ONE. Ranee, 2026-09-21: "Lifestyle, life at Panorama,
+    # and amenities are one thing. So that's about our specific Panorama
+    # community. The rest is about the area around it, so we need to
+    # differentiate more between those two." The old "Lifestyle" dropdown mixed
+    # Panorama's own trail system with Herriman's schools and shopping.
+    # Community first, then the area. Nothing about Herriman goes in the
+    # community group, and nothing Panorama owns goes in the area group.
+    ("Life at Panorama", "life-culture/", [
+        ("Overview", "life-culture/"),
+        ("Panorama Trails", "things-to-do/parks-trails.html"),
+        ("Our Story", "life-culture/history.html"),
     ], "nav-link"),
     # Promoted out of the Lifestyle dropdown on Ranee's instruction.
     ("Amenities", "life-culture/amenities.html", None, "nav-link"),
+    ("Around Herriman", "things-to-do/", [
+        ("Things To Do", "things-to-do/"),
+        ("Dining", "things-to-do/dining.html"),
+        ("Recreation", "things-to-do/recreation.html"),
+        ("Shopping", "things-to-do/shopping.html"),
+        ("Schools", "life-culture/schools.html"),
+        ("Why Herriman", "life-culture/why-herriman.html"),
+    ], "nav-link"),
+    # Location stays top level: its page carries Panorama's own master plan
+    # AND the nearby destinations, so it belongs to neither group alone.
     ("Location", "maps/", None, "nav-link"),
     ("Gallery", "gallery.html", None, "nav-link"),
 ]
@@ -103,11 +118,25 @@ def nav_html(depth: int, home_is_hash: bool = False) -> str:
 FOOTER_LINKS = [
     ("Find Your Home", "find-a-home/"),
     ("Panorama Builders", "find-a-home/builders.html"),
+    ("Life at Panorama", "life-culture/"),
     ("Amenities", "life-culture/amenities.html"),
-    ("Lifestyle", "life-culture/"),
-    ("Things To Do", "things-to-do/"),
+    ("Around Herriman", "things-to-do/"),
     ("Location", "maps/"),
     ("Gallery", "gallery.html"),
+]
+
+# Pages about the AREA, not the community. Each carries the eyebrow below
+# above its <h1>, so a visitor who lands from search on "Dining" knows it is
+# about Herriman before reading a word of it. tools/sweep-site.py writes it
+# and --check fails if one drifts. Same pages as the "Around Herriman" group.
+AREA_EYEBROW = "Around Herriman"
+AREA_PAGES = [
+    "things-to-do/index.html",
+    "things-to-do/dining.html",
+    "things-to-do/recreation.html",
+    "things-to-do/shopping.html",
+    "life-culture/schools.html",
+    "life-culture/why-herriman.html",
 ]
 
 
