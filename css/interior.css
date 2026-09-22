@@ -186,27 +186,45 @@ h1, h2, h3, h4 {
   max-width: 800px;
   padding: 0 2rem;
 }
-.interior-hero .breadcrumb {
+/* ⛔ THE HERO'S TYPOGRAPHY WAS SCOPED TO ONE HERO VARIANT, AND THERE ARE THREE.
+ *
+ * Ranee, 2026-09-21, on the amenities page: "amenities look great. There's some
+ * CSS airs for sure." This is them, and they were invisible in the markup
+ * because nothing is misspelled and nothing is missing -- the rules simply do
+ * not match.
+ *
+ * life-culture/amenities.html leads with `.video-hero` (the amenity
+ * fly-through), not `.interior-hero`. Every rule below was written as
+ * `.interior-hero .breadcrumb` / `.interior-hero h1` / `.interior-hero p`, so
+ * on that page the breadcrumb got NO styling at all -- default body text with
+ * default BLUE UNDERLINED links sitting on a photograph -- and the h1 fell back
+ * to the generic heading size and collided with it.
+ *
+ * ⛔ Do not add a fourth hero without adding it here. A hero variant that does
+ * not inherit the hero's type is a page that looks broken to the client and
+ * fine to the person reading the diff.
+ */
+.interior-hero .breadcrumb, .video-hero .breadcrumb {
   font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 1rem;
 }
-.interior-hero .breadcrumb a {
+.interior-hero .breadcrumb a, .video-hero .breadcrumb a {
   color: rgba(255,255,255,0.7);
   text-decoration: none;
 }
-.interior-hero .breadcrumb a:hover {
+.interior-hero .breadcrumb a:hover, .video-hero .breadcrumb a:hover {
   color: var(--gold);
 }
-.interior-hero h1 {
+.interior-hero h1, .video-hero h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 300;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
-.interior-hero p {
+.interior-hero p, .video-hero p {
   font-size: 1.15rem;
   opacity: 0.9;
   max-width: 600px;
@@ -867,3 +885,13 @@ footer {
 @media (min-width: 720px) {
   .builder-slide { flex: 0 0 calc(50% - 0.5rem); }
 }
+
+/* An inline link inside an amenity card. Without this it is the browser's
+   default blue-and-underlined, mid-sentence, on a navy card. Same class of
+   defect as the hero above: nothing is wrong with the markup. */
+.lifestyle-card a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 146, 63, 0.4);
+}
+.lifestyle-card a:hover { border-bottom-color: var(--gold); }
