@@ -22,7 +22,6 @@
     "tours. We're not gonna do any kind of lead generation.' The only call to",
     "action on a builder page is the link out to that builder's own website."
   ],
-
   "_verificationOpen": [
     "OPEN QUESTION FOR RANEE, 2026-09-21: 'I don't know if all those other ones",
     "are builders, to be honest.' Every builder below except Candlelight was",
@@ -34,7 +33,6 @@
     "Candlelight was added on Ranee's word that day: 'Candlelight will be on",
     "there as well.'"
   ],
-
   "builders": [
     {
       "slug": "tri-pointe",
@@ -49,7 +47,13 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "toll-brothers",
@@ -64,7 +68,13 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "pulte",
@@ -79,7 +89,13 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "candlelight",
@@ -95,7 +111,13 @@
       "exteriorImages": [],
       "interiorImages": [],
       "modelHomes": [],
-      "_note": "Added 2026-09-21 on Ranee's word. Product type not stated on the call -- left null rather than guessed."
+      "_note": "Added 2026-09-21 on Ranee's word. Product type not stated on the call -- left null rather than guessed.",
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "dai",
@@ -110,7 +132,13 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "jcraft",
@@ -125,7 +153,13 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     },
     {
       "slug": "elevation",
@@ -140,7 +174,39 @@
       "differentiators": [],
       "exteriorImages": [],
       "interiorImages": [],
-      "modelHomes": []
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null
     }
+  ],
+  "_assetGuide": [
+    "THE FIELDS BELOW ARE RANEE'S 'BUILDER ASSET REQUEST' FLYER, 1:1.",
+    "BuilderAssets_Flyer_8.5x11_PAN_1.pdf, emailed 2026-09-21. She sends it to",
+    "each builder; their reply fills one object here. Keeping the shapes identical",
+    "is the whole trick -- a reply arrives in her field names, not ours.",
+    "",
+    "  1 Logos ............ logo (vector .ai/.eps/.svg preferred, transparent,",
+    "                      horizontal AND vertical if they have both)",
+    "  2 Photography ...... exteriorImages / interiorImages, 1-5 each, 300 DPI,",
+    "                      horizontal preferred, min 6x4in",
+    "  3 Marketing copy ... intro (<=50 words) - homes (2-4 paras, ~150 words,",
+    "                      SPECIFICALLY what they build at Panorama) -",
+    "                      differentiators (4-8 bullets) - url (+ utm)",
+    "  4 Model homes ...... modelHomes[]: address, grandOpening (date AND time),",
+    "                      opensToPublic, estimatedCompletion",
+    "  5 Delivery ......... assets go to Ranee@DAIUtah.com",
+    "  6 Contact .......... contact{name,email,phone}",
+    "",
+    "⛔ `contact` IS INTERNAL AND IS NEVER RENDERED. It is the builder's MARKETING",
+    "CONTACT, collected so Ranee can chase assets -- not a number for the public.",
+    "tools/build-builders.py must not read it, and lib tests pin that.",
+    "",
+    "⛔ NOTHING BELOW IS FILLED IN YET. The flyer is the REQUEST; no builder has",
+    "replied. Every field stays null until their reply lands, and renders as a",
+    "marker naming what is missing."
   ]
 }
