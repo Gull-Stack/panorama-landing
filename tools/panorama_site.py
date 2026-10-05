@@ -31,7 +31,6 @@ NAV = [
     ("Find Your Home", "find-a-home/", [
         ("Overview", "find-a-home/"),
         ("Panorama Builders", "find-a-home/builders.html"),
-        ("Villages", "find-a-home/villages.html"),
         ("Townhomes For Rent", "find-a-home/rentals.html"),
         ("Bring Your Own Builder", "find-a-home/bring-your-own-builder.html"),
     ], "nav-cta nav-cta-drop"),
@@ -67,9 +66,12 @@ NAV = [
 # so a deleted page never leaves a 404 behind.
 #   floorplans -- "no floor plans on the whole thing"
 #   homesites  -- "no specific lots for each builder"
+#   villages   -- Ranee, 2026-10-05: delete the villages page.
+#                 The five village detail pages under villages/ stay.
 RETIRED = {
     "find-a-home/floorplans.html": "find-a-home/builders.html",
-    "find-a-home/homesites.html": "find-a-home/villages.html",
+    "find-a-home/homesites.html": "find-a-home/",
+    "find-a-home/villages.html": "find-a-home/",
 }
 
 

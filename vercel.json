@@ -8,7 +8,8 @@
     { "source": "/location", "destination": "/maps", "permanent": false },
     { "source": "/bring-your-own-builder", "destination": "/find-a-home/bring-your-own-builder", "permanent": false },
     { "source": "/rentals", "destination": "/find-a-home/rentals", "permanent": false },
-    { "source": "/townhomes-for-rent", "destination": "/find-a-home/rentals", "permanent": false }
+    { "source": "/townhomes-for-rent", "destination": "/find-a-home/rentals", "permanent": false },
+    { "source": "/find-a-home/villages", "destination": "/find-a-home", "permanent": false }
   ],
   "headers": [
     {
