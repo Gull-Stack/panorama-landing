@@ -36,30 +36,23 @@ NAV = [
         ("Townhomes For Rent", "find-a-home/#townhomes"),
         ("Bring Your Own Builder", "find-a-home/#bring-your-own-builder"),
     ], "nav-cta nav-cta-drop"),
-    # ⛔ TWO GROUPS, NOT ONE. Ranee, 2026-09-21: "Lifestyle, life at Panorama,
-    # and amenities are one thing. So that's about our specific Panorama
-    # community. The rest is about the area around it, so we need to
-    # differentiate more between those two." The old "Lifestyle" dropdown mixed
-    # Panorama's own trail system with Herriman's schools and shopping.
-    # Community first, then the area. Nothing about Herriman goes in the
-    # community group, and nothing Panorama owns goes in the area group.
+    # 2026-10-05: Life at Panorama is the amenities page. Our Story leaves the
+    # menu. The Panorama trail system is coming later, so it is not a page.
+    # Nearby parks move under Around Herriman. Amenities is no longer its own
+    # top-level item.
     ("Life at Panorama", "life-culture/", [
-        ("Overview", "life-culture/"),
-        ("Panorama Trails", "things-to-do/parks-trails.html"),
-        ("Our Story", "life-culture/history.html"),
+        ("Amenities", "life-culture/#amenities"),
     ], "nav-link"),
-    # Promoted out of the Lifestyle dropdown on Ranee's instruction.
-    ("Amenities", "life-culture/amenities.html", None, "nav-link"),
+    # One page. The menu jumps to a section, the same way Find Your Home does.
     ("Around Herriman", "things-to-do/", [
-        ("Things To Do", "things-to-do/"),
-        ("Dining", "things-to-do/dining.html"),
-        ("Recreation", "things-to-do/recreation.html"),
-        ("Shopping", "things-to-do/shopping.html"),
-        ("Schools", "life-culture/schools.html"),
-        ("Why Herriman", "life-culture/why-herriman.html"),
+        ("Things To Do", "things-to-do/#things"),
+        ("Dining", "things-to-do/#dining"),
+        ("Recreation", "things-to-do/#recreation"),
+        ("Shopping", "things-to-do/#shopping"),
+        ("Schools", "things-to-do/#schools"),
+        ("Why Herriman", "things-to-do/#why-herriman"),
+        ("Parks & Trails", "things-to-do/#parks"),
     ], "nav-link"),
-    # Location stays top level: its page carries Panorama's own master plan
-    # AND the nearby destinations, so it belongs to neither group alone.
     ("Location", "maps/", None, "nav-link"),
     ("Gallery", "gallery.html", None, "nav-link"),
 ]
@@ -76,6 +69,13 @@ RETIRED = {
     "find-a-home/homesites.html": "find-a-home/",
     "find-a-home/villages.html": "find-a-home/",
     "find-a-home/builders.html": "find-a-home/#builders",
+    "life-culture/amenities.html": "life-culture/#amenities",
+    "things-to-do/dining.html": "things-to-do/#dining",
+    "things-to-do/recreation.html": "things-to-do/#recreation",
+    "things-to-do/shopping.html": "things-to-do/#shopping",
+    "things-to-do/parks-trails.html": "things-to-do/#parks",
+    "life-culture/schools.html": "things-to-do/#schools",
+    "life-culture/why-herriman.html": "things-to-do/#why-herriman",
 }
 
 
@@ -125,7 +125,6 @@ FOOTER_LINKS = [
     ("Find Your Home", "find-a-home/"),
     ("Panorama Builders", "find-a-home/#builders"),
     ("Life at Panorama", "life-culture/"),
-    ("Amenities", "life-culture/amenities.html"),
     ("Around Herriman", "things-to-do/"),
     ("Location", "maps/"),
     ("Gallery", "gallery.html"),
@@ -136,13 +135,11 @@ FOOTER_LINKS = [
 # about Herriman before reading a word of it. tools/sweep-site.py writes it
 # and --check fails if one drifts. Same pages as the "Around Herriman" group.
 AREA_EYEBROW = "Around Herriman"
+# 2026-10-05: dining, recreation, shopping, schools, and why Herriman are
+# sections of this one page. The eyebrow stays on the page, not on pages
+# that no longer exist.
 AREA_PAGES = [
     "things-to-do/index.html",
-    "things-to-do/dining.html",
-    "things-to-do/recreation.html",
-    "things-to-do/shopping.html",
-    "life-culture/schools.html",
-    "life-culture/why-herriman.html",
 ]
 
 

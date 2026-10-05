@@ -283,7 +283,15 @@ h1, h2, h3, h4 {
    heading has to clear it. */
 #builders,
 #townhomes,
-#bring-your-own-builder {
+#bring-your-own-builder,
+#amenities,
+#things,
+#dining,
+#recreation,
+#shopping,
+#schools,
+#why-herriman,
+#parks {
   scroll-margin-top: 7rem;
 }
 
@@ -685,6 +693,23 @@ footer {
 }
 .video-hero .interior-hero-overlay { z-index: 2; }
 .video-hero .interior-hero-content { z-index: 5; }
+.video-hero .conceptual-note {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 6;
+  margin: 0;
+  max-width: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #fff;
+  background: rgba(10, 22, 40, 0.62);
+  padding: 0.45rem 0.7rem;
+  border-radius: 2px;
+}
 
 /* Lifestyle amenity squares with custom icon frame */
 .lifestyle-grid {

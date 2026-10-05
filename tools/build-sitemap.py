@@ -16,13 +16,13 @@ BASE = "https://panoramahomes.com"
 SKIP = {".git", "node_modules", "tools", "data"}
 
 # Highest first. Ranee, 2026-09-21: Find Your Home is "the main place that we
-# want people to go", and Amenities became a top-level destination the same day.
+# want people to go". On 2026-10-05 Life at Panorama became the amenities page.
 PRIORITY = [
     (re.compile(r"^index\.html$"), "1.0", "weekly"),
     (re.compile(r"^find-a-home/index\.html$"), "0.9", "weekly"),
     (re.compile(r"^find-a-home/builders\.html$"), "0.9", "weekly"),
     (re.compile(r"^find-a-home/builder-.*\.html$"), "0.8", "monthly"),
-    (re.compile(r"^life-culture/amenities\.html$"), "0.8", "monthly"),
+    (re.compile(r"^life-culture/index\.html$"), "0.8", "monthly"),
     (re.compile(r"^(find-a-home|life-culture|things-to-do|maps|villages)/"), "0.7", "monthly"),
     (re.compile(r"^(blog|areas)/"), "0.5", "monthly"),
 ]
