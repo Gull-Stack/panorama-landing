@@ -279,6 +279,13 @@ h1, h2, h3, h4 {
   max-width: 700px;
   margin: 0 auto;
 }
+/* The Find Your Home menu jumps to these. The bar is fixed, so the
+   heading has to clear it. */
+#builders,
+#townhomes,
+#bring-your-own-builder {
+  scroll-margin-top: 7rem;
+}
 
 /* Grid Layouts */
 .grid-2 {

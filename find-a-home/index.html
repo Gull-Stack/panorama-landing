@@ -35,10 +35,9 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
       <div class="nav-item">
         <a href="../find-a-home/" class="nav-cta nav-cta-drop">Find Your Home <span class="arrow">▼</span></a>
         <div class="nav-dropdown">
-          <a href="../find-a-home/">Overview</a>
-          <a href="../find-a-home/builders.html">Panorama Builders</a>
-          <a href="../find-a-home/rentals.html">Townhomes For Rent</a>
-          <a href="../find-a-home/bring-your-own-builder.html">Bring Your Own Builder</a>
+          <a href="../find-a-home/#builders">Panorama Builders</a>
+          <a href="../find-a-home/#townhomes">Townhomes For Rent</a>
+          <a href="../find-a-home/#bring-your-own-builder">Bring Your Own Builder</a>
         </div>
       </div>
       <div class="nav-item">
@@ -77,6 +76,57 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
     </div>
   </section>
 
+  <!-- Panorama Builders. Ranee, 2026-10-05: Find Your Home lists the
+       builders. The menu jumps here. -->
+  <section class="section section-light" id="builders">
+    <div class="container">
+      <div class="section-header">
+        <h2 style="color: var(--navy);">Panorama Builders</h2>
+        <p style="color: #4a5568;">Choose a builder to see their homes at Panorama, then go straight to their website for plans, availability and pricing.</p>
+      </div>
+
+      <!-- BUILDER-GRID:START -->
+      <div class="builder-logo-grid">
+        <a href="../find-a-home/builder-tri-pointe.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Tri Pointe Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-toll-brothers.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Toll Brothers</span><span class="builder-meta">Luxury homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-pulte.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Pulte Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-candlelight.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Candlelight Homes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-dai.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">DAI Homes</span><span class="builder-meta">Townhomes</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-jcraft.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">J-Craft Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="../find-a-home/builder-elevation.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Elevation Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
+      </div>
+      <!-- BUILDER-GRID:END -->
+    </div>
+  </section>
+
+  <!-- More Ways to Call Panorama Home. Moved here from the bottom of this
+       page, 2026-10-05, so it sits under the builders. The two items are
+       blurbs; the full pages stay one click further. -->
+  <section class="section section-dark" id="more-ways">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>More Ways to <span class="text-gold">Call Panorama Home</span></h2>
+        <p>Buy from a Panorama builder, bring your own builder on a homesite, or lease a townhome — there's a path here for every chapter.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card" id="townhomes">
+          <div class="card-content">
+            <h3>Townhomes For Rent</h3>
+            <p>Not ready to buy? Live at Panorama in a rental townhome and enjoy every community amenity.</p>
+            <a href="rentals.html" class="btn btn-gold" style="margin-top: 1.25rem;">Townhomes For Rent</a>
+          </div>
+        </div>
+        <div class="card" id="bring-your-own-builder">
+          <div class="card-content">
+            <h3>Bring Your Own Builder</h3>
+            <p>Choose your homesite, bring the builder you love, and build custom in the foothills.</p>
+            <a href="bring-your-own-builder.html" class="btn btn-outline" style="margin-top: 1.25rem;">Bring Your Own Builder</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Home Types Overview -->
   <section class="section section-light">
     <div class="container">
@@ -94,7 +144,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
             <h3>Townhomes</h3>
             <p>Modern farmhouse design by DAI. Lock-and-leave convenience without compromising on views or quality. Perfect for young professionals and empty nesters alike.</p>
             <div class="product-builders"><span class="plabel">Built by</span><a href="builder-dai.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">DAI Homes</a></div>
-            <a href="../find-a-home/builders.html" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
+            <a href="../find-a-home/#builders" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
           </div>
         </div>
         
@@ -106,7 +156,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
             <h3>Single Family</h3>
             <p>Toll Brothers, Tri Pointe, and Pulte craftsmanship. The space to gather, the views to inspire. Built for families who value quality and community.</p>
             <div class="product-builders"><span class="plabel">Built by</span><a href="builder-toll-brothers.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">Toll Brothers</a><a href="builder-tri-pointe.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">Tri Pointe</a><a href="builder-pulte.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">Pulte</a></div>
-            <a href="../find-a-home/builders.html" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
+            <a href="../find-a-home/#builders" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
           </div>
         </div>
         
@@ -118,7 +168,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
             <h3>Custom Estates</h3>
             <p>J-Craft and Elevation Homes. Premium lots with the best views. Your vision, our elevated standards — this is the reward you've earned.</p>
             <div class="product-builders"><span class="plabel">Built by</span><a href="builder-jcraft.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">J-Craft</a><a href="builder-elevation.html" class="product-builder-logo" style="color: var(--gold-dark); border-color: #d8cfbb;">Elevation</a></div>
-            <a href="../find-a-home/builders.html" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
+            <a href="../find-a-home/#builders" class="btn btn-outline" style="margin-top: 1rem; color: var(--navy); border-color: var(--navy);">View Plans</a>
           </div>
         </div>
       </div>
@@ -139,32 +189,6 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
            tell them where their lots are, it'll be in the master plan image at
            the bottom." So the map moved to the bottom of this page and stopped
            answering who builds where. -->
-    </div>
-  </section>
-
-  <!-- Builders Preview -->
-  <section class="section section-light">
-    <div class="container">
-      <div class="section-header">
-        <h2 style="color: var(--navy);">Panorama Builders</h2>
-        <p style="color: #4a5568;">Select a builder to see their homes at Panorama.</p>
-      </div>
-      
-      <!-- BUILDER-GRID:START -->
-      <div class="builder-logo-grid">
-        <a href="../find-a-home/builder-tri-pointe.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Tri Pointe Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-toll-brothers.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Toll Brothers</span><span class="builder-meta">Luxury homes</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-pulte.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Pulte Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-candlelight.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Candlelight Homes</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-dai.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">DAI Homes</span><span class="builder-meta">Townhomes</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-jcraft.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">J-Craft Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
-        <a href="../find-a-home/builder-elevation.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Elevation Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
-      </div>
-      <!-- BUILDER-GRID:END -->
-
-      <div style="text-align: center;">
-        <a href="builders.html" class="btn btn-outline-navy">See all builders</a>
-      </div>
     </div>
   </section>
 
@@ -190,25 +214,13 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
     </div>
   </section>
 
-  <!-- CTA: Bring Your Own Builder + Rentals (replaces crossed-out Schedule-a-Tour dead-end) -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="reveal">More Ways to <span class="text-gold">Call Panorama Home</span></h2>
-      <p class="reveal">Buy from a Panorama builder, bring your own builder on a homesite, or lease a townhome — there's a path here for every chapter.</p>
-      <div class="reveal" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="bring-your-own-builder.html" class="btn btn-gold">Bring Your Own Builder</a>
-        <a href="rentals.html" class="btn btn-outline">Townhomes For Rent</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="footer-logo"><img src="../assets/logo-white.png" alt="Panorama"></div>
     <p class="footer-tagline">The View Is Better From Here</p>
     <div class="footer-links">
       <a href="../find-a-home/">Find Your Home</a>
-      <a href="../find-a-home/builders.html">Panorama Builders</a>
+      <a href="../find-a-home/#builders">Panorama Builders</a>
       <a href="../life-culture/">Life at Panorama</a>
       <a href="../life-culture/amenities.html">Amenities</a>
       <a href="../things-to-do/">Around Herriman</a>

@@ -165,7 +165,7 @@ def page(b):
 
   <section class="interior-hero interior-hero-plain">
     <div class="interior-hero-content">
-      <div class="breadcrumb"><a href="../">Home</a> / <a href="../find-a-home/builders.html">Panorama Builders</a> / {b['name']}</div>
+      <div class="breadcrumb"><a href="../">Home</a> / <a href="../find-a-home/#builders">Find Your Home</a> / {b['name']}</div>
       {logo_block(b, d)}
       <h1>{b['name']}</h1>
       {f'<p class="builder-product">{b["productType"]}</p>' if b.get("productType") else ''}
@@ -196,7 +196,7 @@ def page(b):
       <h2>See everything {b['name']} offers</h2>
       <p>Availability, plans and pricing all live on the builder&rsquo;s own site.</p>
       {link_out(b)}
-      <div style="margin-top:1rem;"><a href="../find-a-home/builders.html" class="btn btn-outline">Back to all builders</a></div>
+      <div style="margin-top:1rem;"><a href="../find-a-home/#builders" class="btn btn-outline">Back to all builders</a></div>
     </div>
   </section>
 
@@ -259,7 +259,6 @@ def main():
     for path, depth in (
         ("index.html", 0),
         ("find-a-home/index.html", 1),
-        ("find-a-home/builders.html", 1),
     ):
         changed, new = splice(path, depth)
         if changed is None:

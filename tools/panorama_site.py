@@ -28,11 +28,13 @@ NAV = [
     # ⛔ ONE ITEM. Ranee asked for the outline AND the dropdown on the same
     # thing; rendering a "Find Your Home" button beside a "Find Your Home"
     # dropdown would be two doors to one room.
+    # 2026-10-05: the button still says Find Your Home and opens that page,
+    # which lists the builders. The dropdown is three jumps down the same
+    # page, not three other pages. No Overview.
     ("Find Your Home", "find-a-home/", [
-        ("Overview", "find-a-home/"),
-        ("Panorama Builders", "find-a-home/builders.html"),
-        ("Townhomes For Rent", "find-a-home/rentals.html"),
-        ("Bring Your Own Builder", "find-a-home/bring-your-own-builder.html"),
+        ("Panorama Builders", "find-a-home/#builders"),
+        ("Townhomes For Rent", "find-a-home/#townhomes"),
+        ("Bring Your Own Builder", "find-a-home/#bring-your-own-builder"),
     ], "nav-cta nav-cta-drop"),
     # ⛔ TWO GROUPS, NOT ONE. Ranee, 2026-09-21: "Lifestyle, life at Panorama,
     # and amenities are one thing. So that's about our specific Panorama
@@ -68,10 +70,12 @@ NAV = [
 #   homesites  -- "no specific lots for each builder"
 #   villages   -- Ranee, 2026-10-05: delete the villages page.
 #                 The five village detail pages under villages/ stay.
+#   builders   -- the builder list now lives on Find Your Home, at #builders.
 RETIRED = {
-    "find-a-home/floorplans.html": "find-a-home/builders.html",
+    "find-a-home/floorplans.html": "find-a-home/#builders",
     "find-a-home/homesites.html": "find-a-home/",
     "find-a-home/villages.html": "find-a-home/",
+    "find-a-home/builders.html": "find-a-home/#builders",
 }
 
 
@@ -119,7 +123,7 @@ def nav_html(depth: int, home_is_hash: bool = False) -> str:
 # be rewritten by hand without that happening.
 FOOTER_LINKS = [
     ("Find Your Home", "find-a-home/"),
-    ("Panorama Builders", "find-a-home/builders.html"),
+    ("Panorama Builders", "find-a-home/#builders"),
     ("Life at Panorama", "life-culture/"),
     ("Amenities", "life-culture/amenities.html"),
     ("Around Herriman", "things-to-do/"),
