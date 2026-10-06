@@ -132,11 +132,15 @@ def models(b):
 
 
 def logo_block(b, depth):
-    if not b.get("logo"):
+    """The builder page hero is navy, the grids are white. A navy logo on a
+    navy hero disappears, so a builder may supply `logoOnDark`; `logo` is the
+    one that reads on white."""
+    art = b.get("logoOnDark") or b.get("logo")
+    if not art:
         return (
             '<div class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></div>'
         )
-    return f'<div class="builder-logo-img"><img src="{"../" * depth}{b["logo"]}" alt="{b["name"]}"></div>'
+    return f'<div class="builder-logo-img"><img src="{"../" * depth}{art}" alt="{b["name"]}"></div>'
 
 
 def page(b):

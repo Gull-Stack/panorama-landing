@@ -1434,19 +1434,12 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
 
   <!-- Hero -->
   <section class="hero">
-    <!-- Amenity fly-through header. flyover1.mp4 is our current drone flyover;
-         swap in Ranee's dedicated amenity fly-through when delivered. Aerials below are the fallback. -->
-    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
-      <source src="videos/flyover1.mp4" type="video/mp4">
+    <!-- Ranee, 2026-10-06: "the revised video for the home page header that
+         replaces the images." Panorama-Development_2.mp4, encoded to 720p.
+         The six rotating aerials are gone; the poster is its first frame. -->
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-poster-home.jpg">
+      <source src="videos/home-hero.mp4" type="video/mp4">
     </video>
-    <div class="hero-backgrounds">
-      <img src="images/aerial/aerial-01.jpg" alt="Panorama aerial view" class="hero-bg active">
-      <img src="images/aerial/aerial-05.jpg" alt="Panorama mountain view" class="hero-bg">
-      <img src="images/aerial/aerial-20.jpg" alt="Panorama community view" class="hero-bg">
-      <img src="images/aerial/aerial-25.jpg" alt="Panorama winter mountains" class="hero-bg">
-      <img src="images/aerial/aerial-26.jpg" alt="Panorama valley panorama" class="hero-bg">
-      <img src="images/aerial/aerial-35.jpg" alt="Panorama foothills view" class="hero-bg">
-    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-tagline">Herriman's Foothills Community</p>
@@ -1485,6 +1478,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         <a href="find-a-home/builder-dai.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">DAI Homes</span><span class="builder-meta">Townhomes</span><span class="view-plans">View homes &rarr;</span></a>
         <a href="find-a-home/builder-jcraft.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">J-Craft Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
         <a href="find-a-home/builder-elevation.html" class="builder-logo-link"><span class="builder-logo-img placeholder"><span class="pending-tag">Logo pending</span></span><span class="builder-name">Elevation Homes</span><span class="builder-meta">Custom estates</span><span class="view-plans">View homes &rarr;</span></a>
+        <a href="find-a-home/builder-mcarthur.html" class="builder-logo-link"><span class="builder-logo-img"><img src="images/builders/mcarthur/logo.svg" alt="McArthur Homes"></span><span class="builder-name">McArthur Homes</span><span class="builder-meta">Single-family homes</span><span class="view-plans">View homes &rarr;</span></a>
       </div>
       <!-- BUILDER-GRID:END -->
       <p class="reveal" style="text-align: center; margin-top: 1.75rem;"><a href="find-a-home/#builders" class="btn btn-outline-navy">See all builders</a></p>
