@@ -81,8 +81,8 @@
 
     var home = L.marker([PANORAMA.lat, PANORAMA.lng], {
       icon: L.divIcon({ className: "", html: '<div class="near-pin home"></div>', iconSize: [34, 34], iconAnchor: [17, 34], popupAnchor: [0, -30] }),
-      zIndexOffset: 1000
-    }).addTo(map).bindPopup('<div class="near-popup-body"><h5>' + PANORAMA.name + "</h5><p>" + PANORAMA.note + "</p></div>", { className: "near-popup" });
+      title: PANORAMA.name, alt: PANORAMA.name, zIndexOffset: 1000
+    }).addTo(map).bindPopup('<div class="near-popup-body"><strong class="near-popup-title">' + PANORAMA.name + "</strong><p>" + PANORAMA.note + "</p></div>", { className: "near-popup" });
 
     var groups = {};
     Object.keys(CATS).forEach(function (k) { groups[k] = L.layerGroup(); });
@@ -91,10 +91,11 @@
       var c = CATS[p.cat];
       if (!c) return;
       var m = L.marker([p.lat, p.lng], {
-        icon: L.divIcon({ className: "", html: '<div class="near-pin" style="background:' + c.color + '"></div>', iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24] })
+        icon: L.divIcon({ className: "", html: '<div class="near-pin" style="background:' + c.color + '"></div>', iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24] }),
+        title: p.name + " (" + c.label + ")", alt: p.name
       });
       m.bindPopup(
-        '<div class="near-popup-body"><h5>' + p.name + "</h5><p>" + p.city + (p.time ? " &middot; " + p.time : "") + "</p>" +
+        '<div class="near-popup-body"><strong class="near-popup-title">' + p.name + "</strong><p>" + p.city + (p.time ? " &middot; " + p.time : "") + "</p>" +
         '<a href="' + gmaps(p) + '" target="_blank" rel="noopener">Open in Google Maps &rarr;</a></div>',
         { className: "near-popup" }
       );
