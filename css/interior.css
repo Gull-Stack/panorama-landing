@@ -991,7 +991,8 @@ svg.pi {
 .section-light .builder-logo-link { background: #fff; border-color: #ece7dd; box-shadow: 0 8px 30px rgba(0,0,0,0.06); color: var(--navy); }
 .section-light .builder-logo-link:hover { background: #fff; border-color: var(--gold); box-shadow: 0 20px 45px rgba(10,22,40,0.14); }
 .section-light .builder-logo-link .builder-name { color: var(--navy); }
-.section-light .builder-logo-link .builder-meta { color: #8a7f6a; opacity: 1; }
+.section-light .builder-logo-link .builder-meta { color: #5f574a; opacity: 1; }
+.section-light .builder-logo-link .view-plans { color: #7d6424; }
 .section-light .builder-logo-link .builder-logo-img { color: var(--navy); }
 .section-light .builder-logo-img.placeholder { border-color: #e2dccf; }
 
@@ -1049,7 +1050,7 @@ svg.pi {
 .near-pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
 .near-pin.home { width: 34px; height: 34px; background: var(--navy); border: 3px solid var(--gold); }
 .near-popup .leaflet-popup-content-wrapper { border-radius: 10px; font-family: 'Inter', sans-serif; }
-.near-popup-body h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin: 0 0 .2rem; color: var(--navy); }
+.near-popup-body .near-popup-title { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin: 0 0 .2rem; color: var(--navy); }
 .near-popup-body p { margin: 0 0 .4rem; font-size: .8rem; color: #4a5568; }
 .near-popup-body a { color: var(--gold-dark); font-size: .74rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
 .near-fallback { padding: 2rem; text-align: center; color: var(--navy); }

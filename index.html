@@ -233,6 +233,7 @@
   }
   </script>
   
+  <link rel="preload" as="image" href="images/hero-poster-home.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1554,7 +1555,9 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
       let ticking = false;
       
       function updateParallax() {
-        if (prefersReducedMotion) return;
+        // 2026-10-06: the rotating .hero-backgrounds are gone (Ranee's video
+        // replaced them). Without this guard every scroll threw a TypeError.
+        if (prefersReducedMotion || !hero || !heroBackgrounds) return;
         
         const scrollY = window.scrollY;
         const heroHeight = hero.offsetHeight;

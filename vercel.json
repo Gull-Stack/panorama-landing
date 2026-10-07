@@ -2,43 +2,137 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/find-your-builder", "destination": "/find-a-home", "permanent": false },
-    { "source": "/builders", "destination": "/find-a-home/builders", "permanent": false },
-    { "source": "/lifestyle", "destination": "/life-culture", "permanent": false },
-    { "source": "/location", "destination": "/maps", "permanent": false },
-    { "source": "/bring-your-own-builder", "destination": "/find-a-home/bring-your-own-builder", "permanent": false },
-    { "source": "/rentals", "destination": "/find-a-home/rentals", "permanent": false },
-    { "source": "/townhomes-for-rent", "destination": "/find-a-home/rentals", "permanent": false },
-    { "source": "/find-a-home/villages", "destination": "/find-a-home", "permanent": false },
-    { "source": "/find-a-home/builders", "destination": "/find-a-home#builders", "permanent": false },
-    { "source": "/life-culture/amenities", "destination": "/life-culture#amenities", "permanent": false },
-    { "source": "/things-to-do/dining", "destination": "/things-to-do#dining", "permanent": false },
-    { "source": "/things-to-do/recreation", "destination": "/things-to-do#recreation", "permanent": false },
-    { "source": "/things-to-do/shopping", "destination": "/things-to-do#shopping", "permanent": false },
-    { "source": "/things-to-do/parks-trails", "destination": "/things-to-do#parks", "permanent": false },
-    { "source": "/life-culture/schools", "destination": "/things-to-do#schools", "permanent": false },
-    { "source": "/life-culture/why-herriman", "destination": "/things-to-do#why-herriman", "permanent": false }
+    {
+      "source": "/find-your-builder",
+      "destination": "/find-a-home",
+      "permanent": false
+    },
+    {
+      "source": "/builders",
+      "destination": "/find-a-home/builders",
+      "permanent": false
+    },
+    {
+      "source": "/lifestyle",
+      "destination": "/life-culture",
+      "permanent": false
+    },
+    {
+      "source": "/location",
+      "destination": "/maps",
+      "permanent": false
+    },
+    {
+      "source": "/bring-your-own-builder",
+      "destination": "/find-a-home/bring-your-own-builder",
+      "permanent": false
+    },
+    {
+      "source": "/rentals",
+      "destination": "/find-a-home/rentals",
+      "permanent": false
+    },
+    {
+      "source": "/townhomes-for-rent",
+      "destination": "/find-a-home/rentals",
+      "permanent": false
+    },
+    {
+      "source": "/find-a-home/villages",
+      "destination": "/find-a-home",
+      "permanent": false
+    },
+    {
+      "source": "/find-a-home/builders",
+      "destination": "/find-a-home#builders",
+      "permanent": false
+    },
+    {
+      "source": "/life-culture/amenities",
+      "destination": "/life-culture#amenities",
+      "permanent": false
+    },
+    {
+      "source": "/things-to-do/dining",
+      "destination": "/things-to-do#dining",
+      "permanent": false
+    },
+    {
+      "source": "/things-to-do/recreation",
+      "destination": "/things-to-do#recreation",
+      "permanent": false
+    },
+    {
+      "source": "/things-to-do/shopping",
+      "destination": "/things-to-do#shopping",
+      "permanent": false
+    },
+    {
+      "source": "/things-to-do/parks-trails",
+      "destination": "/things-to-do#parks",
+      "permanent": false
+    },
+    {
+      "source": "/life-culture/schools",
+      "destination": "/things-to-do#schools",
+      "permanent": false
+    },
+    {
+      "source": "/life-culture/why-herriman",
+      "destination": "/things-to-do#why-herriman",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/css/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/js/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/images/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/images/favicon.png"
     }
   ]
 }
