@@ -12,6 +12,7 @@ cd "$(dirname "$0")/.."
 A="${1:-}"
 
 python3 tools/build-builders.py $A
+python3 tools/build-brands.py   $A
 python3 tools/sweep-site.py     $A
 python3 tools/build-sitemap.py  $A
 python3 tools/check-links.py

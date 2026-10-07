@@ -1,0 +1,363 @@
+{
+  "fetchedAt": "2026-10-07",
+  "source": "Google Places API (New) searchText, field mask displayName,rating,userRatingCount,formattedAddress",
+  "centers": {
+    "mvv": {
+      "name": "Mountain View Village",
+      "city": "Riverton, UT",
+      "lists": {
+        "dining": [
+          {
+            "brand": "Chick-fil-A",
+            "matched": "Chick-fil-A",
+            "address": "4627 W Partridge Hill Ln, Riverton, UT 84096, USA",
+            "rating": 4.1,
+            "count": 1221
+          },
+          {
+            "brand": "Shake Shack",
+            "matched": "Shake Shack Mountain View Village",
+            "address": "4415 Tree Sparrow Dr, Riverton, UT 84096, USA",
+            "rating": 3.9,
+            "count": 482
+          },
+          {
+            "brand": "Chipotle",
+            "matched": "Chipotle Mexican Grill",
+            "address": "4599 W Partridge Hill Ln, Riverton, UT 84096, USA",
+            "rating": 2.9,
+            "count": 249
+          },
+          {
+            "brand": "North Italia",
+            "matched": "North Italia",
+            "address": "13303 S Teal Rdg Wy Ste M-150, Riverton, UT 84096, USA",
+            "rating": 4.1,
+            "count": 666
+          },
+          {
+            "brand": "Benihana",
+            "matched": "Benihana - Riverton",
+            "address": "13253 S Teal Rdg Wy J190, Riverton, UT 84096, USA",
+            "rating": 4.4,
+            "count": 378
+          },
+          {
+            "brand": "Panera Bread",
+            "matched": "Panera Bread",
+            "address": "4431 Tree Sparrow Dr, Riverton, UT 84096, USA",
+            "rating": 4.4,
+            "count": 1343
+          },
+          {
+            "brand": "Cafe Zupas",
+            "matched": "Cafe Zupas",
+            "address": "4539 W Partridge Hill Ln, Riverton, UT 84096, USA",
+            "rating": 4,
+            "count": 809
+          },
+          {
+            "brand": "MOD Pizza",
+            "matched": "MOD Pizza",
+            "address": "4578 W Partridge Hill Ln Ste C-130, Riverton, UT 84096, USA",
+            "rating": 3.9,
+            "count": 821
+          },
+          {
+            "brand": "Flower Child",
+            "matched": "Flower Child",
+            "address": "4422 Tree Sparrow Dr, Riverton, UT 84096, USA",
+            "rating": 4.4,
+            "count": 181
+          },
+          {
+            "brand": "R&R Barbeque",
+            "matched": "R&R BBQ",
+            "address": "4489 W Partridge Hill Ln S-100, Riverton, UT 84096, USA",
+            "rating": 4.4,
+            "count": 1224
+          },
+          {
+            "brand": "Salt & Straw",
+            "matched": "Snelgrove Ice Cream",
+            "address": "14662 Porter Rockwell Blvd Ste a, Bluffdale, UT 84065, USA",
+            "rating": null,
+            "count": null,
+            "unmatched": true
+          },
+          {
+            "brand": "Zao Asian Cafe",
+            "matched": "Zao Asian Cafe",
+            "address": "4531 W Partridge Hill Ln Ste F-120, Riverton, UT 84096, USA",
+            "rating": 4.5,
+            "count": 334
+          }
+        ],
+        "shopping": [
+          {
+            "brand": "Harmons",
+            "matched": "Harmons Grocery - Mountain View Village",
+            "address": "13330 Kestrel Range Rd, Riverton, UT 84096, USA",
+            "rating": 4.5,
+            "count": 930
+          },
+          {
+            "brand": "Cinemark",
+            "matched": "Cinemark Riverton and XD",
+            "address": "13257 S Teal Rdg Wy, Riverton, UT 84096, USA",
+            "rating": 4.6,
+            "count": 858
+          },
+          {
+            "brand": "Lululemon",
+            "matched": "lululemon",
+            "address": "13303 S Teal Rdg Wy M100, Riverton, UT 84096, USA",
+            "rating": 3.7,
+            "count": 90
+          },
+          {
+            "brand": "Sephora",
+            "matched": "SEPHORA",
+            "address": "13303 S Teal Rdg Wy M110, Riverton, UT 84096, USA",
+            "rating": 4.2,
+            "count": 124
+          },
+          {
+            "brand": "ULTA Beauty",
+            "matched": "Ulta Beauty",
+            "address": "4654 Kestrel Range Rd, Riverton, UT 84096, USA",
+            "rating": 4,
+            "count": 354
+          },
+          {
+            "brand": "Nike",
+            "matched": "Nike Mountain View Village",
+            "address": "13348 Teal Rdg Wy Ste N-140, Riverton, UT 84096, USA",
+            "rating": 3.6,
+            "count": 119
+          },
+          {
+            "brand": "Anthropologie",
+            "matched": "Anthropologie",
+            "address": "13303 S Teal Rdg Wy M140, Riverton, UT 84096, USA",
+            "rating": 4.1,
+            "count": 44
+          },
+          {
+            "brand": "HomeGoods",
+            "matched": "HomeGoods",
+            "address": "Mountain View Village, 4582 Kestrel Range Rd, Riverton, UT 84065, USA",
+            "rating": 3.6,
+            "count": 7
+          },
+          {
+            "brand": "T.J. Maxx",
+            "matched": "T.J. Maxx & HomeGoods",
+            "address": "4582 Kestrel Range Rd, Riverton, UT 84065, USA",
+            "rating": 4.4,
+            "count": 1009
+          },
+          {
+            "brand": "Ross",
+            "matched": "Ross Dress for Less",
+            "address": "4554 Kestrel Range Rd Ste A105, Riverton, UT 84096, USA",
+            "rating": 4,
+            "count": 233
+          },
+          {
+            "brand": "Old Navy",
+            "matched": "Old Navy",
+            "address": "4626 Kestrel Range Rd, Riverton, UT 84096, USA",
+            "rating": 3.8,
+            "count": 214
+          },
+          {
+            "brand": "PetSmart",
+            "matched": "PetSmart",
+            "address": "13296 Kestrel Range Rd, Riverton, UT 84096, USA",
+            "rating": 4.2,
+            "count": 676
+          }
+        ]
+      }
+    },
+    "district": {
+      "name": "The District",
+      "city": "South Jordan, UT",
+      "lists": {
+        "dining": [
+          {
+            "brand": "Olive Garden",
+            "matched": "Olive Garden Italian Restaurant",
+            "address": "11364 S River Heights Dr, South Jordan, UT 84095, USA",
+            "rating": 4.2,
+            "count": 3960
+          },
+          {
+            "brand": "Red Robin",
+            "matched": "Red Robin Gourmet Burgers and Brews",
+            "address": "11615 District Main Dr, South Jordan, UT 84095, USA",
+            "rating": 4.1,
+            "count": 2638
+          },
+          {
+            "brand": "Buffalo Wild Wings",
+            "matched": "Buffalo Wild Wings",
+            "address": "11332 S River Heights Dr, South Jordan, UT 84095, USA",
+            "rating": 3.3,
+            "count": 2553
+          },
+          {
+            "brand": "Chick-fil-A",
+            "matched": "Chick-fil-A",
+            "address": "11494 District Dr, South Jordan, UT 84095, USA",
+            "rating": 4.4,
+            "count": 2264
+          },
+          {
+            "brand": "LongHorn Steakhouse",
+            "matched": "LongHorn Steakhouse",
+            "address": "11346 S River Heights Dr, South Jordan, UT 84095, USA",
+            "rating": 4.3,
+            "count": 3879
+          },
+          {
+            "brand": "Cafe Zupas",
+            "matched": "Cafe Zupas",
+            "address": "11463 District Main Dr, South Jordan, UT 84095, USA",
+            "rating": 3.9,
+            "count": 1122
+          },
+          {
+            "brand": "The Habit Burger Grill",
+            "matched": "Habit Burger & Grill",
+            "address": "11428 S Pkwy Plaza Dr #100, South Jordan, UT 84095, USA",
+            "rating": 4.4,
+            "count": 956
+          },
+          {
+            "brand": "Cubby's",
+            "matched": "Cubby's",
+            "address": "11501 4000 W #103, South Jordan, UT 84095, USA",
+            "rating": 4.2,
+            "count": 1567
+          },
+          {
+            "brand": "Noodles & Company",
+            "matched": "Noodles and Company",
+            "address": "11429 District Dr, South Jordan, UT 84095, USA",
+            "rating": 3.3,
+            "count": 716
+          },
+          {
+            "brand": "Swig",
+            "matched": "Swig",
+            "address": "11528 4000 W #101, South Jordan, UT 84009, USA",
+            "rating": 4.5,
+            "count": 1145
+          },
+          {
+            "brand": "Village Baker",
+            "matched": "Village Baker",
+            "address": "11486 District Dr #300, South Jordan, UT 84095, USA",
+            "rating": 4.4,
+            "count": 1767
+          },
+          {
+            "brand": "The Wild Rose",
+            "matched": "The Wild Rose",
+            "address": "11516 District Main Dr #500, South Jordan, UT 84095, USA",
+            "rating": 4.6,
+            "count": 518
+          }
+        ],
+        "shopping": [
+          {
+            "brand": "Target",
+            "matched": "Target",
+            "address": "11525 Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 3.4,
+            "count": 768
+          },
+          {
+            "brand": "Harmons",
+            "matched": "Harmons Grocery - The District",
+            "address": "11453 S Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4,
+            "count": 276
+          },
+          {
+            "brand": "Megaplex Theatres",
+            "matched": "Megaplex South Jordan at The District",
+            "address": "3761 W Parkway Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4.4,
+            "count": 3461
+          },
+          {
+            "brand": "JCPenney",
+            "matched": "JCPenney",
+            "address": "11552 District Dr, South Jordan, UT 84095, USA",
+            "rating": 4.1,
+            "count": 835
+          },
+          {
+            "brand": "Hobby Lobby",
+            "matched": "Hobby Lobby",
+            "address": "11681 S Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4.5,
+            "count": 2666
+          },
+          {
+            "brand": "Sprouts",
+            "matched": "Sprouts Farmers Market",
+            "address": "11519 4000 W, South Jordan, UT 84009, USA",
+            "rating": 4.5,
+            "count": 865
+          },
+          {
+            "brand": "Ross",
+            "matched": "Ross Dress for Less",
+            "address": "11593 Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4,
+            "count": 673
+          },
+          {
+            "brand": "Petco",
+            "matched": "Petco",
+            "address": "11639 S Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4,
+            "count": 1045
+          },
+          {
+            "brand": "Bath & Body Works",
+            "matched": "Bath & Body Works",
+            "address": "11559 Pkwy Plaza Dr Space 11559, South Jordan, UT 84095, USA",
+            "rating": 4.5,
+            "count": 446
+          },
+          {
+            "brand": "Famous Footwear",
+            "matched": "Famous Footwear",
+            "address": "THE DISTRICT AT S. JORDAN, 11571 S Pkwy Plaza Dr, South Jordan, UT 84095, USA",
+            "rating": 4,
+            "count": 152
+          },
+          {
+            "brand": "Planet Fitness",
+            "matched": "Planet Fitness",
+            "address": "11539 4000 W, South Jordan, UT 84009, USA",
+            "rating": 4.4,
+            "count": 744
+          },
+          {
+            "brand": "Downeast",
+            "matched": "Downeast Clothing",
+            "address": "11560 District Dr #400, South Jordan, UT 84095, USA",
+            "rating": 4.5,
+            "count": 4
+          }
+        ]
+      }
+    }
+  }
+}

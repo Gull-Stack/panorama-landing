@@ -1047,9 +1047,8 @@ svg.pi {
 .near-chip .near-count { margin-left: auto; font-size: .75rem; opacity: .6; }
 .near-jump { display: block; margin-top: auto; padding-top: .75rem; font-size: .74rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); text-decoration: none; }
 .near-jump:hover { color: var(--navy); }
-.near-pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
-.near-pin.home { width: 34px; height: 34px; background: var(--navy); border: 3px solid var(--gold); }
-.near-popup .leaflet-popup-content-wrapper { border-radius: 10px; font-family: 'Inter', sans-serif; }
+.gm-style .gm-style-iw-c { border-radius: 10px; padding: 14px 18px 12px; font-family: 'Inter', sans-serif; }
+.gm-style .gm-style-iw-d { overflow: hidden !important; }
 .near-popup-body .near-popup-title { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin: 0 0 .2rem; color: var(--navy); }
 .near-popup-body p { margin: 0 0 .4rem; font-size: .8rem; color: #4a5568; }
 .near-popup-body a { color: var(--gold-dark); font-size: .74rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
