@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/interior.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="../css/reveal-guard.css">
   <script>/* reveal guard - see css/reveal-guard.css */
 (function(){var h=document.documentElement;h.classList.add('js');
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
 
   <!-- Interior Hero. A construction video is coming for this hero. Keep the blue overlay. The file has not arrived. -->
   <section class="interior-hero">
-    <img src="../images/aerial/aerial-25.jpg" alt="Aerial near Panorama in Herriman" class="interior-hero-bg">
+    <img src="../images/aerial/aerial-16.jpg" alt="Aerial of Herriman and the valley near Panorama" class="interior-hero-bg">
     <div class="interior-hero-overlay"></div>
     <div class="interior-hero-content">
       <p class="breadcrumb"><a href="../">Home</a> / Things To Do</p>
@@ -79,40 +80,20 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
     <div class="container">
       <div class="section-header reveal">
         <h2 style="color: var(--navy);">Close to a Lot</h2>
-        <p style="color: #4a5568;">Everyday errands, schools, parks, and the mountains, a short drive from home.</p>
+        <p style="color: #4a5568;">Everyday errands, schools, parks, and the mountains, a short drive from home. Every pin is a place named on this page.</p>
       </div>
-
-      <div class="grid-3 reveal">
-        <a href="#dining" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 3v6M6 3v6a2 2 0 0 0 4 0V3M8 9v12M16 3c2 3 2 6 0 8v8"/></svg></div>
-          <h4>Dining</h4>
-          <p>Restaurants a few minutes away</p>
-        </a>
-        <a href="#recreation" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 20 9 8l4 6.5 3-4.5 6 10Z"/></svg></div>
-          <h4>Recreation</h4>
-          <p>Skiing, golf, and fitness</p>
-        </a>
-        <a href="#shopping" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 12H7L6 8ZM9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
-          <h4>Shopping</h4>
-          <p>Groceries and centers nearby</p>
-        </a>
-        <a href="#schools" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 20h18M5 20V10l7-5 7 5v10M10 20v-5h4v5"/></svg></div>
-          <h4>Schools</h4>
-          <p>Jordan School District</p>
-        </a>
-        <a href="#why-herriman" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-          <h4>Why Herriman</h4>
-          <p>Foothills and a short commute</p>
-        </a>
-        <a href="#parks" class="feature-box" style="text-decoration: none; color: inherit;">
-          <div class="feature-icon"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20c-4 0-8-2-9-6 3 0 6 1 9 4 3-3 6-4 9-4-1 4-5 6-9 6ZM12 18c-2-2-3-5-2-9 1 .5 2 1.5 2 1.5s1-1 2-1.5c1 4 0 7-2 9Z"/></svg></div>
-          <h4>Parks &amp; Trails</h4>
-          <p>Canyons and open space nearby</p>
-        </a>
+      <div class="near-map-wrap reveal">
+        <div class="near-map" data-near-map data-extra-pins='[{"cat":"parks","name":"Rose Canyon","city":"Herriman","time":"","lat":40.5081,"lng":-112.0435}]' role="region" aria-label="Map of places around Panorama"></div>
+        <aside class="near-legend" data-near-legend>
+          <h4>Around Panorama</h4>
+          <p>Tap a category to show or hide its pins. Tap a pin for the drive and a Google Maps link.</p>
+          <button type="button" class="near-chip" data-cat="dining" aria-pressed="true"><span class="near-dot" style="background:#c9a96e"></span>Dining<span class="near-count"></span></button>
+          <button type="button" class="near-chip" data-cat="shopping" aria-pressed="true"><span class="near-dot" style="background:#b5653a"></span>Shopping<span class="near-count"></span></button>
+          <button type="button" class="near-chip" data-cat="recreation" aria-pressed="true"><span class="near-dot" style="background:#3f8c8a"></span>Recreation<span class="near-count"></span></button>
+          <button type="button" class="near-chip" data-cat="schools" aria-pressed="true"><span class="near-dot" style="background:#3b5b9d"></span>Schools<span class="near-count"></span></button>
+          <button type="button" class="near-chip" data-cat="parks" aria-pressed="true"><span class="near-dot" style="background:#5b8a3c"></span>Parks &amp; Trails<span class="near-count"></span></button>
+          <a class="near-jump" href="#dining">Everything listed below &darr;</a>
+        </aside>
       </div>
     </div>
   </section>
@@ -123,27 +104,44 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         <h2>Dining</h2>
         <p style="opacity: 0.8;">A few restaurants at Mountain View Village, and The District a little farther out.</p>
       </div>
-      <div class="grid-2 reveal">
-        <div class="card">
-          <div class="card-content" style="padding: 2rem;">
-            <h4>Mountain View Village</h4>
-            <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem;">About 5 minutes</p>
-            <ul style="opacity: 0.8; padding-left: 1.25rem; font-size: 0.9rem;">
-              <li>Chick-fil-A</li>
-              <li>Chipotle</li>
-              <li>MOD Pizza</li>
-              <li>Cafe Zupas</li>
-              <li>Shake Shack</li>
-              <li>Panera</li>
-            </ul>
-          </div>
+      <div class="brand-grid reveal">
+        <div class="card brand-card">
+          <h4>Mountain View Village</h4>
+          <p class="brand-drive">Riverton &middot; About 5 minutes</p>
+          <ul class="brand-list">
+            <li>Chick-fil-A</li>
+            <li>Shake Shack</li>
+            <li>Chipotle</li>
+            <li>North Italia</li>
+            <li>Benihana</li>
+            <li>Panera Bread</li>
+            <li>Cafe Zupas</li>
+            <li>MOD Pizza</li>
+            <li>Flower Child</li>
+            <li>R&amp;R Barbeque</li>
+            <li>Salt &amp; Straw</li>
+            <li>Zao Asian Cafe</li>
+          </ul>
+          <p class="brand-note">From the center&rsquo;s own directory, October 2026.</p>
         </div>
-        <div class="card">
-          <div class="card-content" style="padding: 2rem;">
-            <h4>The District</h4>
-            <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem;">South Jordan — about 10 minutes</p>
-            <p style="opacity: 0.85;">An open-air center with shopping, dining, and movies.</p>
-          </div>
+        <div class="card brand-card">
+          <h4>The District</h4>
+          <p class="brand-drive">South Jordan &middot; About 10 minutes</p>
+          <ul class="brand-list">
+            <li>Olive Garden</li>
+            <li>Red Robin</li>
+            <li>Buffalo Wild Wings</li>
+            <li>Chick-fil-A</li>
+            <li>LongHorn Steakhouse</li>
+            <li>Cafe Zupas</li>
+            <li>The Habit Burger Grill</li>
+            <li>Cubby&rsquo;s</li>
+            <li>Noodles &amp; Company</li>
+            <li>Swig</li>
+            <li>Village Baker</li>
+            <li>The Wild Rose</li>
+          </ul>
+          <p class="brand-note">Open-air center with a 20-screen Megaplex. From the center directory, October 2026.</p>
         </div>
       </div>
     </div>
@@ -158,7 +156,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
 
       <div class="grid-2 reveal" style="margin-bottom: 60px;">
         <div>
-          <img src="../images/aerial/aerial-30.jpg" alt="Aerial of the foothills near Panorama" style="width: 100%; border-radius: 12px;">
+          <img src="../images/around/skiing.jpg" alt="Skiing in the Wasatch, Utah" style="width: 100%; border-radius: 12px;" loading="lazy">
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <h3 style="font-size: 2rem; margin-bottom: 1rem;"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20 18 4M20 20 6 4M3 17l3 3M21 17l-3 3"/></svg> Skiing</h3>
@@ -171,9 +169,19 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         </div>
       </div>
 
-      <div class="reveal" style="margin-bottom: 3rem;">
-        <h3 style="font-size: 2rem; margin-bottom: 1rem;"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 21V3l9 4-9 4M4 21h12"/></svg> Golf</h3>
-        <p style="opacity: 0.9; line-height: 1.9;">Thanksgiving Point and Glenmoor are about 15 minutes. South Mountain is about 20.</p>
+      <div class="grid-2 reveal" style="margin-bottom: 60px;">
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <h3 style="font-size: 2rem; margin-bottom: 1rem;"><svg class="pi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 21V3l9 4-9 4M4 21h12"/></svg> Golf</h3>
+          <p style="opacity: 0.9; line-height: 1.9; margin-bottom: 1rem;">Three courses are a short drive. Thanksgiving Point and Glenmoor are about 15 minutes. South Mountain is about 20.</p>
+          <p style="opacity: 0.8; font-size: 0.9rem;">
+            <strong style="color: var(--gold);">Thanksgiving Point:</strong> about 15 min &nbsp;|&nbsp;
+            <strong style="color: var(--gold);">Glenmoor:</strong> about 15 min &nbsp;|&nbsp;
+            <strong style="color: var(--gold);">South Mountain:</strong> about 20 min
+          </p>
+        </div>
+        <div>
+          <img src="../images/around/golf.jpg" alt="A golf course fairway" style="width: 100%; border-radius: 12px;" loading="lazy">
+        </div>
       </div>
 
       <div class="section-header reveal">
@@ -211,20 +219,47 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         <h2 style="color: var(--navy);">Shopping</h2>
         <p style="color: #4a5568;">Groceries and hardware are a few minutes away. Larger centers are a short drive out. Times are a quiet drive, before traffic.</p>
       </div>
-      <div class="grid-3 reveal">
-        <div class="card card-light">
-          <div class="card-content" style="padding: 2rem;">
-            <h4>Mountain View Village</h4>
-            <p style="color: var(--gold-dark); font-size: 0.85rem;">About 5 minutes</p>
-            <ul style="color: #64748b; padding-left: 1.25rem; font-size: 0.9rem; margin-top: 0.75rem;">
-              <li>Harmons</li>
-              <li>Cinemark</li>
-              <li>Ross</li>
-              <li>T.J. Maxx</li>
-              <li>Ulta</li>
-            </ul>
-          </div>
+      <div class="brand-grid reveal" style="margin-bottom: 30px;">
+        <div class="card card-light brand-card">
+          <h4>Mountain View Village</h4>
+          <p class="brand-drive">Riverton &middot; About 5 minutes</p>
+          <ul class="brand-list">
+            <li>Harmons</li>
+            <li>Cinemark</li>
+            <li>Lululemon</li>
+            <li>Sephora</li>
+            <li>ULTA Beauty</li>
+            <li>Nike</li>
+            <li>Anthropologie</li>
+            <li>HomeGoods</li>
+            <li>T.J. Maxx</li>
+            <li>Ross</li>
+            <li>Old Navy</li>
+            <li>PetSmart</li>
+          </ul>
+          <p class="brand-note">From the center&rsquo;s own directory, October 2026.</p>
         </div>
+        <div class="card card-light brand-card">
+          <h4>The District</h4>
+          <p class="brand-drive">South Jordan &middot; About 10 minutes</p>
+          <ul class="brand-list">
+            <li>Target</li>
+            <li>Harmons</li>
+            <li>Megaplex Theatres</li>
+            <li>JCPenney</li>
+            <li>Hobby Lobby</li>
+            <li>Sprouts</li>
+            <li>Ross</li>
+            <li>Petco</li>
+            <li>Bath &amp; Body Works</li>
+            <li>Famous Footwear</li>
+            <li>Planet Fitness</li>
+            <li>Downeast</li>
+          </ul>
+          <p class="brand-note">From the center directory, October 2026.</p>
+        </div>
+      </div>
+      <div class="grid-3 reveal">
         <div class="card card-light">
           <div class="card-content" style="padding: 2rem;">
             <h4>Along 13400 South</h4>
@@ -238,15 +273,8 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
         </div>
         <div class="card card-light">
           <div class="card-content" style="padding: 2rem;">
-            <h4>The District</h4>
-            <p style="color: var(--gold-dark); font-size: 0.85rem;">South Jordan — about 10 minutes</p>
-            <p style="color: #64748b; margin-top: 0.75rem;">Shopping, dining, and movies.</p>
-          </div>
-        </div>
-        <div class="card card-light">
-          <div class="card-content" style="padding: 2rem;">
             <h4>Jordan Landing</h4>
-            <p style="color: var(--gold-dark); font-size: 0.85rem;">West Jordan — about 15 minutes</p>
+            <p style="color: var(--gold-dark); font-size: 0.85rem;">West Jordan &mdash; about 15 minutes</p>
             <p style="color: #64748b; margin-top: 0.75rem;">A larger retail center.</p>
           </div>
         </div>
@@ -254,12 +282,12 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
           <div class="card-content" style="padding: 2rem;">
             <h4>A Little Farther</h4>
             <ul style="color: #64748b; padding-left: 1.25rem; font-size: 0.9rem; margin-top: 0.75rem;">
-              <li><strong>Costco, South Jordan</strong> — about 10 min</li>
-              <li><strong>Lowe's, Riverton</strong> — about 10 min</li>
-              <li><strong>IKEA, Draper</strong> — about 15 min</li>
-              <li><strong>Outlets at Traverse Mountain</strong> — about 20 min</li>
-              <li><strong>Fashion Place</strong> — about 25 min</li>
-              <li><strong>City Creek</strong> — about 35 min</li>
+              <li><strong>Costco, South Jordan</strong> &mdash; about 10 min</li>
+              <li><strong>Lowe's, Riverton</strong> &mdash; about 10 min</li>
+              <li><strong>IKEA, Draper</strong> &mdash; about 15 min</li>
+              <li><strong>Outlets at Traverse Mountain</strong> &mdash; about 20 min</li>
+              <li><strong>Fashion Place</strong> &mdash; about 25 min</li>
+              <li><strong>City Creek</strong> &mdash; about 35 min</li>
             </ul>
           </div>
         </div>
@@ -308,7 +336,8 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
       </div>
       <div class="grid-2 reveal">
         <div>
-          <img src="../images/aerial/aerial-32.jpg" alt="Aerial of the Herriman foothills" style="width: 100%; border-radius: 12px;">
+          <img src="../images/around/butterfield-canyon.jpg" alt="Butterfield Canyon in the Oquirrh Mountains above Herriman" style="width: 100%; border-radius: 12px;" loading="lazy">
+          <p class="photo-credit">Butterfield Canyon. Photo: Terry Ott, CC BY 2.0.</p>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <h3 style="color: var(--navy); font-size: 2rem; margin-bottom: 1rem;">Foothills and a Short Drive</h3>
@@ -422,5 +451,7 @@ document.addEventListener('DOMContentLoaded',function(){scan();mo.disconnect();}
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script src="../js/near-map.js" defer></script>
 </body>
 </html>

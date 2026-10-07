@@ -958,3 +958,105 @@ svg.pi {
   stroke-linecap: round; stroke-linejoin: round;
   vertical-align: -0.15em;
 }
+
+
+/* =====================================================================
+   2026-10-06 — Ranee's weekly call.
+   "I would like a little additional level of hoverability in the contrast
+   around the tile when we hover over it." Every tile lifts, gains a gold
+   edge and a deeper shadow. One rule family, every page that loads this file.
+   ===================================================================== */
+.card, .card-light, .feature-box, .builder-logo-link {
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .3s ease;
+}
+.card:hover, .card-light:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold);
+  box-shadow: 0 28px 56px rgba(10,22,40,0.28);
+}
+.card-light:hover { box-shadow: 0 28px 56px rgba(10,22,40,0.16); }
+.card:focus-within, .card-light:focus-within { border-color: var(--gold); }
+.feature-box { border: 1px solid transparent; border-radius: 12px; }
+.feature-box:hover { transform: translateY(-6px); border-color: var(--gold); background: rgba(201,169,110,0.08); }
+.feature-box:hover .feature-icon { background: var(--gold); }
+.feature-box:hover .feature-icon svg.pi { stroke: var(--navy); }
+
+/* Builder tiles sit on a LIGHT section on Find Your Home. The rules above
+   assumed the navy glass, so the builder's NAME painted white on white and
+   the product line fell back to the browser's blue. Seen in a screenshot,
+   never by a gate. */
+.builder-logo-link { color: var(--white); }
+.builder-logo-link .builder-meta { color: inherit; }
+.builder-logo-img img { max-height: 64px; max-width: 180px; width: auto; height: auto; object-fit: contain; }
+.section-light .builder-logo-link { background: #fff; border-color: #ece7dd; box-shadow: 0 8px 30px rgba(0,0,0,0.06); color: var(--navy); }
+.section-light .builder-logo-link:hover { background: #fff; border-color: var(--gold); box-shadow: 0 20px 45px rgba(10,22,40,0.14); }
+.section-light .builder-logo-link .builder-name { color: var(--navy); }
+.section-light .builder-logo-link .builder-meta { color: #8a7f6a; opacity: 1; }
+.section-light .builder-logo-link .builder-logo-img { color: var(--navy); }
+.section-light .builder-logo-img.placeholder { border-color: #e2dccf; }
+
+/* An amenity whose rendering has not arrived. Ranee: every tile image has to
+   be the thing it names, so a missing render is a marked gap, never a stand-in
+   photo of something else. */
+.render-pending {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6rem;
+  height: 200px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-medium) 100%); color: var(--gold-light);
+}
+.render-pending svg.pi { width: 44px; height: 44px; }
+.render-pending span { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; }
+
+/* Brand cards. Ranee: Mountain View Village and The District "similar in
+   size ... make the font consume the full tile ... 2 columns left and right,
+   enlarge the font size." */
+.brand-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: stretch; }
+.brand-card { display: flex; flex-direction: column; padding: 2.25rem 2.25rem 2rem; }
+.brand-card h4 { font-size: 1.7rem; margin-bottom: .2rem; }
+.brand-drive { color: var(--gold); font-size: .78rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.25rem; }
+.card-light .brand-drive { color: var(--gold-dark); }
+.brand-list {
+  list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 2rem;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.45;
+}
+.brand-list li { break-inside: avoid; padding: .3rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.card-light .brand-list li { border-bottom-color: rgba(10,22,40,0.1); }
+.brand-note { margin-top: auto; padding-top: 1.1rem; font-size: .76rem; opacity: .6; }
+.photo-credit { font-size: .7rem; opacity: .55; margin-top: .5rem; }
+@media (max-width: 720px) {
+  .brand-grid { grid-template-columns: 1fr; }
+  .brand-list { font-size: 1.15rem; }
+}
+
+/* The nearby map. Ranee: "a map that has the dropped pins of where all the
+   potential dining, recreation, shopping, schools, parks and trails exist."
+   Markup is in the page; pins come from js/near-map.js. */
+.near-map-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: stretch; }
+.near-map { height: 540px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(10,22,40,0.18); background: #e9e5dc; }
+.near-legend { background: #fff; border: 1px solid #ece7dd; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: .5rem; }
+.near-legend h4 { font-size: 1.25rem; margin-bottom: .25rem; color: var(--navy); }
+.near-legend > p { font-size: .82rem; color: #4a5568; margin-bottom: .5rem; }
+.near-chip {
+  display: flex; align-items: center; gap: .65rem; width: 100%; text-align: left;
+  background: transparent; border: 1px solid #ece7dd; border-radius: 10px; padding: .7rem .9rem;
+  font-family: 'Inter', sans-serif; font-size: .9rem; color: var(--navy); cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s, color .2s;
+}
+.near-chip:hover { border-color: var(--gold); background: rgba(201,169,110,0.12); transform: translateX(3px); }
+.near-chip[aria-pressed="false"] { opacity: .45; }
+.near-chip .near-dot { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 12px; }
+.near-chip .near-count { margin-left: auto; font-size: .75rem; opacity: .6; }
+.near-jump { display: block; margin-top: auto; padding-top: .75rem; font-size: .74rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); text-decoration: none; }
+.near-jump:hover { color: var(--navy); }
+.near-pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
+.near-pin.home { width: 34px; height: 34px; background: var(--navy); border: 3px solid var(--gold); }
+.near-popup .leaflet-popup-content-wrapper { border-radius: 10px; font-family: 'Inter', sans-serif; }
+.near-popup-body h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin: 0 0 .2rem; color: var(--navy); }
+.near-popup-body p { margin: 0 0 .4rem; font-size: .8rem; color: #4a5568; }
+.near-popup-body a { color: var(--gold-dark); font-size: .74rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+.near-fallback { padding: 2rem; text-align: center; color: var(--navy); }
+@media (max-width: 900px) {
+  .near-map-wrap { grid-template-columns: 1fr; }
+  .near-map { height: 420px; }
+  .near-legend { flex-direction: row; flex-wrap: wrap; }
+  .near-legend h4, .near-legend > p { width: 100%; }
+  .near-chip { width: auto; }
+}

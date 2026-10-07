@@ -181,6 +181,48 @@
         "phone": null
       },
       "logoVertical": null
+    },
+    {
+      "slug": "mcarthur",
+      "name": "McArthur Homes",
+      "productType": "Single-family homes",
+      "verified": true,
+      "logo": "images/builders/mcarthur/logo.svg",
+      "logoOnDark": "images/builders/mcarthur/logo-on-dark.png",
+      "url": "https://mcarthurhomes.com/new-home-communities/panorama/",
+      "utm": null,
+      "intro": null,
+      "homes": null,
+      "differentiators": [],
+      "exteriorImages": [
+        "images/builders/mcarthur/exterior-1.jpg",
+        "images/builders/mcarthur/exterior-2.jpg",
+        "images/builders/mcarthur/exterior-3.jpg"
+      ],
+      "interiorImages": [
+        "images/builders/mcarthur/interior-1.jpg",
+        "images/builders/mcarthur/interior-2.jpg",
+        "images/builders/mcarthur/interior-3.jpg",
+        "images/builders/mcarthur/interior-4.jpg",
+        "images/builders/mcarthur/interior-5.jpg"
+      ],
+      "modelHomes": [
+        {
+          "address": "4416 W Panorama Park Dr, Herriman (Maybrooke model)",
+          "opensToPublic": "estimated spring 2027"
+        },
+        {
+          "address": "4428 W Panorama Park Dr, Herriman (Kingsburg model)",
+          "opensToPublic": "estimated late spring or early summer 2027"
+        }
+      ],
+      "contact": {
+        "name": "Paige Giles, Online Sales Counselor",
+        "email": "osc@mcarthurhomes.com",
+        "phone": "(801) 760-5760"
+      },
+      "logoVertical": null,
+      "_source": "Ranee fwd 2026-10-06 22:42 UTC: McArthur's shared Drive folder (Logo/, Photos/, Model Home Info doc). Copy fields stay null until they send copy."
     }
   ],
   "_assetGuide": [
