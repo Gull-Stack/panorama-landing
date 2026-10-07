@@ -8,6 +8,36 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-10-06 (b) — The map is Google's, and the brand lists are ordered by Google rating
+
+- Josh ran `gcloud auth login`. GCP project `gullstack-489321` already had
+  Maps JavaScript + Places (New) enabled and a working unrestricted Places
+  key from the soak-list work (`soaklist-ratings-20260729`); Places answered
+  with billing showing disabled, so the free tier is in effect.
+- **Browser key** "panorama-landing map" (uid `2edb1d10-…`): referrers
+  limited to panorama-landing-chi.vercel.app, the gull-stack preview hosts,
+  panoramautah.com and localhost:8765; API target Maps JavaScript only. It
+  sits in the two pages' `<script>` src, which is the normal shape of a
+  public map key.
+- **`js/near-map.js`** is now Google Maps JS (classic `google.maps.Marker`
+  with SVG teardrop pins in the category colors, InfoWindow popups, legend
+  chips toggle categories, fit-to-pins capped at zoom 13). Leaflet and the
+  OSM tiles are gone. ⚠️ `google.maps.Marker` logs a deprecation notice;
+  Google says it stays supported. Moving to `AdvancedMarkerElement` needs a
+  Map ID from the console.
+- **`tools/build-brands.py`** + **`data/brands.json`**: every brand on the
+  Dining and Shopping cards has a Google rating and review count fetched
+  from Places searchText (brand + center + city; retried with city alone on
+  a bad match; unmatched → null → sorts last; under 25 reviews → sorts
+  last). The page shows the order and "Ordered by Google rating, October
+  2026", never the numbers. `build.sh` runs it; `--check` fails on a stale
+  list. Refresh with `GOOGLE_PLACES_KEY=$(security find-generic-password -a
+  josh -s panorama-places-key -w) python3 tools/build-brands.py --fetch`.
+  ⛔ The Places key is in Josh's Keychain, never in the repo.
+- Salt & Straw at Mountain View Village is in the center's directory but
+  Places has no listing for it (10/7), so it sorts last. Ask Ranee whether
+  it has opened.
+
 ### 2026-10-06 — Ranee's weekly call: every tile is its subject, the map has pins, her videos are the heroes
 
 - Ranee's asks from the 10/6 call (Josh's transcript) and her 10/6 emails:
