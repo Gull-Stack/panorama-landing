@@ -8,11 +8,6 @@
       "permanent": false
     },
     {
-      "source": "/builders",
-      "destination": "/find-a-home/builders",
-      "permanent": false
-    },
-    {
       "source": "/lifestyle",
       "destination": "/life-culture",
       "permanent": false
@@ -40,11 +35,6 @@
     {
       "source": "/find-a-home/villages",
       "destination": "/find-a-home",
-      "permanent": false
-    },
-    {
-      "source": "/find-a-home/builders",
-      "destination": "/find-a-home#builders",
       "permanent": false
     },
     {
@@ -78,9 +68,69 @@
       "permanent": false
     },
     {
+      "source": "/builders",
+      "destination": "/find-a-home#builders",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-home/builders",
+      "destination": "/find-a-home#builders",
+      "permanent": true
+    },
+    {
       "source": "/life-culture/why-herriman",
-      "destination": "/things-to-do#why-herriman",
-      "permanent": false
+      "destination": "/things-to-do#parks",
+      "permanent": true
+    },
+    {
+      "source": "/life-culture/history",
+      "destination": "/life-culture",
+      "permanent": true
+    },
+    {
+      "source": "/villages/:path*",
+      "destination": "/find-a-home",
+      "permanent": true
+    },
+    {
+      "source": "/villages",
+      "destination": "/find-a-home",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/things-to-do",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/things-to-do",
+      "permanent": true
+    },
+    {
+      "source": "/areas/:path*",
+      "destination": "/things-to-do",
+      "permanent": true
+    },
+    {
+      "source": "/areas",
+      "destination": "/things-to-do",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-home/floorplans",
+      "destination": "/find-a-home#builders",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-home/homesites",
+      "destination": "/find-a-home/bring-your-own-builder",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/gallery",
+      "permanent": true
     }
   ],
   "headers": [

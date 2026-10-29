@@ -191,9 +191,21 @@
       "logoOnDark": "images/builders/mcarthur/logo-on-dark.png",
       "url": "https://mcarthurhomes.com/new-home-communities/panorama/",
       "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
+      "intro": "For over 30 years, McArthur Homes has been building thoughtfully designed homes and communities throughout Utah. As a local, family-owned builder, we’re committed to quality construction, lasting value, and a straightforward homebuying experience, creating homes designed for the way Utah families live today.",
+      "homes": [
+        "Homes at Panorama will feature a collection of thoughtfully designed single-family floor plans with spacious, functional layouts made for everyday living. With a variety of two-story designs, buyers can choose a home that fits their lifestyle, with flexible spaces for gathering, working, entertaining, and relaxing.",
+        "Open-concept main living areas create a natural connection between the kitchen, dining, and family spaces, while generous bedrooms, storage, and versatile rooms provide plenty of space to make each home your own. Select plans offer features such as main-level bedrooms, home offices, lofts, and additional living spaces, giving buyers flexibility as their needs change.",
+        "Each home at Panorama will combine McArthur Homes’ quality construction with attractive architectural details and opportunities for personalization. From exterior selections to interior finishes and available structural options, buyers can create a home that feels distinctly their own while enjoying the benefits of a thoughtfully planned new-home community."
+      ],
+      "differentiators": [
+        "Thoughtfully Designed Floor Plans – Functional layouts designed around the way homeowners live, gather, work, and entertain today.",
+        "Personalization Opportunities – Choose from a variety of interior finishes, exterior color schemes, and available structural options to make your home feel like your own.",
+        "Spacious Single-Family Homes – A collection of versatile home designs offering generous living spaces, bedrooms, storage, and flexible-use areas.",
+        "Open-Concept Living – Welcoming kitchens and gathering spaces are designed to feel connected, comfortable, and functional for everyday life.",
+        "Flexible Spaces – Select floor plans offer options such as home offices, lofts, additional bedrooms, and other adaptable spaces to fit changing needs.",
+        "Local, Experienced Builder – McArthur Homes brings more than 30 years of homebuilding experience in Utah to every home at Panorama.",
+        "Guided Homebuilding Experience – From selecting a homesite and floor plan through design selections and construction, our team helps guide buyers through each step of building their new home."
+      ],
       "exteriorImages": [
         "images/builders/mcarthur/exterior-1.jpg",
         "images/builders/mcarthur/exterior-2.jpg",
@@ -209,11 +221,11 @@
       "modelHomes": [
         {
           "address": "4416 W Panorama Park Dr, Herriman (Maybrooke model)",
-          "opensToPublic": "estimated spring 2027"
+          "opensToPublic": "spring 2027 (estimated)"
         },
         {
           "address": "4428 W Panorama Park Dr, Herriman (Kingsburg model)",
-          "opensToPublic": "estimated late spring or early summer 2027"
+          "opensToPublic": "late spring or early summer 2027 (estimated)"
         }
       ],
       "contact": {
@@ -222,7 +234,7 @@
         "phone": "(801) 760-5760"
       },
       "logoVertical": null,
-      "_source": "Ranee fwd 2026-10-06 22:42 UTC: McArthur's shared Drive folder (Logo/, Photos/, Model Home Info doc). Copy fields stay null until they send copy."
+      "_source": "McArthur's shared Drive folder (Ranee fwd 2026-10-06): Logo/, Photos/, 'Model Home Info' (10/6) and 'Builder Marketing Copy' (added 10/14, verbatim here 10/29). Copy is theirs, unedited."
     }
   ],
   "_assetGuide": [
