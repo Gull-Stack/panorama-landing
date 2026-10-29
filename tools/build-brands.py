@@ -30,7 +30,7 @@ import json, os, pathlib, re, sys, time, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "brands.json"
-PAGE = ROOT / "things-to-do" / "index.html"
+PAGE = ROOT / "src" / "pages" / "things-to-do.html"
 MIN_REVIEWS = 25
 STOP = {"the", "and", "&", "of", "at", "grill", "restaurant", "cafe", "co", "company", "inc"}
 
@@ -98,7 +98,7 @@ def esc(s):
 def render(rows, fetched):
     month = time.strftime("%B %Y", time.strptime(fetched, "%Y-%m-%d"))
     lis = "\n".join(f"            <li>{esc(r['brand'])}</li>" for r in order(rows))
-    return f'<ul class="brand-list">\n{lis}\n          </ul>\n          <p class="brand-note">Ordered by Google rating, {month}.</p>'
+    return f'<ul>\n{lis}\n          </ul>\n          <p class="note">Ordered by Google rating, {month}.</p>'
 
 
 def main():
@@ -112,16 +112,16 @@ def main():
         for cat, rows in c["lists"].items():
             a, z = f"<!-- BRANDS:{cid}:{cat}:START -->", f"<!-- BRANDS:{cid}:{cat}:END -->"
             if a not in new or z not in new:
-                raise SystemExit(f"things-to-do/index.html has no {a} .. {z} markers")
+                raise SystemExit(f"src/pages/things-to-do.html has no {a} .. {z} markers")
             head, rest = new.split(a, 1)
             _, tail = rest.split(z, 1)
             new = head + a + "\n          " + render(rows, d["fetchedAt"]) + "\n          " + z + tail
     if new != t:
         if check:
-            print("STALE - run `python3 tools/build-brands.py`: things-to-do/index.html")
+            print("STALE - run `python3 tools/build-brands.py`: src/pages/things-to-do.html")
             return 1
         PAGE.write_text(new)
-        print("wrote brand lists into things-to-do/index.html")
+        print("wrote brand lists into src/pages/things-to-do.html")
     else:
         print(f"brand lists are current (ratings fetched {d['fetchedAt']})")
     return 0

@@ -4,7 +4,7 @@
 ⛔ RANEE, 21 SEPT 2026: "I don't like those icons. Make them simple, outline,
 abstract ... make them all gold and just an outline. I don't want any of those
 types of icons anywhere." Every icon is an inline <svg class="pi"> now, styled
-by the `svg.pi` rule in css/interior.css and css/chrome.css.
+in css/site.css (2026-10-29: one stylesheet).
 
 Scans rendered HTML only: comments, <style> and <script> bodies are skipped,
 because the repo's own ⛔ notes live there. A CSS `content:` glyph is checked
@@ -14,7 +14,7 @@ Numeric entities (&#127969;) count: that is how the rentals page hid three.
 import pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKIP = {".git", "node_modules", "tools", "data"}
+SKIP = {".git", "node_modules", "tools", "data", "src"}
 GLYPH = re.compile(
     "[\U0001F000-\U0001FAFF☀-➿⬀-⯿⌀-⏿]")
 ENTITY = re.compile(r"&#(x[0-9a-fA-F]+|\d+);")

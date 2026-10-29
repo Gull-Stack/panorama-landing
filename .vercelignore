@@ -3,3 +3,6 @@
 tools/
 # Notes and briefs are ours, not the client's visitors'. No page is Markdown.
 **/*.md
+
+# Page sources; the build writes the served HTML from them.
+src/

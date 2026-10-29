@@ -13,6 +13,13 @@
    estimated by an agent. To add a place, add it to the page copy first,
    then here.
 
+   2026-10-29, Ranee's review: Schools come off the map ("Let's get rid of
+   schools"). The map opens on Google's satellite view, so it reads as a
+   Google map at a glance, and the Map view is grey so the pins pop ("Can we
+   make the map in the background gray so these pop a little bit more?").
+   The pin cards are larger. The J.L. Sorenson Recreation Center left with
+   the Fitness & Recreation block she asked to drop, so its pin went too.
+
    The browser key in the page is referrer-restricted to this site's hosts
    and to the Maps JavaScript API only (GCP project gullstack-489321, key
    "panorama-landing map"). That is the normal shape of a public map key. */
@@ -25,7 +32,6 @@
     dining:     { label: "Dining",         color: "#c9a96e" },
     shopping:   { label: "Shopping",       color: "#b5653a" },
     recreation: { label: "Recreation",     color: "#3f8c8a" },
-    schools:    { label: "Schools",        color: "#3b5b9d" },
     parks:      { label: "Parks & Trails", color: "#5b8a3c" }
   };
 
@@ -41,19 +47,25 @@
     { cat: "shopping",   name: "Jordan Landing",                  city: "West Jordan",  time: "About 15 minutes", lat: 40.6159, lng: -111.9798 },
     { cat: "shopping",   name: "IKEA",                            city: "Draper",       time: "About 15 minutes", lat: 40.5087, lng: -111.8931 },
     { cat: "shopping",   name: "Outlets at Traverse Mountain",    city: "Lehi",         time: "About 20 minutes", lat: 40.4352, lng: -111.8844 },
-    { cat: "recreation", name: "J.L. Sorenson Recreation Center", city: "Herriman",     time: "About 5 minutes",  lat: 40.5174, lng: -112.0172 },
     { cat: "recreation", name: "Thanksgiving Point Golf Club",    city: "Lehi",         time: "About 15 minutes", lat: 40.4274, lng: -111.9049 },
     { cat: "recreation", name: "Glenmoor Golf Course",            city: "South Jordan", time: "About 15 minutes", lat: 40.5718, lng: -112.0020 },
     { cat: "recreation", name: "Snowbird",                        city: "Little Cottonwood Canyon", time: "About 45 minutes", lat: 40.5830, lng: -111.6560 },
     { cat: "recreation", name: "Brighton Resort",                 city: "Big Cottonwood Canyon",    time: "About an hour",    lat: 40.5983, lng: -111.5837 },
-    { cat: "schools",    name: "Butterfield Canyon Elementary",   city: "Herriman",     time: "About 4 miles",    lat: 40.5010, lng: -112.0543 },
-    { cat: "schools",    name: "Fort Herriman Middle",            city: "Herriman",     time: "About 3 miles",    lat: 40.4947, lng: -112.0349 },
-    { cat: "schools",    name: "Herriman High School",            city: "Herriman",     time: "About 5 miles",    lat: 40.5350, lng: -112.0307 },
     { cat: "parks",      name: "Oquirrh Lake",                    city: "Daybreak",     time: "About 10 minutes", lat: 40.5544, lng: -112.0010 },
-    { cat: "parks",      name: "J.L. Sorenson Recreation Center", city: "Herriman",     time: "About 5 minutes",  lat: 40.5174, lng: -112.0172 }
+    { cat: "parks",      name: "Rose Canyon",                     city: "Herriman",     time: "",                 lat: 40.5081, lng: -112.0435 }
   ];
-  // Rose Canyon arrives from the page's data-extra-pins (geocoded 10/6), so
-  // the list above never carries a coordinate nobody looked up.
+
+  // Google's own map, desaturated. Roads and labels stay legible; the color
+  // is left to the pins.
+  var GREY = [
+    { elementType: "geometry", stylers: [{ saturation: -100 }, { lightness: 8 }] },
+    { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+    { elementType: "labels.text.fill", stylers: [{ color: "#5f6368" }] },
+    { featureType: "road", elementType: "geometry", stylers: [{ saturation: -100 }, { lightness: 25 }] },
+    { featureType: "water", elementType: "geometry", stylers: [{ saturation: -100 }, { lightness: -10 }] },
+    { featureType: "poi", stylers: [{ visibility: "off" }] },
+    { featureType: "transit", stylers: [{ visibility: "off" }] }
+  ];
 
   function gmapsLink(p) {
     return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.name + ", " + p.city + ", UT");
@@ -76,8 +88,11 @@
   }
 
   function popupHtml(p, isHome) {
+    var c = CATS[p.cat];
     return (
-      '<div class="near-popup-body"><strong class="near-popup-title">' + p.name + "</strong>" +
+      '<div class="pin-card">' +
+      (isHome ? "" : '<span class="cat" style="color:' + c.color + '">' + c.label + "</span>") +
+      "<strong>" + p.name + "</strong>" +
       "<p>" + (isHome ? p.note : p.city + (p.time ? " &middot; " + p.time : "")) + "</p>" +
       (isHome ? "" : '<a href="' + gmapsLink(p) + '" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>') +
       "</div>"
@@ -88,24 +103,25 @@
     if (root.getAttribute("data-mounted")) return;
     root.setAttribute("data-mounted", "1");
     var legend = document.querySelector("[data-near-legend]");
-    var extra = [];
-    try { extra = JSON.parse(root.getAttribute("data-extra-pins") || "[]"); } catch (e) { extra = []; }
-    var places = PLACES.concat(extra);
+    var places = PLACES;
 
     if (typeof google === "undefined" || !google.maps) {
-      root.innerHTML = '<div class="near-fallback"><p>The map could not load. Every place is listed below, and each category opens in Google Maps.</p></div>';
+      root.innerHTML = '<div class="map-fallback"><p>The map could not load. Every place is listed below, and each category opens in Google Maps.</p></div>';
       return;
     }
 
     var map = new google.maps.Map(root, {
       center: PANORAMA,
       zoom: 11,
-      mapTypeControl: false,
+      mapTypeId: "hybrid",
+      styles: GREY,
+      mapTypeControl: true,
+      mapTypeControlOptions: { mapTypeIds: ["roadmap", "hybrid"], position: google.maps.ControlPosition.TOP_LEFT },
       streetViewControl: false,
       fullscreenControl: true,
       gestureHandling: "cooperative",
       clickableIcons: false,
-      backgroundColor: "#e9e5dc"
+      backgroundColor: "#d8d8d8"
     });
     var info = new google.maps.InfoWindow();
 
@@ -137,7 +153,7 @@
     if (legend) {
       legend.querySelectorAll("[data-cat]").forEach(function (btn) {
         var k = btn.getAttribute("data-cat");
-        var n = btn.querySelector(".near-count");
+        var n = btn.querySelector(".count");
         if (n) n.textContent = (markers[k] || []).length;
         btn.setAttribute("aria-pressed", "true");
         btn.addEventListener("click", function () {

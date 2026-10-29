@@ -1,13 +1,13 @@
 {
-  "name": "Premier Plastic Surgery",
-  "short_name": "Premier PS",
+  "name": "Panorama Herriman",
+  "short_name": "Panorama",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1a1f2e",
-  "description": "Board-Certified Plastic Surgery — Where Artistry Meets Precision",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "description": "Herriman's foothills community, with panoramic Wasatch views.",
   "icons": [
-    { "src": "images/favicon.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "images/favicon.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/images/favicon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/favicon.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

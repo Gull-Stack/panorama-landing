@@ -12,8 +12,9 @@ import pathlib, re, sys
 from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BASE = "https://panoramahomes.com"
-SKIP = {".git", "node_modules", "tools", "data"}
+# Same host as tools/build-site.py SITE. Change both at the domain cutover.
+BASE = "https://panorama-landing-chi.vercel.app"
+SKIP = {".git", "node_modules", "tools", "data", "src"}
 
 # Highest first. Ranee, 2026-09-21: Find Your Home is "the main place that we
 # want people to go". On 2026-10-05 Life at Panorama became the amenities page.
@@ -23,8 +24,7 @@ PRIORITY = [
     (re.compile(r"^find-a-home/builders\.html$"), "0.9", "weekly"),
     (re.compile(r"^find-a-home/builder-.*\.html$"), "0.8", "monthly"),
     (re.compile(r"^life-culture/index\.html$"), "0.8", "monthly"),
-    (re.compile(r"^(find-a-home|life-culture|things-to-do|maps|villages)/"), "0.7", "monthly"),
-    (re.compile(r"^(blog|areas)/"), "0.5", "monthly"),
+    (re.compile(r"^(find-a-home|life-culture|things-to-do|maps)/"), "0.7", "monthly"),
 ]
 
 
@@ -36,7 +36,10 @@ def meta(rel):
 
 
 def url_for(rel):
-    return BASE + "/" + ("" if rel == "index.html" else rel.replace("index.html", ""))
+    # vercel.json serves clean URLs with no trailing slash.
+    if rel == "index.html":
+        return BASE + "/"
+    return BASE + "/" + re.sub(r"(/index)?\.html$", "", rel)
 
 
 def build():

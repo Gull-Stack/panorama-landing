@@ -19,7 +19,7 @@ do quietly: see the note in README.md.
 import pathlib, re, sys, urllib.request, urllib.error
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKIP = {".git", "node_modules", "tools", "data"}
+SKIP = {".git", "node_modules", "tools", "data", "src"}
 EXT = re.compile(r'<img[^>]+src="(https?://[^"]+)"')
 
 

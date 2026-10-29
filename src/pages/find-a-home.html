@@ -1,0 +1,52 @@
+<!--page {"url": "/find-a-home", "title": "Find Your Home | Panorama Herriman", "description": "Every builder at Panorama in one place. Pick a builder and go straight to their homes, or bring your own builder to a Panorama homesite.", "nav": "find", "image": "images/aerial/aerial-01.jpg"} -->
+<section class="hero hero-short">
+  {{img src="images/aerial/aerial-01.jpg" alt="" sizes="100vw" eager class="hero-media"}}
+  <div class="hero-body">
+    <p class="crumbs"><a href="/">Home</a> / Find Your Home</p>
+    <h1>Find Your <span class="gold">Home</span></h1>
+    <p class="lede">Every builder at Panorama, in one place. Pick the one whose homes you want and go straight to them.</p>
+  </div>
+</section>
+
+<section class="section light" id="builders">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Buy New</span>
+      <h2>Panorama Builders</h2>
+      <p>Choose a builder to see their homes at Panorama. Plans, availability and pricing live on each builder's own website.</p>
+    </div>
+    {{builders}}
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">More Ways Home</span>
+      <h2>Two More Ways to Live Here</h2>
+    </div>
+    <div class="grid g2">
+      <a class="card reveal" id="townhomes" href="/find-a-home/rentals">
+        <span class="tag">Coming soon</span>
+        <div class="card-img">{{img src="images/panorama-townhomes.jpg" alt="Townhomes at Panorama"}}</div>
+        <div class="card-body"><h3>Panorama Townhomes For Rent</h3><p>Rental townhomes inside Panorama, with every community amenity. Leasing details are coming soon.</p><span class="arrow">Panorama Townhomes &rarr;</span></div>
+      </a>
+      <a class="card reveal" id="bring-your-own-builder" href="/find-a-home/bring-your-own-builder">
+        <div class="card-img">{{img src="images/aerial/aerial-26.jpg" alt="Aerial view of Panorama homesites in the Herriman foothills"}}</div>
+        <div class="card-body"><h3>Bring Your Own Builder</h3><p>Choose a Panorama homesite and build with the builder you trust, under the Panorama Design Guidelines.</p><span class="arrow">How it works &rarr;</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="master-plan">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The Community</span>
+      <h2>The Master Plan</h2>
+      <p>Panorama in full: the open space, the parks and the trail network. Tap the plan to see it full size.</p>
+    </div>
+    <div class="plan reveal">{{img src="images/panorama-master-plan.jpg" alt="Panorama master plan, revised October 6, 2026" sizes="(max-width: 1200px) 100vw, 1200px" zoom}}</div>
+    <p class="caption center">Panorama master plan, Herriman City, Salt Lake County. Revised 10/6/2026.</p>
+  </div>
+</section>

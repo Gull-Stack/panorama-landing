@@ -11,7 +11,7 @@ import pathlib, re, sys
 from urllib.parse import urlparse, unquote
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKIP = {".git", "node_modules", "tools", "data"}
+SKIP = {".git", "node_modules", "tools", "data", "src"}
 HREF = re.compile(r'(?:href|src)="([^"]+)"')
 
 def main():
@@ -28,9 +28,11 @@ def main():
             path = unquote(u.path)
             if not path:
                 continue
-            target = (base / path).resolve()
+            # Pages link root-absolute (/find-a-home#builders) since the
+            # 10/29 rebuild; Vercel serves them as clean URLs.
+            target = (ROOT / path.lstrip("/")).resolve() if path.startswith("/") else (base / path).resolve()
             if path.endswith("/") or not pathlib.PurePath(path).suffix:
-                ok = (target / "index.html").exists() or target.exists()
+                ok = (target / "index.html").exists() or target.with_suffix(".html").exists() or target.exists()
             else:
                 ok = target.exists()
             if not ok:

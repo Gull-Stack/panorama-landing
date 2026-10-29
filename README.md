@@ -48,129 +48,64 @@ search.
 ./tools/build.sh --check   # fail if anything committed is out of date
 ```
 
-Run it after any edit and commit whatever it changes.
+Run it after any edit and commit whatever it changes. Then preview with
+`npx serve -l 8765 .` (the Maps key allows localhost:8765).
+
+**Since 2026-10-29 every page is generated.** The served `.html` files start
+with a `GENERATED` comment naming their source. Never edit one; the next build
+erases it.
+
+| To change | Edit |
+|---|---|
+| A page's words or photos | `src/pages/<page>.html` (body only, JSON header on line 1) |
+| A builder page or tile | `data/builders.json` |
+| The header, mega menu, footer, `<head>` | `tools/build-site.py` (`MENU`, `FOOTER`, `page()`) |
+| Any style | `css/site.css` (the only stylesheet) |
+| Menu, reveal, lightbox | `js/site.js` |
+| The nearby map's pins | `js/near-map.js` (name the place in the page copy first) |
 
 ### Adding a builder's photos, logo or copy
 
-**Edit `data/builders.json`. Never edit `find-a-home/builder-*.html`** — those
-files are generated and your edit is erased on the next build.
-
-The fields are Ranee's builder asset guide, one for one:
+The fields follow Ranee's builder asset guide one for one:
 
 | Asset guide | Field |
 |---|---|
-| 1–5 exterior images, horizontal | `exteriorImages` |
-| 1–5 interior images | `interiorImages` |
 | Intro, 50 words or less | `intro` |
-| 2–4 paragraphs, ~150 words, on the homes they build here | `homes` (a list of paragraphs) |
-| 4–8 builder differentiators | `differentiators` |
-| Their URL, with whatever UTM they want | `url` + `utm` |
-| Model home addresses | `modelHomes` |
-| The whole logo | `logo` |
+| 2–4 paragraphs on the homes they build here | `homes` (a list of paragraphs) |
+| 4–8 differentiators | `differentiators` ("Title – text" splits into bold title + text) |
+| Exterior images | `exteriorImages` (the FIRST one is the page's one big image) |
+| Their URL + UTM | `url` + `utm` |
+| Model homes | `modelHomes` |
+| Logo | `logo` (light backgrounds), `logoOnDark` (the navy page header) |
 
-Anything left `null` or `[]` renders as a **Pending** marker that names what is
-missing. That is deliberate: the pages this replaced carried three floor plans
-per builder — *"The Vista, 4 Beds, 3.5 Baths, Up to 3,600 sq ft"* — that no
-builder ever supplied. A gap has to look like a gap.
+Ranee's builder page spec, 10/29: *"a 50-word intro, a big image, a couple
+paragraphs about the homes ... a couple bullet points ... their model homes,
+and that's it. And then their link."* No contact block, no carousel, no floor
+plans. A builder with no copy gets one "Home details coming soon" note, not a
+row of Pending chips.
 
-```bash
-# put the files in images/builders/<slug>/, then:
-$EDITOR data/builders.json
-./tools/build.sh
-```
+**⛔ Open question, 2026-09-21.** Every builder except McArthur carries
+`"verified": false`. Ranee: *"I don't know if all those other ones are
+builders, to be honest."*
 
-### Adding or removing a builder
+### Images
 
-Add an object to `builders` in the same file and run the build. It appears on
-the home page, on Panorama Builders, on Find Your Home, in the sitemap, and gets
-its own page. Removing one is deleting the object — but delete its generated
-`find-a-home/builder-<slug>.html` too.
+Put the original under `images/`. `tools/build-images.py` writes an 800 px and
+a 1600 px copy to `images/_r/`, and every generated `<img>` uses them through
+`srcset` with `loading="lazy"`. Ranee, 10/29, on the gallery: "loading very
+slowly". It was painting 39 full-size aerials as thumbnails.
 
-**⛔ Open question, 2026-09-21.** Ranee: *"I don't know if all those other ones
-are builders, to be honest."* Every builder except Candlelight was already live
-before that call and none is confirmed against an agreement. They are all
-carrying `"verified": false`. Flip each to `true` as it is confirmed, and delete
-the ones that turn out not to be builders.
+### ⛔ Why the page used to flash blank white
 
-### Changing the nav, the footer, or a link everywhere
-
-`tools/panorama_site.py` holds the **one** copy of the nav and the footer.
-Change it there and run the build; all 41 pages are rewritten. Do not edit a
-`<nav>` or `<footer>` in a page — the next build overwrites it.
-
-### Swapping the master plan or a map
-
-Replace the image file and delete the `pending-note` next to it in the same
-commit. A pending note that outlives its gap is worse than no note.
+Ranee, 9/21: *"The white looks like an error out here because it loads late."*
+Hiding for the fade-in is opt-in under `html.js`, and `js/site.js` marks
+everything already on screen as revealed before it turns hiding on. Never add
+a `.reveal` rule outside `.js`.
 
 ---
 
-## The tools
+## Hotlinked stock photos: gone
 
-| | |
-|---|---|
-| `tools/build.sh` | runs all of the below, in dependency order |
-| `tools/build-builders.py` | `data/builders.json` → builder pages + every builder grid |
-| `tools/sweep-site.py` | one nav, one footer, no dead links, the no-JS guard, on every page |
-| `tools/build-sitemap.py` | `sitemap.xml` from the pages that exist |
-| `tools/check-links.py` | every internal href resolves to a real file |
-| `tools/panorama_site.py` | the nav, the footer, the retired-page redirects, the head guard |
-
-`--check` on any of them fails instead of writing, which is what CI should run.
-
----
-
-## ⛔ Why the page used to flash blank white
-
-Ranee, watching it reload: *"The white looks like an error out here because it
-loads late. Watch when they refresh. This is just all white. So it looks kind of
-broken. Then you scroll, now you see it."*
-
-`.reveal { opacity: 0 }` was applied by the stylesheet the moment the markup
-parsed, and only lifted by an IntersectionObserver in a `<script>` at the
-**bottom** of a 1,653-line document. Everything below the hero was invisible
-until that script ran — and invisible **forever** if it never did.
-
-Two fixes, both in `css/reveal-guard.css` and the head script that
-`tools/sweep-site.py` writes into every page:
-
-1. **Hiding is opt-in.** A one-line head script adds `.js` to `<html>`; the
-   hidden state only applies under `.js`. No script, no hiding — the words are
-   simply there.
-2. **The observer starts during parse, not after it.** A `MutationObserver`
-   hands each element to the `IntersectionObserver` as it is parsed, so anything
-   already on screen reveals in the next frame instead of after the whole page
-   has been read.
-
-⛔ Never add a `.reveal` rule that is not scoped under `.js`, and never move
-that script out of `<head>` or behind `defer`. Either one brings the white page
-back.
-
----
-
-## ⛔ 32 stock photos on this site are hotlinked from somebody else's server
-
-Eight pages — Lifestyle, Schools, Why Herriman, and all five Things To Do
-pages — render images straight off `images.unsplash.com`. Skiing, golf,
-reservoirs, restaurants, shopping.
-
-**One of them was already dead.** `photo-1468186503690`, on the Recreation page,
-returns 404 — a grey broken-image box on a client page, for an unknown length of
-time. Every gate in this repo reported the site clean, because `check-links.py`
-only resolves *internal* hrefs against files on disk. Found on 2026-09-21 by
-rendering all 41 pages, not by any check.
-
-`tools/check-external-images.py` now catches the next one.
-
-**But the dead link is the symptom.** The other 32:
-
-- **are not Panorama.** They are stock photographs of other places.
-- **are not DAI's.** A third party can change or remove any of them, at any
-  time, and the page changes with it.
-- **load from a domain the site does not control**, on a site whose entire
-  audience arrives from a sign on the property.
-
-⛔ **Not cleaned up unilaterally.** Replacing 32 images means either licensing
-real photography or cutting the sections that use them, and both are Ranee's
-call. Raised, not decided.
-
+As of 2026-10-29 no page loads an image from another server
+(`tools/check-external-images.py` reports 0). The pages that hotlinked
+Unsplash were retired or rebuilt on local files.

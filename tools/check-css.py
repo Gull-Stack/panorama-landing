@@ -14,10 +14,10 @@ interior.css. Resolving per page, not globally, is the whole point.
 import pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SKIP = {".git", "node_modules", "tools", "data"}
+SKIP = {".git", "node_modules", "tools", "data", "src"}
 
 # Applied by script at runtime, never written in the markup.
-RUNTIME = {"active", "js", "img-revealed", "loaded", "is-visible"}
+RUNTIME = {"js", "in", "open", "scrolled", "menu-open"}
 
 
 def main():
@@ -30,7 +30,8 @@ def main():
         for href in re.findall(r'<link rel="stylesheet" href="([^"]+)"', t):
             if href.startswith("http"):
                 continue
-            f = (p.parent / href).resolve()
+            href = href.split("?")[0]
+            f = (ROOT / href.lstrip("/")).resolve() if href.startswith("/") else (p.parent / href).resolve()
             if f.exists():
                 css += "\n" + f.read_text()
         defined = set(re.findall(r"\.([A-Za-z][\w-]*)", css)) | RUNTIME
