@@ -25,6 +25,7 @@ Shortcodes a page body can use:
   {{builders}}         the builder grid
   {{soon title="..." text="..."}}   a "coming soon" block
   {{gallery}}          every aerial, small copies, lightbox on tap
+  {{homesites phase="8"}}  that phase's lot tables, from data/homesites.json
 
 All links are root-absolute (/find-a-home#builders). Relative links from
 /things-to-do (served without a trailing slash) resolved against the wrong
@@ -143,6 +144,23 @@ def builder_tile(b):
 
 def builder_grid():
     return '<div class="grid g4 builders">' + "".join(builder_tile(b) for b in builders()) + "</div>"
+
+
+# ------------------------------------------------------------- homesites --
+def homesites(phase):
+    """Ranee's lot brochure, 10/29: one table per sub-phase (8A, 8B ...).
+    A lot with no price in the brochure reads "Call"."""
+    lots = json.loads((ROOT / "data" / "homesites.json").read_text())["lots"]
+    out = []
+    for sub in sorted({l["phase"] for l in lots if l["phase"].startswith(phase)}):
+        rows = [l for l in lots if l["phase"] == sub]
+        body = "".join(
+            f'<tr><td>{l["lot"]}</td><td>{l["width"]}</td><td>{l["acres"]}</td>'
+            f'<td>{l["price"] or "Call"}</td></tr>' for l in rows)
+        out.append(f'<div class="lots reveal"><h3>Phase {sub} <span>{len(rows)} homesites</span></h3>'
+                   f'<table><thead><tr><th>Lot</th><th>Width</th><th>Acres</th><th>Price</th></tr></thead>'
+                   f'<tbody>{body}</tbody></table></div>')
+    return '<div class="grid g2">' + "".join(out) + "</div>"
 
 
 def soon(title, text):
@@ -324,6 +342,8 @@ def expand(body):
             return '<div class="gallery">' + "".join(
                 img(f"images/aerial/{s.name}", f"Panorama aerial view {i}", sizes="(max-width: 700px) 100vw, 33vw", zoom=True)
                 for i, s in enumerate(shots, 1)) + "</div>"
+        if name == "homesites":
+            return homesites(a["phase"])
         if name == "soon":
             return soon(a["title"], a["text"])
         raise SystemExit(f"unknown shortcode {{{{{name}}}}}")
