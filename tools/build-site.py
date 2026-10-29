@@ -236,7 +236,7 @@ def page(meta, body, src):
     solid = " solid" if meta.get("solid") else ""
     scripts = ""
     if "map" in meta.get("scripts", []):
-        scripts += ('<script src="/js/near-map.js?v={VERSION}" defer></script>\n'
+        scripts += (f'<script src="/js/near-map.js?v={VERSION}" defer></script>\n'
                     f'<script src="https://maps.googleapis.com/maps/api/js?key={MAPS_KEY}&loading=async&callback=initNearMap" defer></script>\n')
     preload = f'<link rel="preload" as="image" href="{meta["preload"]}">\n' if meta.get("preload") else ""
     return f"""<!DOCTYPE html>
