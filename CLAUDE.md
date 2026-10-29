@@ -8,6 +8,15 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-10-29 (pm): Ranee's files built in (PR #14)
+- Source: Ranee's email "FILES | Panorama Townhomes & Bring Your Own Builder Sections" (10/29 1:05pm). Files were in ~/Downloads as a zip.
+- BYOB: 113 homesites (8A 33, 8B 31, 2A 16, 2B 33) with width, acres, price in `data/homesites.json`, shortcode `{{homesites phase="8"}}`. Width comes from each row's color swatch; counts match her legend. Lots 8090, 2096, 2097, 2098 have no price in the brochure and read "Call". Phase plans in `images/homesites/`. "Homesites offered by DAI" logo (tagline cropped, which she allowed).
+- Labeled "Phase 8 / Phase 2", not VP8/VP2: her brochure says "Village 2" on one page and villages are banned on the site. The brochure PDF is not posted for the same reason.
+- Rentals: her Panorama Townhomes logo, copy from the DAI project page (186 townhomes, 1-4 bed, amenities), "Visit Developer Website" button. All still "coming soon".
+- Her "overall site plan without villages" was NOT in the attachments. Asked for it.
+- Reply to Ranee drafted in Gmail (bryce@gullstack.com, on her FILES thread), not sent. Bryce sends.
+- Still open: site plan, design guidelines PDF, BYOB email address, which builders are confirmed (only McArthur sent assets), zip line / Frames / trail / playground images, gallery + drone video, live domain.
+
 ### 2026-10-29 — Ranee's review call: the whole site rebuilt on one layout, same look
 
 - Source: Ranee's 10/29 10am review call (Bryce, Josh), her Panorama emails
