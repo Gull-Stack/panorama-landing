@@ -236,7 +236,7 @@ def page(meta, body, src):
     solid = " solid" if meta.get("solid") else ""
     scripts = ""
     if "map" in meta.get("scripts", []):
-        scripts += ('<script src="/js/near-map.js" defer></script>\n'
+        scripts += (f'<script src="/js/near-map.js?v={VERSION}" defer></script>\n'
                     f'<script src="https://maps.googleapis.com/maps/api/js?key={MAPS_KEY}&loading=async&callback=initNearMap" defer></script>\n')
     preload = f'<link rel="preload" as="image" href="{meta["preload"]}">\n' if meta.get("preload") else ""
     return f"""<!DOCTYPE html>
@@ -291,11 +291,13 @@ def page(meta, body, src):
 
 
 # A content hash, so a CSS or JS change is never hidden by the one-year
-# immutable cache vercel.json puts on /css and /js.
+# immutable cache vercel.json puts on /css and /js. ⛔ EVERY local css/js file
+# a page loads must carry it: near-map.js shipped without one on 10/29 and a
+# returning browser kept the old map, schools and all.
 def _version():
     import hashlib
     h = hashlib.sha1()
-    for f in ("css/site.css", "js/site.js"):
+    for f in ("css/site.css", "js/site.js", "js/near-map.js"):
         h.update((ROOT / f).read_bytes())
     return h.hexdigest()[:8]
 
