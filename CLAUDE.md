@@ -40,6 +40,11 @@ fails if anything is stale or broken.
 - `./tools/build.sh --check` green: 16 pages, 0 broken links, 0 orphan
   classes, 0 external images. Rendered every page at 1280 and key pages at 390,
   no console errors, no sideways scroll.
+- Merged as PR #12 + #13 and live on panorama-landing-chi.vercel.app. #13:
+  `near-map.js` had no `?v=` stamp under the one-year immutable `/js` cache,
+  so a returning browser kept the old map. Every local css/js now carries the
+  content hash. The Maps key does not allow `*-gull-stack.vercel.app` branch
+  previews, so the pin map errors there; production and localhost:8765 work.
 - **Waiting on Ranee:** design guidelines PDF, homesite list + pricing, BYOB
   email address, Panorama Townhomes logo + temporary info link + new photos,
   zip line image, Panorama Frames photos, trail rendering, new playground
