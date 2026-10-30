@@ -11,6 +11,18 @@ Durable facts. Newest first within each section.
   `1j9dn5H6sbO2qINTU_sbyCHAGbVL8Uzg6` ("McArthur Panorama Assets"): Logo/,
   Photos/, Model Home Info, Builder Marketing Copy (added 10/14).
 
+## Decisions (Ranee, 10/30 email)
+
+- Live domain: **panoramautah.com**. DNS is at GoDaddy (DAI's); records
+  `A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`. Already added to Vercel.
+- BYOB contact: **info@panoramautah.com** only. "Take off the phone number."
+- Design guidelines go on the site as a download marked "Subject to change".
+  She will make a cover image for it. The PDF itself says "Village 8".
+- Sego is a confirmed builder (sent assets; zip never arrived). Other builders
+  besides McArthur and Sego are still unconfirmed.
+- Ranee attaches files that don't arrive (10/29 site plan, 10/30 site plan +
+  Sego zip). Check attachments every time; ask for a Drive link.
+
 ## Decisions (Ranee, 10/29 review call)
 
 - No builder villages and no "who builds where" anywhere. Builders may buy
