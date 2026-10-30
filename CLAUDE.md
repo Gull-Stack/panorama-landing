@@ -17,6 +17,7 @@ fails if anything is stale or broken.
 - After DNS resolves: set `SITE` in tools/build-site.py, `BASE` in tools/build-sitemap.py, robots.txt sitemap line, rebuild.
 - STILL MISSING: she wrote "Attached" for the site plan without villages and "Zip attached" for Sego's builder assets. Neither was attached (only the guidelines PDF). Sego is a new builder, not in data yet.
 - To come from her: zip line image, Frames photos, trail rendering, playground colors, gallery photos, drone video.
+- Reply SENT 10/30 12:15pm (bryce@gullstack.com, cc Josh): asked her to resend the site plan + Sego zip, gave her the 2 GoDaddy records, asked if "Village 8" in the PDF is fine, said Bryce joins the Gordon meetings (Nov 5, Nov 6) on Zoom.
 
 ### 2026-10-29 (pm): Ranee's files built in (PR #14)
 - Source: Ranee's email "FILES | Panorama Townhomes & Bring Your Own Builder Sections" (10/29 1:05pm). Files were in ~/Downloads as a zip.
