@@ -8,6 +8,16 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-10-30: Ranee's 10/30 answers (PRs #15, #16)
+- Source: Ranee's reply on the "FILES | Panorama Townhomes & Bring Your Own Builder Sections" thread (10/30 8:36am), answers in red under Bryce's 10/29 list.
+- Shipped: BYOB contact is now info@panoramautah.com, phone removed (her words: "Take off the phone number"). Unpriced lots read "Inquire", not "Call".
+- Shipped: design guidelines handbook (Oct 2025, 49 pages) at /downloads/panorama-design-guidelines.pdf, button on BYOB with "Subject to change". She will send a cover image for it later.
+- The PDF itself says "Village 8" and "Villages" (pp. ~22-23). It is her document; not edited. Flag to Ranee if villages must go everywhere.
+- Domain: Ranee picked panoramautah.com. Added panoramautah.com + www to Vercel project gull-stack/panorama-landing. DNS is at GoDaddy (ns19/20.domaincontrol.com), now a GoDaddy parked page. Needed: `A @ 76.76.21.21` and `CNAME www cname.vercel-dns.com`. Who holds the GoDaddy login is unknown.
+- After DNS resolves: set `SITE` in tools/build-site.py, `BASE` in tools/build-sitemap.py, robots.txt sitemap line, rebuild.
+- STILL MISSING: she wrote "Attached" for the site plan without villages and "Zip attached" for Sego's builder assets. Neither was attached (only the guidelines PDF). Sego is a new builder, not in data yet.
+- To come from her: zip line image, Frames photos, trail rendering, playground colors, gallery photos, drone video.
+
 ### 2026-10-29 (pm): Ranee's files built in (PR #14)
 - Source: Ranee's email "FILES | Panorama Townhomes & Bring Your Own Builder Sections" (10/29 1:05pm). Files were in ~/Downloads as a zip.
 - BYOB: 113 homesites (8A 33, 8B 31, 2A 16, 2B 33) with width, acres, price in `data/homesites.json`, shortcode `{{homesites phase="8"}}`. Width comes from each row's color swatch; counts match her legend. Lots 8090, 2096, 2097, 2098 have no price in the brochure and read "Call". Phase plans in `images/homesites/`. "Homesites offered by DAI" logo (tagline cropped, which she allowed).
