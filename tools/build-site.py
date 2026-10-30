@@ -149,14 +149,14 @@ def builder_grid():
 # ------------------------------------------------------------- homesites --
 def homesites(phase):
     """Ranee's lot brochure, 10/29: one table per sub-phase (8A, 8B ...).
-    A lot with no price in the brochure reads "Call"."""
+    A lot with no price in the brochure reads "Inquire"."""
     lots = json.loads((ROOT / "data" / "homesites.json").read_text())["lots"]
     out = []
     for sub in sorted({l["phase"] for l in lots if l["phase"].startswith(phase)}):
         rows = [l for l in lots if l["phase"] == sub]
         body = "".join(
             f'<tr><td>{l["lot"]}</td><td>{l["width"]}</td><td>{l["acres"]}</td>'
-            f'<td>{l["price"] or "Call"}</td></tr>' for l in rows)
+            f'<td>{l["price"] or "Inquire"}</td></tr>' for l in rows)
         out.append(f'<div class="lots reveal"><h3>Phase {sub} <span>{len(rows)} homesites</span></h3>'
                    f'<table><thead><tr><th>Lot</th><th>Width</th><th>Acres</th><th>Price</th></tr></thead>'
                    f'<tbody>{body}</tbody></table></div>')
