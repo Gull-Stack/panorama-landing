@@ -55,8 +55,8 @@ MENU = [
         ("Bring Your Own Builder", "Your homesite, your builder", "/find-a-home/bring-your-own-builder", "images/aerial/aerial-26.jpg"),
     ], False),
     ("Life at Panorama", "/life-culture", "life", [
-        ("Panorama Park", "The three-level signature park", "/life-culture#panorama-park", "images/amenities/panorama-park.jpg"),
-        ("Amenities", "Zip lines, skate park, dog park and more", "/life-culture#amenities", "images/amenities/skate-bike.jpg"),
+        ("Panorama Park", "The three-level signature park, coming 2028", "/life-culture#panorama-park", "images/amenities/panorama-park.jpg"),
+        ("Amenities", "Coming 2027 and 2028", "/life-culture#amenities", "images/amenities/skate-bike.jpg"),
     ], False),
     ("Around Herriman", "/things-to-do", "around", [
         ("The Map", "Everything nearby, pinned", "/things-to-do#map", "images/aerial/aerial-16.jpg"),
@@ -137,7 +137,10 @@ def builder_tile(b):
     logo = (f'<span class="logo">{img(b["logo"], b["name"] + " logo", sizes="180px")}</span>'
             if b.get("logo") else f'<span class="wordmark">{html.escape(b["name"])}</span>')
     name = f'<span class="wordmark" style="font-size:1.25rem">{html.escape(b["name"])}</span>' if b.get("logo") else ""
-    return (f'<a class="card builder reveal" href="/find-a-home/builder-{b["slug"]}">{logo}{name}'
+    # Ranee, 11/12: a "COMING SOON" banner on every builder's block except
+    # Sego and McArthur. The flag is comingSoon in data/builders.json.
+    banner = '<span class="banner">Coming Soon</span>' if b.get("comingSoon") else ""
+    return (f'<a class="card builder reveal{" has-banner" if banner else ""}" href="/find-a-home/builder-{b["slug"]}">{banner}{logo}{name}'
             f'<span class="type">{html.escape(b.get("productType") or "")}</span>'
             f'<span class="arrow">View homes &rarr;</span></a>')
 
@@ -189,7 +192,7 @@ def builder_body(b):
     if b.get("intro"):
         body.append(f'<p class="builder-intro narrow" style="margin:0 auto">{html.escape(b["intro"])}</p>')
     if photo:
-        body.append(f'<div class="big-photo reveal">{img(photo, name + " home at Panorama", sizes="(max-width: 1200px) 100vw, 1200px", zoom=False)}</div>')
+        body.append(f'<div class="big-photo reveal">{img(photo, "A " + name + " home", sizes="(max-width: 1200px) 100vw, 1200px", zoom=False)}</div>')
     if b.get("homes") or b.get("differentiators"):
         body.append('<div class="split" style="margin-top:clamp(3rem,6vw,4.5rem);align-items:start">')
         if b.get("homes"):
@@ -198,22 +201,21 @@ def builder_body(b):
         if b.get("differentiators"):
             items = []
             for d in b["differentiators"]:
-                head, _, rest = d.partition(" – ")
+                head, _, rest = d.partition(" – ") if " – " in d else d.partition(" - ")
                 items.append(f"<li><strong>{html.escape(head)}</strong>" + (f" &ndash; {html.escape(rest)}" if rest else "") + "</li>")
             body.append(f'<div class="reveal"><span class="eyebrow">Why {name}</span><h2>What sets them apart</h2>'
                         f'<ul class="ticks" style="margin-top:1.5rem">{"".join(items)}</ul></div>')
         body.append("</div>")
     if not (b.get("intro") or b.get("homes")):
         body.append('<div class="narrow" style="margin:0 auto">' + soon(
-            "Home details coming soon",
-            f"{name} is building at Panorama. Their homes, photos and model home details will be posted here."
-            + (" Until then, their website has everything they offer." if href else "")) + "</div>")
+            "Home details are coming soon.",
+            f"{name} is building at Panorama. We will update this page as we get more information. Check back often.") + "</div>")
     if b.get("modelHomes"):
         models = "".join(
             f'<div class="model"><strong>{html.escape(m["address"].split(" (")[-1].rstrip(")")) if " (" in m["address"] else "Model home"}</strong>'
             f'<span>{html.escape(m["address"].split(" (")[0])}</span>'
             f'<span>Opens {html.escape(m["opensToPublic"])}</span>'
-            f'<a href="https://www.google.com/maps/search/?api=1&amp;query={html.escape(m["address"].split(" (")[0].replace(" ", "+"))}%2C+UT" target="_blank" rel="noopener">Directions &rarr;</a></div>'
+            f'<a href="https://www.google.com/maps/search/?api=1&amp;query={html.escape(m["address"].split(" (")[0].replace(" ", "+"))}{"" if " UT" in m["address"] else "%2C+UT"}" target="_blank" rel="noopener">Directions &rarr;</a></div>'
             for m in b["modelHomes"])
         body.append(f'<div class="narrow reveal" style="margin:clamp(3rem,6vw,4.5rem) auto 0"><span class="eyebrow">Visit</span>'
                     f'<h2>Model homes</h2><div class="models" style="margin-top:1.5rem">{models}</div></div>')
@@ -322,6 +324,11 @@ def _version():
 
 VERSION = _version()
 
+# Ranee, 11/12: "Remove all the duplicate images in the gallery." No two files
+# are byte-identical; these are frames a second apart of the same view. The
+# first frame of each run stays. The files stay too, so one is easy to restore.
+GALLERY_SKIP = {f"aerial-{n:02d}" for n in (4, 6, 7, 9, 20, 21, 24, 27, 29, 32, 36, 38)}
+
 SHORT = re.compile(r"\{\{(\w+)((?:\s+[\w-]+(?:=\"[^\"]*\")?)*)\s*\}\}")
 ATTR = re.compile(r'([\w-]+)(?:="([^"]*)")?')
 
@@ -338,7 +345,7 @@ def expand(body):
             return builder_grid()
         if name == "gallery":
             # Small copies in the grid, the large copy only when opened.
-            shots = sorted((ROOT / "images" / "aerial").glob("*.jpg"))
+            shots = [s for s in sorted((ROOT / "images" / "aerial").glob("*.jpg")) if s.stem not in GALLERY_SKIP]
             return '<div class="gallery">' + "".join(
                 img(f"images/aerial/{s.name}", f"Panorama aerial view {i}", sizes="(max-width: 700px) 100vw, 33vw", zoom=True)
                 for i, s in enumerate(shots, 1)) + "</div>"

@@ -195,6 +195,9 @@ a.card.builder, .builder { display: flex; flex-direction: column; align-items: c
 .builder .wordmark { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1.1; }
 .builder .type { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
 .builder .arrow { margin-top: 0.25rem; }
+/* Ranee, 11/12: a COMING SOON banner on a builder's block. */
+.builder .banner { position: absolute; top: 0; left: 0; right: 0; padding: 0.4rem 0.5rem; background: var(--navy); color: var(--gold); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; }
+a.card.builder.has-banner { padding-top: 2.6rem; }
 
 /* ---------- Lists ---------- */
 .ticks li { position: relative; padding-left: 1.75rem; margin-bottom: 0.75rem; line-height: 1.6; }
@@ -215,6 +218,8 @@ a.card.builder, .builder { display: flex; flex-direction: column; align-items: c
 .dark .place .meta, .dark-2 .place .meta { color: var(--gold); }
 .place ul { margin-top: 1.1rem; columns: 2; column-gap: 1.5rem; }
 .place.one-col ul { columns: 1; }
+.place.features ul { list-style: disc; padding-left: 1.25rem; }
+.place.features li::marker { color: var(--gold-dark); }
 .place.features li { font-family: var(--sans); font-size: 0.98rem; font-weight: 400; line-height: 1.5; }
 .place li { font-family: var(--serif); font-size: 1.18rem; font-weight: 500; line-height: 1.35; padding: 0.3rem 0; break-inside: avoid; }
 .place li small { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-2); font-weight: 400; }
@@ -247,12 +252,12 @@ a.card.builder, .builder { display: flex; flex-direction: column; align-items: c
 .step p { margin-top: 0.6rem; color: var(--on-dark-2); }
 
 /* The design guidelines: a book, because it is one. */
-.guide { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; padding: clamp(1.5rem, 4vw, 2.5rem); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-.guide > svg { width: 120px; height: auto; }
+.guide { display: grid; grid-template-columns: minmax(0, 300px) 1fr; gap: 2rem; align-items: center; padding: clamp(1.5rem, 4vw, 2.5rem); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.guide > img { width: 100%; max-width: 300px; height: auto; border: 0; }
 .guide h3 { font-size: 1.9rem; color: var(--navy); }
 .guide p { margin-top: 0.6rem; color: var(--ink-2); }
 .guide .soon { margin-top: 1.25rem; }
-@media (max-width: 640px) { .guide { grid-template-columns: 1fr; text-align: center; } .guide > svg { margin: 0 auto; } .guide .btns { justify-content: center; } }
+@media (max-width: 640px) { .guide { grid-template-columns: 1fr; text-align: center; } .guide > img { margin: 0 auto; } .guide .btns { justify-content: center; } }
 
 .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
 .contact a { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.5rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; text-decoration: none; font-weight: 500; }

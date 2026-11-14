@@ -33,6 +33,21 @@
       "permanent": false
     },
     {
+      "source": "/find-a-home/builder-tri-pointe",
+      "destination": "/find-a-home",
+      "permanent": false
+    },
+    {
+      "source": "/find-a-home/builder-pulte",
+      "destination": "/find-a-home",
+      "permanent": false
+    },
+    {
+      "source": "/find-a-home/builder-dai",
+      "destination": "/find-a-home",
+      "permanent": false
+    },
+    {
       "source": "/find-a-home/villages",
       "destination": "/find-a-home",
       "permanent": false

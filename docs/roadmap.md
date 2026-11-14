@@ -3,6 +3,12 @@
 Goal: a clean landing site that hands every visitor to a builder. Traffic comes
 from a sign on the property. Ranee wants it live soon.
 
+## Now (2026-11-14)
+
+- PR `ranee-nov-updates` holds Ranee's 11/12 and 11/13 changes. Bryce reviews the preview, then merge.
+- Needed from Ranee: photos of Mountain View Village, The District, Jordan Landing and the three schools; real local ski and golf photos; whether Candlelight stays; Toll's white logo resent; copy and assets for Fieldstone, Jcraft, Elevation, Candlelight.
+- Done 11/14, drop from the list below: Sego zip, guidelines cover image, zip line image, Frames photos, trail rendering.
+
 ## Now (waiting on Ranee)
 
 - Resend: site plan without villages (homepage) and Sego's asset zip.
