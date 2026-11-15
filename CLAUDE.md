@@ -8,14 +8,15 @@ fails if anything is stale or broken.
 
 ## Session Log
 
-### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), three replies drafted
+### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), replies sent
 - PR #17 is merged and live at panorama-landing-chi.vercel.app. It holds the 11/14 build below plus three fixes made today.
 - Fix 1: Toll Brothers page header now shows their community logo in white (`images/builders/toll-brothers/logo-on-dark.png`). Toll's white SVG arrived as a macOS resource fork twice, so the PNG is their black SVG with the fill set to white.
 - Fix 2: builder meta descriptions end on a full sentence (`first_sentences` in tools/build-site.py). The old code cut at 300 characters mid-word.
 - Fix 3: wide logos on builder tiles kept a squeezed shape (Candlelight, Toll). `.builder .logo img` now has `object-fit: contain`. Do not add `height: auto` there: SVG logos collapse to nothing.
 - Checked live: 7 builder tiles, 5 Coming Soon banners, Toll model home and link, removed builder pages redirect.
-- Replies to Ranee are DRAFTS in bryce@gullstack.com, one on each of her three threads (FILES & Updates 11/12, Toll Brothers 11/13, Candlelight logo 11/13). NOT sent. They carry no link, because the Gmail connector rewrites links.
-- Open with Ranee (asked in the drafts): photos for items 10, 11, 13; Candlelight on the roster or not; the 12 hidden gallery shots; Sego typo "your drawn"; "Jcraft" or "J-Craft"; keep the Visit Developer Website button; Coming Soon banner on Toll now that their content is in.
+- Replies to Ranee SENT 11/15 from bryce@gullstack.com, cc Josh, one on each of her three threads (FILES & Updates 11/12, Toll Brothers 11/13, Candlelight logo 11/13). They carry no link, because the Gmail connector rewrites links.
+- New thread SENT 11/15, "Panorama domain before the QR signs go up": asks which address the QR code uses and who holds the GoDaddy login. Her signs go up the week of 16 Nov and panoramautah.com still shows a GoDaddy parked page.
+- Open with Ranee (asked in the replies): photos for items 10, 11, 13; Candlelight on the roster or not; the 12 hidden gallery shots; Sego typo "your drawn"; "Jcraft" or "J-Craft"; keep the Visit Developer Website button; Coming Soon banner on Toll now that their content is in.
 - Still open from 10/30: panoramautah.com DNS at GoDaddy, site plan without villages.
 
 ### 2026-11-14: Ranee's November change list (PR #17, merged 11/15)
