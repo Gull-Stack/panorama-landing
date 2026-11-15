@@ -170,6 +170,18 @@ def soon(title, text):
     return f'<div class="soon">{CLOCK}<div><strong>{title}</strong><p>{text}</p></div></div>'
 
 
+def first_sentences(text, limit=300):
+    """A meta description never ends mid-sentence: keep whole sentences up to
+    the limit, or cut at a word when the first sentence alone is too long."""
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    end = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    if end > 60:
+        return cut[:end + 1]
+    return cut[:cut.rfind(" ")].rstrip(",;:") + "..."
+
+
 def builder_body(b):
     """Ranee, 10/29, the whole spec for a builder page: "a 50-word intro,
     somewhere, somehow, a big image. A couple paragraphs about the homes that
@@ -374,7 +386,7 @@ def render_all():
     for b in builders():
         meta = {"url": f"/find-a-home/builder-{b['slug']}",
                 "title": f"{b['name']} at Panorama | Herriman, Utah",
-                "description": (b.get("intro") or f"{b['name']} is building {(b.get('productType') or 'homes').lower()} at Panorama, Herriman's foothills community.")[:300],
+                "description": first_sentences(b.get("intro") or f"{b['name']} is building {(b.get('productType') or 'homes').lower()} at Panorama, Herriman's foothills community."),
                 "nav": "find", "image": (b.get("exteriorImages") or ["images/aerial/aerial-01.jpg"])[0]}
         files[out_path(meta["url"])] = page(meta, builder_body(b), "data/builders.json")
     return files
