@@ -8,7 +8,17 @@ fails if anything is stale or broken.
 
 ## Session Log
 
-### 2026-11-14: Ranee's November change list (branch `ranee-nov-updates`, PR open, NOT merged)
+### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), three replies drafted
+- PR #17 is merged and live at panorama-landing-chi.vercel.app. It holds the 11/14 build below plus three fixes made today.
+- Fix 1: Toll Brothers page header now shows their community logo in white (`images/builders/toll-brothers/logo-on-dark.png`). Toll's white SVG arrived as a macOS resource fork twice, so the PNG is their black SVG with the fill set to white.
+- Fix 2: builder meta descriptions end on a full sentence (`first_sentences` in tools/build-site.py). The old code cut at 300 characters mid-word.
+- Fix 3: wide logos on builder tiles kept a squeezed shape (Candlelight, Toll). `.builder .logo img` now has `object-fit: contain`. Do not add `height: auto` there: SVG logos collapse to nothing.
+- Checked live: 7 builder tiles, 5 Coming Soon banners, Toll model home and link, removed builder pages redirect.
+- Replies to Ranee are DRAFTS in bryce@gullstack.com, one on each of her three threads (FILES & Updates 11/12, Toll Brothers 11/13, Candlelight logo 11/13). NOT sent. They carry no link, because the Gmail connector rewrites links.
+- Open with Ranee (asked in the drafts): photos for items 10, 11, 13; Candlelight on the roster or not; the 12 hidden gallery shots; Sego typo "your drawn"; "Jcraft" or "J-Craft"; keep the Visit Developer Website button; Coming Soon banner on Toll now that their content is in.
+- Still open from 10/30: panoramautah.com DNS at GoDaddy, site plan without villages.
+
+### 2026-11-14: Ranee's November change list (PR #17, merged 11/15)
 - Source: Ranee's emails "FILES & Updates | Panorama Townhomes & Bring Your Own Builder" (11/12, 24 numbered items + Sego.zip on Drive), "PLEASE UPDATE | Toll Brothers @ Panorama" (11/13, forwarded from Alex Marks at Toll) and "PANORAMA WEBSITE | Candlelight Homes Logo" (11/13).
 - Built: Sego page (their docx, verbatim); Toll Brothers page (Alex's copy, verbatim, model home 15267 S Hilltop Ridge Dr, opens Spring 2027); roster cut to her six plus Candlelight; COMING SOON banner (`comingSoon` in data/builders.json) on all but Sego and McArthur; her "Home details are coming soon." message; favicon; guidelines booklet graphic; new builder line on Home and Find Your Home; amenity tags "Coming 2028" / "Coming 2027" (Dog Park, Frames, Trail System), new pavilion, dog park, zip line, Frames and Lookout Loop images, renderings disclaimer; "So Many Great Places to Shop"; townhomes page: new header image, her hero line and paragraph, bulleted lists, three tiles replaced by "Leasing information coming soon."; BYOB disclaimer and contact line.
 - Gallery: no two files are byte-identical. 12 near-identical frames are hidden by `GALLERY_SKIP` in tools/build-site.py (27 of 39 show). Files are kept.

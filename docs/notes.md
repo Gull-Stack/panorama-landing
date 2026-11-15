@@ -58,3 +58,13 @@ Durable facts. Newest first within each section.
 - The canonical host is still panorama-landing-chi.vercel.app (`SITE` in
   `tools/build-site.py`, `BASE` in `tools/build-sitemap.py`). Change both at
   the domain cutover.
+
+## 2026-11-12 and 11-13: what Ranee said (emails)
+
+- Roster, 11/12: "Only include these builders: Fieldstone Homes, McArthur Homes, Toll Brothers, Sego Homes, Jcraft Homes, and Elevation Homes." On 11/13 she sent a Candlelight logo and wrote "I don't have the information for the Candlelight Homes page yet." Candlelight stays until she says no.
+- Coming Soon banner on every builder except Sego and McArthur.
+- Amenities open a year or more out. Use "Coming 2028!" for now; dates will change and differ per amenity. Her reason: "I just don't want anyone to get angry with us."
+- Townhomes page shows no pricing, floor plans, leasing or move-in details.
+- Ski and golf images must be real local places, "not fabricated".
+- Toll Brothers contact is Alex Marks, Marketing Director (amarks@tollbrothers.com). Model home 15267 S Hilltop Ridge Dr, opens Spring 2027. Sales contact Panorama@tollbrothers.com, 385-238-1805 (stored in data, not shown: builder pages carry no contact block).
+- DAI signs with a QR code to the Panorama website go up the week of 16 Nov. The live domain matters for that; check which URL the QR code uses.

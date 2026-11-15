@@ -22,11 +22,13 @@ from a sign on the property. Ranee wants it live soon.
 
 - Domain cutover once DNS resolves: `SITE` in tools/build-site.py, `BASE` in
   tools/build-sitemap.py, robots.txt, rebuild.
-- Add Sego as a builder; drop builders she doesn't confirm.
+- Photos for the three shopping centers, the three schools, and local ski and golf (her 11/12 items 10, 11, 13). Waiting on Ranee.
+- Her answers to the 11/15 questions: Candlelight on the roster, hidden gallery shots, Sego typo, J-Craft spelling, townhomes button, Toll banner.
 - Optional: brand logos beside store names (Ranee floated it, unclear).
 
 ## Done
 
+- 2026-11-15: Ranee's 11/12 list (21 of 24 items), Sego page, Toll Brothers page, Candlelight logo, roster of six plus Candlelight (PR #17).
 - 2026-10-30: BYOB email + guidelines PDF live; domain added in Vercel (PRs #15, #16).
 - 2026-10-29 (pm): homesites, townhomes page, DAI logo (PR #14).
 - 2026-10-29: full rebuild on one layout; every 10/29 call item that needed
