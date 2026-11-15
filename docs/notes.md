@@ -4,6 +4,17 @@ Durable facts. Newest first within each section.
 
 ## Who
 
+- Toll Brothers contact: Alex Marks, Marketing Director, amarks@tollbrothers.com.
+  Sales: Panorama@tollbrothers.com, 385-238-1805. Photo collection (public):
+  tb-p-001-public.stylelabs.cloud/collections/6581e039a71e4db685d8d4786d88e7.
+- Ranee, 11/12: amenities "will not be built for a year or more". Use "Coming
+  2028!" (Dog Park, Panorama Frames, Trail System: "Coming 2027"). The date
+  will change and amenities open at different times.
+- Ranee, 11/12: the site shows no pricing, floor plans or leasing and move-in
+  details for Panorama Townhomes.
+- Ranee, 11/12: builders are Fieldstone, McArthur, Toll Brothers, Sego, Jcraft
+  and Elevation. 11/13 she sent a Candlelight logo for "the Candlelight Homes
+  page", with page information to follow.
 - **Ranee Stam**, DAI Director of Marketing, ranee@daiutah.com, direct
   801.495.3416, main 801.495.3414. Asks for and approves everything here.
 - McArthur Homes contact: Paige Giles, Online Sales Counselor,

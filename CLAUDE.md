@@ -8,6 +8,15 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-11-14: Ranee's November change list (branch `ranee-nov-updates`, PR open, NOT merged)
+- Source: Ranee's emails "FILES & Updates | Panorama Townhomes & Bring Your Own Builder" (11/12, 24 numbered items + Sego.zip on Drive), "PLEASE UPDATE | Toll Brothers @ Panorama" (11/13, forwarded from Alex Marks at Toll) and "PANORAMA WEBSITE | Candlelight Homes Logo" (11/13).
+- Built: Sego page (their docx, verbatim); Toll Brothers page (Alex's copy, verbatim, model home 15267 S Hilltop Ridge Dr, opens Spring 2027); roster cut to her six plus Candlelight; COMING SOON banner (`comingSoon` in data/builders.json) on all but Sego and McArthur; her "Home details are coming soon." message; favicon; guidelines booklet graphic; new builder line on Home and Find Your Home; amenity tags "Coming 2028" / "Coming 2027" (Dog Park, Frames, Trail System), new pavilion, dog park, zip line, Frames and Lookout Loop images, renderings disclaimer; "So Many Great Places to Shop"; townhomes page: new header image, her hero line and paragraph, bulleted lists, three tiles replaced by "Leasing information coming soon."; BYOB disclaimer and contact line.
+- Gallery: no two files are byte-identical. 12 near-identical frames are hidden by `GALLERY_SKIP` in tools/build-site.py (27 of 39 show). Files are kept.
+- Tri Pointe, Pulte and DAI Homes pages are deleted and redirect to /find-a-home (vercel.json).
+- NOT done, no asset: photos for Mountain View Village, The District, Jordan Landing (item 10); photos for the three schools (item 11); verified local ski and golf photos (item 13; today's are CC0 Wikimedia photos of unknown location). Ranee must send them or approve sourcing.
+- Open for Ranee: Candlelight is not in her 11/12 list of six, but her 11/13 email sends its logo "for the Candlelight Homes page". It is kept with a COMING SOON banner. Her list says "Jcraft Homes"; the site says "J-Craft Homes". The "Visit Developer Website" button on the townhomes page is kept. Toll's white logo file arrived corrupt (macOS resource fork), so the Toll page header has no logo. Sego's copy has a typo ("where your drawn to gather"), left verbatim.
+- Preview locally: port 8765 may be taken by another project; any static server with clean URLs works.
+
 ### 2026-10-30: Ranee's 10/30 answers (PRs #15, #16)
 - Source: Ranee's reply on the "FILES | Panorama Townhomes & Bring Your Own Builder Sections" thread (10/30 8:36am), answers in red under Bryce's 10/29 list.
 - Shipped: BYOB contact is now info@panoramautah.com, phone removed (her words: "Take off the phone number"). Unpriced lots read "Inquire", not "Call".

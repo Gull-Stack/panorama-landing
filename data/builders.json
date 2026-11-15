@@ -23,128 +23,17 @@
     "action on a builder page is the link out to that builder's own website."
   ],
   "_verificationOpen": [
-    "OPEN QUESTION FOR RANEE, 2026-09-21: 'I don't know if all those other ones",
-    "are builders, to be honest.' Every builder below except Candlelight was",
-    "already live on the site before that call; none has been confirmed against",
-    "a signed builder agreement. They are left rendering because removing live",
-    "names on a doubt is worse than asking. Set \"verified\": true as each is",
-    "confirmed, and delete the ones that are not builders.",
-    "",
-    "Candlelight was added on Ranee's word that day: 'Candlelight will be on",
-    "there as well.'"
+    "Roster set by Ranee, 2026-11-12: 'Only include these builders: Fieldstone Homes, McArthur Homes, Toll Brothers,",
+    "Sego Homes, Jcraft Homes, and Elevation Homes.' Tri Pointe, Pulte and DAI Homes were removed that day.",
+    "Candlelight stays on her 11/13 logo email (see its _note). comingSoon: true puts the COMING SOON banner on a tile;",
+    "she asked for it on every builder except Sego and McArthur."
   ],
   "builders": [
     {
-      "slug": "tri-pointe",
-      "name": "Tri Pointe Homes",
-      "productType": "Single-family homes",
-      "verified": false,
-      "logo": null,
-      "url": "https://www.tripointehomes.com",
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
-    },
-    {
-      "slug": "toll-brothers",
-      "name": "Toll Brothers",
-      "productType": "Luxury homes",
-      "verified": false,
-      "logo": null,
-      "url": "https://www.tollbrothers.com",
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
-    },
-    {
-      "slug": "pulte",
-      "name": "Pulte Homes",
-      "productType": "Single-family homes",
-      "verified": false,
-      "logo": null,
-      "url": "https://www.pulte.com",
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
-    },
-    {
-      "slug": "candlelight",
-      "name": "Candlelight Homes",
+      "slug": "fieldstone",
+      "name": "Fieldstone Homes",
       "productType": null,
-      "verified": false,
-      "logo": null,
-      "url": null,
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "_note": "Added 2026-09-21 on Ranee's word. Product type not stated on the call -- left null rather than guessed.",
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
-    },
-    {
-      "slug": "dai",
-      "name": "DAI Homes",
-      "productType": "Townhomes",
-      "verified": false,
-      "logo": null,
-      "url": "https://www.daiutah.com",
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
-    },
-    {
-      "slug": "jcraft",
-      "name": "J-Craft Homes",
-      "productType": "Custom estates",
-      "verified": false,
+      "verified": true,
       "logo": null,
       "url": null,
       "utm": null,
@@ -159,28 +48,9 @@
         "email": null,
         "phone": null
       },
-      "logoVertical": null
-    },
-    {
-      "slug": "elevation",
-      "name": "Elevation Homes",
-      "productType": "Custom estates",
-      "verified": false,
-      "logo": null,
-      "url": null,
-      "utm": null,
-      "intro": null,
-      "homes": null,
-      "differentiators": [],
-      "exteriorImages": [],
-      "interiorImages": [],
-      "modelHomes": [],
-      "contact": {
-        "name": null,
-        "email": null,
-        "phone": null
-      },
-      "logoVertical": null
+      "logoVertical": null,
+      "comingSoon": true,
+      "_note": "Added 2026-11-14 from Ranee's 11/12 builder list. No assets or copy yet."
     },
     {
       "slug": "mcarthur",
@@ -235,6 +105,149 @@
       },
       "logoVertical": null,
       "_source": "McArthur's shared Drive folder (Ranee fwd 2026-10-06): Logo/, Photos/, 'Model Home Info' (10/6) and 'Builder Marketing Copy' (added 10/14, verbatim here 10/29). Copy is theirs, unedited."
+    },
+    {
+      "slug": "toll-brothers",
+      "name": "Toll Brothers",
+      "productType": "Luxury homes",
+      "verified": true,
+      "logo": "images/builders/toll-brothers/logo.svg",
+      "logoOnDark": "images/builders/toll-brothers/logo-on-dark.png",
+      "url": "https://www.tollbrothers.com/luxury-homes-for-sale/Utah/Toll-Brothers-at-Panorama",
+      "utm": null,
+      "intro": "Toll Brothers, America’s Luxury Home Builder®, is a leading builder of luxury homes in the nation’s most desirable locations. Renowned for exceptional craftsmanship, distinctive architecture, and unrivaled personalization opportunities, Toll Brothers creates extraordinary homes and communities while delivering an exceptional home buying experience.",
+      "homes": [
+        "Elevated in every sense, Toll Brothers at Panorama is an exceptional place to call home. Nestled on a hillside bluff, this new home community in Herriman, UT, places you in a picturesque, perfectly connected setting. Enjoy exquisite views and an exclusive feel from the community’s premier location within the master plan, plus the convenience of quick access to Mountain View Corridor for seamless travel throughout Salt Lake and Utah counties. Choose from an array of modern home designs offering up to 6,000 total square feet on expansive home sites up to half an acre, with walkout basements available on select home designs and a wide range of architectural and personalization options to create a space that beautifully reflects your taste and lifestyle. Experience a new level of luxury living at Toll Brothers at Panorama."
+      ],
+      "differentiators": [
+        "Premier hillside setting with sweeping mountain and valley views",
+        "Convenient access to Mountain View Corridor connecting Salt Lake and Utah counties",
+        "Expansive home sites up to half an acre with select walkout basement opportunities",
+        "Exceptional personalization opportunities at the Toll Brothers Design Studio",
+        "Two distinctive collections featuring modern architecture and thoughtfully designed living spaces"
+      ],
+      "exteriorImages": [
+        "images/builders/toll-brothers/exterior-1.jpg"
+      ],
+      "interiorImages": [],
+      "modelHomes": [
+        {
+          "address": "15267 S Hilltop Ridge Dr, Herriman UT 84096",
+          "opensToPublic": "Spring 2027"
+        }
+      ],
+      "contact": {
+        "name": null,
+        "email": "Panorama@tollbrothers.com",
+        "phone": "385-238-1805"
+      },
+      "logoVertical": null,
+      "comingSoon": true,
+      "_source": "Alex Marks (Toll Brothers) via Ranee, 2026-11-13, verbatim. Photo from Toll's public media collection he linked. Contact is stored, not shown: builder pages carry no contact block (Ranee 10/29)."
+    },
+    {
+      "slug": "sego",
+      "name": "Sego Homes",
+      "productType": "Single-family homes",
+      "verified": true,
+      "logo": "images/builders/sego/logo.png",
+      "url": "https://segohomes.com/",
+      "utm": null,
+      "intro": "Sego Homes, a local Utah builder known for innovative design and signature rooftop living, brings its fresh approach to single-family homes in Herriman. Discover thoughtfully designed homes that blend modern style, everyday functionality, design to captivate views, and room to live more.",
+      "homes": [
+        "Sego Homes brings its award-winning approach to architecture and original design to Herriman with a new signature collection of single-family homes. Each floor plan is thoughtfully designed to inspire a lifestyle where distinctive architecture meets everyday functionality.",
+        "From elevated ceilings and expansive windows that fill living spaces with natural light to spacious kitchens with oversized islands and walk-in pantries, every detail is designed with purpose. Inviting gathering spaces where your drawn to gather, while quiet flex spaces offer room to work, recharge, or retreat.",
+        "And true to Sego’s signature style, innovative indoor-outdoor connections and rooftop decks extend living beyond the walls. Intentional spaces designed to capture sweeping valley views from Panorama Point on Herriman’s coveted West Bench."
+      ],
+      "differentiators": [
+        "Utah homebuilder",
+        "Rooftop Decks",
+        "Homes thoughtfully designed for Utah Living for 16 years.",
+        "Panoramic Living - Strategically designed to capture the views throughout the home.",
+        "Seamless Indoor-Outdoor Living.",
+        "Healthy, Green, Smart"
+      ],
+      "exteriorImages": [
+        "images/builders/sego/exterior-1.jpg",
+        "images/builders/sego/exterior-2.jpg",
+        "images/builders/sego/exterior-3.jpg"
+      ],
+      "interiorImages": [],
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null,
+      "_source": "Sego.zip from Ranee, 2026-11-12 (Panorama.docx, verbatim). Model home: TBD in their doc. Photos are Sego homes in other communities."
+    },
+    {
+      "slug": "jcraft",
+      "name": "J-Craft Homes",
+      "productType": "Custom estates",
+      "verified": false,
+      "logo": null,
+      "url": null,
+      "utm": null,
+      "intro": null,
+      "homes": null,
+      "differentiators": [],
+      "exteriorImages": [],
+      "interiorImages": [],
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null,
+      "comingSoon": true
+    },
+    {
+      "slug": "elevation",
+      "name": "Elevation Homes",
+      "productType": "Custom estates",
+      "verified": false,
+      "logo": null,
+      "url": null,
+      "utm": null,
+      "intro": null,
+      "homes": null,
+      "differentiators": [],
+      "exteriorImages": [],
+      "interiorImages": [],
+      "modelHomes": [],
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null,
+      "comingSoon": true
+    },
+    {
+      "slug": "candlelight",
+      "name": "Candlelight Homes",
+      "productType": null,
+      "verified": false,
+      "logo": "images/builders/candlelight/logo.png",
+      "url": null,
+      "utm": null,
+      "intro": null,
+      "homes": null,
+      "differentiators": [],
+      "exteriorImages": [],
+      "interiorImages": [],
+      "modelHomes": [],
+      "_note": "Added 2026-09-21 on Ranee's word. Product type not stated on the call -- left null rather than guessed. 2026-11-13: Ranee sent the logo and wrote 'I don't have the information for the Candlelight Homes page yet'. Her 11/12 list of six builders omits Candlelight; kept on the later email, confirm.",
+      "contact": {
+        "name": null,
+        "email": null,
+        "phone": null
+      },
+      "logoVertical": null,
+      "comingSoon": true
     }
   ],
   "_assetGuide": [
