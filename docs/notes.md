@@ -26,6 +26,11 @@ Durable facts. Newest first within each section.
 
 - Live domain: **panoramautah.com**. DNS is at GoDaddy (DAI's); records
   `A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`. Already added to Vercel.
+- QR code on the Panorama signs points to **panoramautah.com** (Ranee, 11/17).
+  Signs go up the week of 16 Nov.
+- Ranee holds the GoDaddy login (11/17). Mail is Google Workspace (MX
+  aspmx.l.google.com, SPF, google-site-verification). Change only `A @` and
+  `www`; never move nameservers to Vercel, it would drop the mail records.
 - BYOB contact: **info@panoramautah.com** only. "Take off the phone number."
 - Design guidelines go on the site as a download marked "Subject to change".
   She will make a cover image for it. The PDF itself says "Village 8".

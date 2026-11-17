@@ -12,7 +12,7 @@ from a sign on the property. Ranee wants it live soon.
 ## Now (waiting on Ranee)
 
 - Resend: site plan without villages (homepage) and Sego's asset zip.
-- GoDaddy DNS records for panoramautah.com (asked 10/30).
+- GoDaddy DNS records for panoramautah.com (asked 10/30). 11/17: Ranee has the login; both paths sent (text Bryce the login, or add the 2 records herself). She is out the week of 16 Nov, the same week the QR signs go up.
 - Guidelines cover image; answer on "Village 8" in the PDF.
 - Better zip line image, Panorama Frames photos, trail system rendering,
   playground renders in the new colors.
