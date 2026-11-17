@@ -8,6 +8,13 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-11-17: Ranee answered the domain thread; reply DRAFTED
+- Ranee (11/17): the QR code points to **panoramautah.com**, and she holds the GoDaddy login.
+- panoramautah.com still resolves to GoDaddy parking (3.33.130.190 / 15.197.148.33), checked 11/17.
+- Mail is Google Workspace (MX aspmx.l.google.com). The 2 records (`A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`) do not touch MX, so info@panoramautah.com is safe.
+- Reply DRAFTED in bryce@gullstack.com (cc Josh): asks her to text the login, warns of a GoDaddy sign-in code. Not sent.
+- Next: once in GoDaddy, add the 2 records, confirm Vercel verifies, then set `SITE` in tools/build-site.py, `BASE` in tools/build-sitemap.py, the robots.txt sitemap line, rebuild, and scan the QR on a phone.
+
 ### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), replies sent
 - PR #17 is merged and live at panorama-landing-chi.vercel.app. It holds the 11/14 build below plus three fixes made today.
 - Fix 1: Toll Brothers page header now shows their community logo in white (`images/builders/toll-brothers/logo-on-dark.png`). Toll's white SVG arrived as a macOS resource fork twice, so the PNG is their black SVG with the fill set to white.
