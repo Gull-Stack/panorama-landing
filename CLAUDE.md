@@ -13,6 +13,7 @@ fails if anything is stale or broken.
 - panoramautah.com still resolves to GoDaddy parking (3.33.130.190 / 15.197.148.33), checked 11/17.
 - Mail is Google Workspace (MX aspmx.l.google.com). The 2 records (`A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`) do not touch MX, so info@panoramautah.com is safe.
 - Reply SENT 11/17 from bryce@gullstack.com (cc Josh): asks her to text the login, warns of a GoDaddy sign-in code. Waiting on her text.
+- Second reply SENT 11/17 11:55am (Gmail web, cc Josh): the 2 records spelled out so Ranee can add them herself, "leave everything else alone" (email records), and asks if signs should land on a page other than the homepage. Either path works: she texts the login, or she adds the records.
 - Next: once in GoDaddy, add the 2 records, confirm Vercel verifies, then set `SITE` in tools/build-site.py, `BASE` in tools/build-sitemap.py, the robots.txt sitemap line, rebuild, and scan the QR on a phone.
 
 ### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), replies sent
