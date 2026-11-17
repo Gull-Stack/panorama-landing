@@ -8,11 +8,11 @@ fails if anything is stale or broken.
 
 ## Session Log
 
-### 2026-11-17: Ranee answered the domain thread; reply DRAFTED
+### 2026-11-17: Ranee answered the domain thread; reply SENT
 - Ranee (11/17): the QR code points to **panoramautah.com**, and she holds the GoDaddy login.
 - panoramautah.com still resolves to GoDaddy parking (3.33.130.190 / 15.197.148.33), checked 11/17.
 - Mail is Google Workspace (MX aspmx.l.google.com). The 2 records (`A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com`) do not touch MX, so info@panoramautah.com is safe.
-- Reply DRAFTED in bryce@gullstack.com (cc Josh): asks her to text the login, warns of a GoDaddy sign-in code. Not sent.
+- Reply SENT 11/17 from bryce@gullstack.com (cc Josh): asks her to text the login, warns of a GoDaddy sign-in code. Waiting on her text.
 - Next: once in GoDaddy, add the 2 records, confirm Vercel verifies, then set `SITE` in tools/build-site.py, `BASE` in tools/build-sitemap.py, the robots.txt sitemap line, rebuild, and scan the QR on a phone.
 
 ### 2026-11-15: Ranee's November list SHIPPED (PR #17 merged), replies sent
