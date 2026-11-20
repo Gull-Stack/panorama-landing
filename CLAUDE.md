@@ -8,6 +8,13 @@ fails if anything is stale or broken.
 
 ## Session Log
 
+### 2026-11-20: Toll Brothers Coming Soon banner removed
+- Ranee asked by email 11/18: "Yes, please remove the 'Coming Soon' banner now."
+- Change: `comingSoon: false` on toll-brothers in data/builders.json, then `./tools/build.sh`. The banner was only on the builder tiles (Home and Find Your Home); the Toll page itself never had one.
+- Banners stay on Fieldstone, Jcraft, Elevation, Candlelight. Sego and McArthur never had one.
+- sitemap.xml lastmod moved to 2026-11-20; build-sitemap.py does that on every rebuild.
+- Reply to Ranee: Bryce sends it. No email went from this session.
+
 ### 2026-11-17: Ranee answered the domain thread; reply SENT
 - Ranee (11/17): the QR code points to **panoramautah.com**, and she holds the GoDaddy login.
 - panoramautah.com still resolves to GoDaddy parking (3.33.130.190 / 15.197.148.33), checked 11/17.

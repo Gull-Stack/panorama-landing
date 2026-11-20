@@ -23,7 +23,7 @@ from a sign on the property. Ranee wants it live soon.
 - Domain cutover once DNS resolves: `SITE` in tools/build-site.py, `BASE` in
   tools/build-sitemap.py, robots.txt, rebuild.
 - Photos for the three shopping centers, the three schools, and local ski and golf (her 11/12 items 10, 11, 13). Waiting on Ranee.
-- Her answers to the 11/15 questions: Candlelight on the roster, hidden gallery shots, Sego typo, J-Craft spelling, townhomes button, Toll banner.
+- Her answers to the 11/15 questions: Candlelight on the roster, hidden gallery shots, Sego typo, J-Craft spelling, townhomes button. (Toll banner: answered 11/18, removed 11/20.)
 - Optional: brand logos beside store names (Ranee floated it, unclear).
 
 ## Done
