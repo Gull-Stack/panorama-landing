@@ -68,6 +68,7 @@ Durable facts. Newest first within each section.
 
 - Roster, 11/12: "Only include these builders: Fieldstone Homes, McArthur Homes, Toll Brothers, Sego Homes, Jcraft Homes, and Elevation Homes." On 11/13 she sent a Candlelight logo and wrote "I don't have the information for the Candlelight Homes page yet." Candlelight stays until she says no.
 - Coming Soon banner on every builder except Sego and McArthur.
+- Ranee, 11/18, by email: "Yes, please remove the 'Coming Soon' banner now." (Toll Brothers). Toll's banner is off since 11/20. Banners stay on Fieldstone, Jcraft, Elevation, Candlelight.
 - Amenities open a year or more out. Use "Coming 2028!" for now; dates will change and differ per amenity. Her reason: "I just don't want anyone to get angry with us."
 - Townhomes page shows no pricing, floor plans, leasing or move-in details.
 - Ski and golf images must be real local places, "not fabricated".
